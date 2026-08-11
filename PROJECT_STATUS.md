@@ -1,7 +1,7 @@
 # PROJECT STATUS
 
 - Project: Chunilmun PFAL
-- Version: 0.8.0
+- Version: 0.8.1
 - Canonical branch: `main`
 - Architecture: static HTML/CSS/Vanilla JS + JSON
 - Build step: none
@@ -25,11 +25,14 @@
 - Checkpoint after each block; after Block 2 of a 3-block session the learner may continue or finish through the final check
 - Early finish preserves progress; remaining new items continue in the next session
 - Unit progress is derived from actually completed new item IDs rather than a simple daily completion flag
-- Current persistence: localStorage only, intentionally simple
-- PWA cache v080
+- Korean guidance/readability patch: English sentence scale unchanged; prompt, guide, feedback, explanation, memory point, checkpoint text, and action labels enlarged
+- Current persistence: localStorage only; cross-device cloud sync is the next major architecture step
+- PWA cache v081
 
 ## UI principle
 - One Screen / One Task / One Decision during learning
+- English source sentence remains large and primary
+- Korean instructions, explanations, and feedback must be large enough to read immediately without leaning in
 - Hide architecture and analytics while solving
 - Show richer growth information only after the session
 - Use motion only for memory-critical attention and visible learning growth
@@ -42,7 +45,7 @@
 3. Before check on a comparable skill
 4. Source-aligned Unit items, up to 14 remaining new items per session
 5. Explicit answer submission
-6. Correct/wrong + concise source-aligned explanation
+6. Correct/wrong + enlarged concise source-aligned explanation
 7. Memory-critical point receives short attention hold
 8. Calm block checkpoint
 9. After Block 2 in a 3-block session, learner may continue or choose `마지막 체크 후 마치기`
@@ -51,11 +54,12 @@
 12. Unfinished new items remain for the next session; review items are scheduled for future days
 
 ## Next work
-1. Validate v0.8 pacing, checkpoint, early-finish, and progress-resume flow on PC/tablet-sized screens.
-2. Freeze the Unit 01 interaction specification after UI defects are corrected.
-3. Convert the rest of Chapter 1 using the frozen interaction/data specification.
-4. Add lightweight admin evidence for repeated error families and hint use after Chapter 1 content is stable.
-5. Keep in-chat screenshot/reproduction as the primary review method; external URL remains the deployment target.
+1. Implement cloud persistence so progress is continuous across PC/mobile/tablet/iPad.
+2. Make actual active learning time the primary stored and admin-visible metric; exclude long idle periods.
+3. Synchronize current progress, completed items, review queue, sessions, accuracy, and active time through a single learner cloud state.
+4. Build admin history views for today/7-day/30-day active learning time, session detail, current Unit progress, accuracy, and review recall.
+5. Preserve offline learning with later merge/sync and keep PIN-only student/admin routing without signup UI.
+6. After cloud sync is stable, freeze Unit 01 interaction specification and expand Chapter 1.
 
 ## Operating rule
 1. Always read latest `main` before editing.
