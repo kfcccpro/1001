@@ -1,0 +1,65 @@
+/* v0.8.1 Korean UI readability patch
+   Keep English sentence scale unchanged; enlarge Korean guidance, feedback, and action labels. */
+
+.topbar{font-size:15px;font-weight:650;color:#5f6662}
+.prompt{font-size:clamp(24px,3.1vw,30px);font-weight:820;line-height:1.42;margin:32px auto 18px;color:#111512}
+.guide-strip{font-size:clamp(16px,1.8vw,18px);line-height:1.65;color:#3f4944;padding:13px 17px;border-radius:14px;max-width:760px}
+.guide-strip b{font-weight:820}
+.selection-preview{font-size:16px;line-height:1.6;min-height:30px;margin:18px auto;color:#59605c}
+.selection-preview span{font-size:17px;font-weight:760}
+
+.primary,.secondary,.choice,.soft-stop{font-size:17px;font-weight:760;min-height:54px}
+.submit-answer{min-width:190px}
+.choice{font-size:18px}
+
+.result-panel{padding:26px 27px;margin-top:32px}
+.result-title{font-size:clamp(27px,3vw,32px);line-height:1.35;margin-bottom:18px}
+.answer-line{padding:16px 17px;margin:12px 0 18px}
+.answer-line span,.explanation span,.structure-view span,.memory-point span{font-size:14px;font-weight:760;color:#626965;margin-bottom:7px}
+.answer-line b{font-size:20px;line-height:1.55}
+.explanation{font-size:clamp(17px,2vw,20px);line-height:1.78;color:#303833}
+.structure-view{font-size:18px;line-height:1.72;padding:16px 17px;margin-top:17px}
+.memory-point{padding:16px 17px;margin-top:17px;font-size:17px;line-height:1.7}
+.memory-point strong{font-size:clamp(19px,2.2vw,22px);line-height:1.5}
+.next-question{font-size:18px;min-height:58px;margin-top:22px}
+
+.pair-slot{font-size:14px;padding:14px 15px}
+.pair-slot span{font-size:16px;line-height:1.55}
+.text-answer{font-size:18px}
+
+.lead{font-size:18px;line-height:1.75;color:#474f4a}
+.date-label{font-size:14px}
+.daily-badge{font-size:14px;font-weight:720}
+.metric span,.today-plan span{font-size:14px}
+
+.pacing-summary span{font-size:14px;font-weight:730}
+.pacing-summary strong{font-size:22px}
+.pacing-summary p{font-size:16px;line-height:1.72;color:#454e49}
+.stage-chip{font-size:14px;padding:8px 11px}
+.checkpoint-kicker{font-size:13px}
+.checkpoint-card p{font-size:18px;line-height:1.75;color:#454e49}
+.resume-note{font-size:15px;line-height:1.65}
+.home-progress-head{font-size:14px}
+
+.compare-card>span,.growth-card>span,.growth-win span,.reward-kicker{font-size:14px}
+.compare-message,.growth-card p,.growth-win p{font-size:17px;line-height:1.7}
+.growth-label{font-size:15px}
+.growth-value{font-size:16px}
+.growth-note{font-size:15px;line-height:1.7}
+.stable-item{font-size:16px;line-height:1.65}
+
+.toast{font-size:15px;padding:11px 16px}
+
+@media(max-width:700px){
+  .topbar{font-size:14px}
+  .prompt{font-size:24px;line-height:1.45;margin-top:27px}
+  .guide-strip{font-size:16px;padding:12px 14px}
+  .primary,.secondary,.choice,.soft-stop{font-size:17px;min-height:56px}
+  .result-panel{padding:22px 19px}
+  .result-title{font-size:27px}
+  .explanation{font-size:18px}
+  .answer-line span,.explanation span,.structure-view span,.memory-point span{font-size:13px}
+  .memory-point strong{font-size:19px}
+  .lead{font-size:17px}
+  .checkpoint-card p{font-size:17px}
+}
