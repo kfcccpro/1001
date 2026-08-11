@@ -60,15 +60,23 @@ function plannedSession(){
   const due = dueReviews();
   const dueNow = Math.min(MAX_DUE_PER_SESSION, due.length);
   const newNow = Math.min(MAX_NEW_PER_SESSION, progress.remaining.length);
-  const core = dueNow + newNow;
+  const replayNow = progress.remaining.length === 0 && due.length === 0 ? 8 : 0;
+  const core = dueNow + newNow + replayNow;
   return {
     progress,
     dueTotal: due.length,
     dueNow,
     newNow,
+    replayNow,
     blocks: blockCountFor(core),
     tasks: core + 2
   };
+}
+
+function paceEstimate(blocks){
+  if (blocks >= 3) return '약 45~60분';
+  if (blocks === 2) return '약 25~40분';
+  return '약 15~25분';
 }
 
 renderStudentHome = function(){
@@ -77,12 +85,12 @@ renderStudentHome = function(){
   const complete = isUnitComplete();
   const primaryLabel = complete && plan.dueTotal === 0 ? '오늘 학습 다시 보기' : '오늘 학습 시작';
   const progressPct = plan.progress.total ? Math.round((plan.progress.done / plan.progress.total) * 100) : 0;
-  const blockLabel = plan.blocks ? `${plan.blocks}블록` : '복습 중심';
+  const blockLabel = `${Math.max(1,plan.blocks)}블록`;
   app.innerHTML = `<section class="screen"><div class="center"><div class="home-card">
     <div class="home-header"><div><div class="date-label">${todayKR()}</div><div class="home-title">오늘도 한 번 더.</div></div><div class="daily-badge">매일학습</div></div>
     <p class="lead">길게 버티기보다 <b>집중 블록을 끝내고 기억을 남기는 것</b>을 우선합니다.</p>
     <div class="today-plan"><div><span>오늘 복습</span><strong>${plan.dueTotal}</strong></div><div><span>Unit 01</span><strong>${complete ? '완료' : `${plan.progress.done}/${plan.progress.total}`}</strong></div><div><span>연속 학습</span><strong>${streak}일</strong></div></div>
-    <div class="pacing-summary"><span>오늘 목표</span><strong>${blockLabel} · ${plan.tasks}개 안팎</strong><p>시간을 재지 않습니다. 블록이 끝날 때만 계속할지 확인합니다. 오늘 복습이 많으면 최대 ${MAX_DUE_PER_SESSION}개를 먼저 처리합니다.</p><div class="stage-strip"><span class="stage-chip active">시작 체크</span><span class="stage-chip">복습</span><span class="stage-chip">핵심 학습</span><span class="stage-chip">마지막 체크</span></div></div>
+    <div class="pacing-summary"><span>오늘 목표</span><strong>${blockLabel} · ${plan.tasks}개 안팎</strong><p>${paceEstimate(plan.blocks)} 정도의 학습량을 기준으로 하되 시간을 재지는 않습니다. 블록이 끝날 때만 계속할지 확인합니다. 복습이 많으면 최대 ${MAX_DUE_PER_SESSION}개를 먼저 처리합니다.</p><div class="stage-strip"><span class="stage-chip active">시작 체크</span><span class="stage-chip">복습</span><span class="stage-chip">핵심 학습</span><span class="stage-chip">마지막 체크</span></div></div>
     <div class="home-progress"><div class="home-progress-head"><span>Unit 01 진행</span><span>${progressPct}%</span></div><div class="home-progress-track"><div class="home-progress-fill" style="--value:${progressPct}%"></div></div></div>
     ${latestLearningSnapshot()}
     ${renderWeekStrip()}
@@ -172,6 +180,8 @@ const baseRenderReportV07 = renderReport;
 renderReport = function(){
   const stopped = state.runMode === 'learn' && state.earlyStop;
   baseRenderReportV07();
+  const label = document.querySelector('.growth-report .date-label');
+  if (label) label.textContent = `오늘 학습 완료 · v${PACING_VERSION}`;
   if (!stopped) return;
   const anchor = document.querySelector('.compare-card') || document.querySelector('.growth-win');
   if (anchor) anchor.insertAdjacentHTML('afterend','<div class="pacing-summary"><span>오늘의 종료 기준</span><strong>2블록 + 마지막 체크 완료</strong><p>남은 새 문항은 다음 학습에서 이어집니다. 중단이 아니라 계획된 종료로 기록합니다.</p></div>');
