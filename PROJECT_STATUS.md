@@ -1,7 +1,7 @@
 # PROJECT STATUS
 
 - Project: Chunilmun PFAL
-- Version: 0.4.0
+- Version: 0.6.0
 - Canonical branch: `main`
 - Architecture: static HTML/CSS/Vanilla JS + JSON
 - Build step: none
@@ -13,30 +13,41 @@
 - Pages URL: `https://kfcccpro.github.io/1001/`
 
 ## Current scope
-- Unit 01 `주어의 형태` source-aligned validation
-- Workbook Q01~Q07 original subquestions converted into 17 interactive checks
-- Interaction types: choice / span / pairSpan / text
-- Fixed validation loop: answer → submit → correct/wrong → explanation → next
-- No forced retry in validation mode
-- Source-derived concise explanation, optional structure view and memory point
-- Per-subquestion result summary at end
-- PWA cache v040
+- Unit 01 `주어의 형태` source-aligned content
+- Validation mode: 17 subquestions, one submission per item, no forced retry
+- Daily learning mode separated from validation mode
+- Student home: due review count / current Unit / streak / recent 7-day learning trace
+- Delayed recall: D+1 baseline, D+3 for errors, D+7 for memory-critical items and errors
+- Learning result screen: evidence-based growth reward rather than coins or rank
+- Growth evidence: structure finding / independent solving / grammar-meaning application / review recall
+- Previous-session delta appears only when evidence is comparable; otherwise shows insufficient evidence
+- Longest independently solved sentence and verified skill wins shown as concrete reward
+- Current persistence: localStorage only, intentionally simple
+- PWA cache v060
 
-## Source alignment verified
-- Q01: two present-participle modifier phrases + was/were
-- Q02: improve/improves + pronoun reference
-- Q03: two subject ranges + pronoun reference
-- Q04: noun-clause subject + infinitive modifier + relative clause
-- Q05: what-clause subject + former reference + as meaning
-- Q06: coordinated noun-clause subject + credible vocabulary recall
-- Q07: TOPIC + parallel predicates + relative clause
+## UI principle
+- One Screen / One Task / One Decision during learning
+- Hide architecture and analytics while solving
+- Show richer growth information only after the session
+- Use motion only for memory-critical attention and visible learning growth
+- Avoid large countdowns, excessive badges, coins, streak-loss pressure, and decorative animation
+
+## Current learning loop
+1. Due D+1/D+3/D+7 review first
+2. Unit source item
+3. Explicit answer submission
+4. Correct/wrong + concise source-aligned explanation
+5. Memory-critical point receives short attention hold
+6. Continue without forced repeated correction in the current prototype
+7. End-of-session evidence-based growth report
+8. Review items scheduled for future days
 
 ## Next work
-1. User validates the 17-item flow on the deployed URL.
-2. Fix any remaining selection, tokenization, feedback, or mobile/tablet interaction defects.
-3. Once validation UX is stable, freeze Unit 01 interaction specification.
-4. Then create a separate actual-learning mode using the same verified items: daily retrieval, error correction, Memory Lock, transfer, D+1/D+3/D+7 recall, and visible growth reward.
-5. Only after Unit 01 learning mode is stable, expand to the rest of Chapter 1.
+1. Validate v0.6 growth report on PC and tablet-size screens.
+2. Refine the reward language and metrics so they remain concrete and non-inflated.
+3. Add a compact `Before → After` challenge only where the same skill has sufficient comparable evidence.
+4. Add a simple daily target/stop rule for the ~1-hour supervised study window without showing an anxiety-inducing countdown.
+5. After Unit 01 learning mode is stable, freeze the Unit interaction specification and expand Chapter 1.
 
 ## Operating rule
 1. Always read latest `main` before editing.
@@ -44,4 +55,5 @@
 3. Validate student flow before adding complexity.
 4. Commit directly to `main` for small safe changes.
 5. GitHub Pages deploys automatically.
-6. User tests the deployed URL and sends screenshot/feedback.
+6. User tests the deployed version and sends screenshot/feedback.
+7. In conversation, prefer in-chat preview/reproduction for review; use the external URL as the deployment target, not as the primary review method.
