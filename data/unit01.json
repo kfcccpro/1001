@@ -1,0 +1,97 @@
+{
+  "meta": {
+    "book": "천일문 완성 문제집",
+    "chapter": 1,
+    "unit": 1,
+    "title": "주어의 형태",
+    "sourcePages": {"workbook": [10, 11], "answerBook": [2, 3]},
+    "status": "pilot_reviewed"
+  },
+  "publisherItems": [
+    {
+      "id": "C01-U01-Q01",
+      "sourceType": "publisher",
+      "sentence": "In 2015, the number of Chinese people mostly buying Korean cosmetics brands was greater than that of Chinese people mostly buying Chinese brands, and ‘Good word of mouth’ was the biggest decision factor for those who purchased Korean brands.",
+      "focus": "subject_verb_agreement",
+      "answer": "was",
+      "subjectSpan": "the number of Chinese people",
+      "modifierSpans": ["mostly buying Korean cosmetics brands", "mostly buying Chinese brands"],
+      "rule": "주어의 핵심은 number이며, 긴 현재분사 수식어구를 제외하고 수를 판단한다."
+    },
+    {
+      "id": "C01-U01-Q02",
+      "sourceType": "publisher",
+      "sentence": "Purchasing local produce not only improves the local economy, but it also helps you save money on food and get high-quality fruits and vegetables.",
+      "focus": "gerund_subject",
+      "answer": "improves",
+      "subjectSpan": "Purchasing local produce",
+      "antecedent": "Purchasing local produce",
+      "rule": "동명사구가 주어이면 하나의 행위로 보고 단수 취급한다."
+    },
+    {
+      "id": "C01-U01-Q03",
+      "sourceType": "publisher",
+      "sentence": "Europe’s first Homo Sapiens lived primarily on large game, particularly reindeer; however, even under ideal circumstances, to hunt these fast animals only with spear or bow and arrow was an uncertain task for them.",
+      "focus": "multiple_subjects",
+      "subjectSpans": ["Europe’s first Homo Sapiens", "to hunt these fast animals only with spear or bow and arrow"],
+      "antecedent": "Europe’s first Homo Sapiens",
+      "rule": "to부정사구가 문장의 주어로 쓰이면 하나의 행위로 보고 단수 취급한다."
+    },
+    {
+      "id": "C01-U01-Q04",
+      "sourceType": "publisher",
+      "sentence": "That legalizing euthanasia is a thorny issue is a well-known fact: Is it a right to die with dignity or a crime that violates the dignity of human life?",
+      "focus": "noun_clause_subject",
+      "subjectSpan": "That legalizing euthanasia is a thorny issue",
+      "modifierSpans": ["to die with dignity", "that violates the dignity of human life"],
+      "rule": "that절 전체가 주어가 될 수 있으며, 명사절 주어는 단수 취급한다."
+    },
+    {
+      "id": "C01-U01-Q05",
+      "sourceType": "publisher",
+      "sentence": "What distinguishes humans from animals is that the former make tools and, as civilization progresses, these tools gradually turn into machines.",
+      "focus": "what_clause_subject",
+      "subjectSpan": "What distinguishes humans from animals",
+      "antecedent": "humans",
+      "rule": "what절 전체가 명사절 주어로 쓰일 수 있고, 문장 전체에서는 하나의 덩어리로 판단한다."
+    },
+    {
+      "id": "C01-U01-Q06",
+      "sourceType": "publisher",
+      "sentence": "Although humans have been drinking coffee for centuries, where coffee originated or who first discovered it is not clear. However, the most credible story has it that a goatherd discovered coffee in the Ethiopian highlands.",
+      "focus": "coordinated_noun_clause_subject",
+      "subjectSpan": "where coffee originated or who first discovered it",
+      "rule": "의문사절들이 or로 연결되어 하나의 주어 덩어리를 이룰 수 있다."
+    },
+    {
+      "id": "C01-U01-Q07",
+      "sourceType": "publisher",
+      "sentence": "Whoever has a high sense of self-efficiency tends to pursue challenging goals and may be more willing to step outside the culturally prescribed behaviors to attempt tasks or goals for which success is viewed as improbable by the majority of people in a setting.",
+      "focus": "compound_relative_subject",
+      "subjectSpan": "Whoever has a high sense of self-efficiency",
+      "verbs": ["tends", "may be"],
+      "relativeClause": "for which success is viewed as improbable by the majority of people in a setting",
+      "rule": "복합관계대명사절 전체가 주어이며, 뒤의 술어가 병렬로 이어질 수 있다."
+    }
+  ],
+  "pfalDerived": [
+    {
+      "id": "PFAL-U01-T01",
+      "sourceType": "pfal_generated",
+      "sentence": "Reading difficult texts every day improves your ability to see sentence structure.",
+      "focus": "gerund_subject_transfer",
+      "subjectSpan": "Reading difficult texts every day",
+      "answer": "improves",
+      "rule": "동명사구 주어는 하나의 행위로 보고 단수 취급한다."
+    },
+    {
+      "id": "PFAL-U01-T02",
+      "sourceType": "pfal_generated",
+      "sentence": "What makes a long sentence difficult is often not vocabulary but its hidden structure.",
+      "focus": "what_clause_transfer",
+      "subjectSpan": "What makes a long sentence difficult",
+      "answer": "is",
+      "rule": "what절 전체가 주어가 되며 하나의 덩어리로 처리한다."
+    }
+  ]
+}
