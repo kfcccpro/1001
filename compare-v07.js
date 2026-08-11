@@ -25,7 +25,6 @@ function ensureCompareItems(){
   state.itemMap.set(AFTER_ITEM.id, AFTER_ITEM);
 }
 
-const baseStartLearningV06 = startLearningSession;
 startLearningSession = function({force=false, demo=false}={}){
   ensureCompareItems();
   state.runMode='learn';
@@ -90,6 +89,8 @@ const baseRenderReportV06 = renderReport;
 renderReport = function(){
   const compareHtml = state.runMode==='learn' ? compareSummary(state.results) : '';
   baseRenderReportV06();
+  const label=document.querySelector('.date-label');
+  if(label && state.runMode==='learn') label.textContent=`오늘 학습 완료 · v${COMPARE_VERSION}`;
   if(!compareHtml) return;
   const target=document.querySelector('.growth-win');
   if(target) target.insertAdjacentHTML('afterend',compareHtml);
