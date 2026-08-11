@@ -1,0 +1,28 @@
+name: Static QA
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Check JavaScript syntax
+        run: |
+          node --check app.js
+          node --check growth-v06.js
+          node --check compare-v07.js
+          node --check pacing-v08.js
+          node --check supervisor-v082.js
+          node --check cloud-v09.js
+      - name: Verify required files
+        run: |
+          test -f index.html
+          test -f data/unit01.json
+          test -f cloud-v09.css
