@@ -10,6 +10,7 @@
 - Student PIN: 8081
 - Admin PIN: 2007
 - Deployment: GitHub Pages via GitHub Actions
+- GitHub Pages source: GitHub Actions confirmed on 2026-08-11
 
 ## Current scope
 - Unit 01 pilot
