@@ -21,8 +21,35 @@ jobs:
           node --check pacing-v08.js
           node --check supervisor-v082.js
           node --check cloud-v09.js
+          node --check cloud-diagnostic-v091.js
+          node --check repair-guides-v092.js
+          node --check guided-repair-v092.js
+          node --check multiunit-v093b.js
       - name: Verify required files
         run: |
           test -f index.html
-          test -f data/unit01.json
+          test -f multiunit-v093b.css
+          test -f data/catalog.json
+          for n in 01 02 03 04 05 06 07 08; do test -f "data/unit${n}.json"; done
           test -f cloud-v09.css
+      - name: Validate JSON catalogs
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          const files = ['data/catalog.json', ...Array.from({length:8}, (_,i)=>`data/unit${String(i+1).padStart(2,'0')}.json`)];
+          for (const file of files) {
+            const data = JSON.parse(fs.readFileSync(file, 'utf8'));
+            if (!data) throw new Error(`${file}: empty JSON`);
+          }
+          const catalog = JSON.parse(fs.readFileSync('data/catalog.json', 'utf8'));
+          const units = catalog.chapters.flatMap(c => c.units || []);
+          if (units.length !== 8) throw new Error(`catalog unit count=${units.length}`);
+          for (const unit of units) {
+            const file = `data/${unit.file}`;
+            const data = JSON.parse(fs.readFileSync(file, 'utf8'));
+            if (Number(data.meta?.unit) !== Number(unit.unit)) throw new Error(`${file}: unit metadata mismatch`);
+            const ids = new Set((data.items || []).map(x => x.id));
+            for (const id of (data.validationFlow || []).filter(x => x !== 'REPORT')) if (!ids.has(id)) throw new Error(`${file}: missing flow item ${id}`);
+          }
+          console.log('Catalog + Unit 01~08 JSON PASS');
+          NODE

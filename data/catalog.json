@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "0.9.3-batch1",
+  "defaultUnit": 1,
+  "chapters": [
+    {
+      "chapter": 1,
+      "title": "주어·동사 찾기",
+      "units": [
+        {"unit": 1, "title": "주어의 형태", "file": "unit01.json", "status": "source_aligned_validation"},
+        {"unit": 2, "title": "문장 앞 부사구와 주어의 구별", "file": "unit02.json", "status": "source_aligned_batch_qa"},
+        {"unit": 3, "title": "명사구 주어의 의미 범위", "file": "unit03.json", "status": "source_aligned_batch_qa"},
+        {"unit": 4, "title": "명사절 주어의 의미 범위", "file": "unit04.json", "status": "source_aligned_batch_qa"}
+      ]
+    },
+    {
+      "chapter": 2,
+      "title": "수식어구 뒤의 동사 찾기",
+      "units": [
+        {"unit": 5, "title": "주어 뒤 수식어구의 여러 형태", "file": "unit05.json", "status": "source_aligned_batch_qa"},
+        {"unit": 6, "title": "<주어+긴 수식어구> 뒤의 동사 찾기", "file": "unit06.json", "status": "source_aligned_batch_qa"},
+        {"unit": 7, "title": "<주어+여러 수식어구> 뒤의 동사 찾기", "file": "unit07.json", "status": "pfal_derived_batch_qa"},
+        {"unit": 8, "title": "동사 자리·준동사 자리", "file": "unit08.json", "status": "source_aligned_plus_pfal_batch_qa"}
+      ]
+    }
+  ]
+}

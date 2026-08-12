@@ -1,0 +1,45 @@
+/* v0.9.3-batch1: Chapter 01~02 multi-unit catalog and batch supervisor entry */
+
+.multiunit-admin-catalog,
+.student-unit-picker{
+  margin:18px 0 16px;
+  padding:16px;
+  border:1px solid var(--line,#deded8);
+  border-radius:18px;
+  background:rgba(255,255,255,.58);
+}
+
+.multiunit-admin-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-end;margin-bottom:14px}
+.multiunit-admin-head>div:first-child{display:grid;gap:4px}
+.multiunit-admin-head span,.picker-title{font-size:13px;font-weight:800;letter-spacing:.04em;opacity:.62}
+.multiunit-admin-head strong{font-size:18px}
+.selected-admin-unit{font-size:14px;font-weight:800;text-align:right}
+.chapter-unit-group + .chapter-unit-group{margin-top:14px;padding-top:14px;border-top:1px solid var(--line,#deded8)}
+.chapter-unit-title{display:flex;gap:10px;align-items:baseline;margin-bottom:9px}
+.chapter-unit-title span{font-size:12px;font-weight:900;letter-spacing:.08em;opacity:.56}
+.chapter-unit-title b{font-size:15px}
+.unit-chip-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.unit-chip{min-height:58px;display:grid;gap:3px;align-content:center;justify-items:start;padding:9px 12px;border:1px solid var(--line,#deded8);border-radius:13px;background:var(--card,#fff);color:inherit;text-align:left;cursor:pointer}
+.unit-chip span{font-size:12px;font-weight:900;opacity:.58}
+.unit-chip b{font-size:14px;line-height:1.28}
+.unit-chip.active{outline:2px solid currentColor;outline-offset:-2px}
+.batch-supervisor-btn{min-height:56px}
+.selected-unit-card{margin:14px 0 12px;padding:14px 16px;border:1px solid var(--line,#deded8);border-radius:16px;display:grid;gap:4px}
+.selected-unit-card span{font-size:13px;font-weight:800;opacity:.6}
+.selected-unit-card strong{font-size:20px;line-height:1.25}
+.student-unit-picker{margin-top:18px}
+.picker-title{margin-bottom:10px}
+.multiunit-loading{padding:10px 0;font-size:14px;opacity:.65}
+
+@media(min-width:980px){
+  .multiunit-admin-catalog .unit-chip-grid,.student-unit-picker .unit-chip-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .multiunit-home{width:min(100%,1080px)}
+}
+
+@media(max-width:700px){
+  .multiunit-admin-catalog,.student-unit-picker{padding:12px;margin-top:14px}
+  .multiunit-admin-head{display:grid;align-items:start}
+  .selected-admin-unit{text-align:left}
+  .unit-chip-grid{grid-template-columns:1fr}
+  .unit-chip{min-height:54px}
+}
