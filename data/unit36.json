@@ -1,0 +1,10 @@
+{
+  "meta":{"schemaVersion":"0.4.0","book":"천일문 완성 트레이닝북","chapter":9,"unit":36,"title":"인과/선후를 나타내는 수동태 표현","sourcePages":{"workbook":[96,97],"answerBook":[70,71]},"status":"source_aligned_plus_pfal_batch_qa"},
+  "items":[
+    {"id":"U36-Q05-1","display":"Q05 · 선후 관계","interaction":"choice","sentence":"Preconscious, automatic thoughts normally precede and induce emotions, which are then followed by conscious thoughts about how to deal with the situation.","prompt":"문장에서 가장 먼저 일어나는 것을 고르세요.","choices":["preconscious, automatic thoughts","conscious thoughts"],"answer":"preconscious, automatic thoughts","explanation":"A is followed by B는 A 뒤에 B가 온다는 뜻입니다. 자동적 생각 → 감정 → 의식적 생각 순서입니다.","memory":"A be followed by B = A 다음에 B"},
+    {"id":"U36-Q06-1","display":"Q06 · preceded by","interaction":"choice","sentence":"Organizational innovation, if it is to be successful and useful, should be preceded by participatory discussion, listening and more listening, attempts to define opposing points of view, and the seeking of a consensus.","prompt":"먼저 일어나야 하는 것을 고르세요.","choices":["participatory discussion and related processes","organizational innovation"],"answer":"participatory discussion and related processes","explanation":"A be preceded by B는 A보다 B가 먼저 온다는 뜻입니다."},
+    {"id":"U36-P07-1","display":"PFAL · 원인 표현","interaction":"choice","sentence":"The improvement was attributed to repeated retrieval practice.","prompt":"원인에 해당하는 것을 고르세요.","choices":["repeated retrieval practice","the improvement"],"answer":"repeated retrieval practice","explanation":"A be attributed to B는 ‘A의 원인은 B이다’라는 뜻입니다."},
+    {"id":"U36-P08-1","display":"PFAL · caused by","interaction":"choice","sentence":"The delay was caused by a temporary network problem.","prompt":"원인을 고르세요.","choices":["a temporary network problem","the delay"],"answer":"a temporary network problem","explanation":"A be caused by B에서는 B가 원인, A가 결과입니다."}
+  ],
+  "validationFlow":["U36-Q05-1","U36-Q06-1","U36-P07-1","U36-P08-1","REPORT"]
+}

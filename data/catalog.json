@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "0.9.3-batch4",
+  "schemaVersion": "0.9.3-batch5",
   "defaultUnit": 1,
   "chapters": [
     {"chapter":1,"title":"주어·동사 찾기","units":[
@@ -41,6 +41,16 @@
       {"unit":29,"title":"비교구문","file":"unit29.json","status":"source_aligned_batch_qa"},
       {"unit":30,"title":"as ~, than ~ 이하의 반복어구 생략","file":"unit30.json","status":"source_aligned_batch_qa"},
       {"unit":31,"title":"비교 대상의 생략","file":"unit31.json","status":"source_concept_pfal_batch_qa"},
-      {"unit":32,"title":"유의해야 할 비교급 구문","file":"unit32.json","status":"source_concept_pfal_batch_qa"}]}
+      {"unit":32,"title":"유의해야 할 비교급 구문","file":"unit32.json","status":"source_concept_pfal_batch_qa"}]},
+    {"chapter":9,"title":"아는 것 같지만 한 번 더 생각해야 하는 구문","units":[
+      {"unit":33,"title":"대명사 it, they, this, that","file":"unit33.json","status":"source_aligned_plus_pfal_batch_qa"},
+      {"unit":34,"title":"숨어 있는 가정법","file":"unit34.json","status":"source_aligned_plus_pfal_batch_qa"},
+      {"unit":35,"title":"부정구문","file":"unit35.json","status":"source_aligned_plus_pfal_batch_qa"},
+      {"unit":36,"title":"인과/선후를 나타내는 수동태 표현","file":"unit36.json","status":"source_aligned_plus_pfal_batch_qa"}]},
+    {"chapter":10,"title":"과감히 건너뛰고 적극적으로 예측하라","units":[
+      {"unit":37,"title":"부연 설명은 건너뛰어라","file":"unit37.json","status":"source_aligned_batch_qa"},
+      {"unit":38,"title":"예시·동격","file":"unit38.json","status":"source_aligned_batch_qa"},
+      {"unit":39,"title":"정보 추가 vs. 강조","file":"unit39.json","status":"source_aligned_plus_pfal_batch_qa"},
+      {"unit":40,"title":"비교·대조를 나타내는 연결어","file":"unit40.json","status":"source_aligned_batch_qa"}]}
   ]
 }

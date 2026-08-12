@@ -1,0 +1,10 @@
+{
+  "meta":{"schemaVersion":"0.4.0","book":"천일문 완성 트레이닝북","chapter":10,"unit":37,"title":"부연 설명은 건너뛰어라","sourcePages":{"workbook":[100,101],"answerBook":[72,73]},"status":"source_aligned_batch_qa"},
+  "items":[
+    {"id":"U37-Q01-1","display":"Q01 · 동격","interaction":"span","sentence":"The value of caring for children is widely shared in other cultures, but Confucianism places special emphasis on filial piety, caring for elderly parents.","prompt":"filial piety와 동격을 이루는 부연 설명을 드래그하세요.","answer":"caring for elderly parents","explanation":"쉼표 뒤 caring for elderly parents는 filial piety의 뜻을 풀어 설명합니다.","memory":"쉼표 뒤 명사/동명사구가 앞 명사를 다시 설명하면 핵심 구조에서는 잠시 건너뛸 수 있음"},
+    {"id":"U37-Q02-1","display":"Q02 · 삽입어구","interaction":"span","sentence":"Positive thinking has, as an important part of our life, two great advantages -- the bringing of success and the realizing of dreams.","prompt":"주어-동사-목적어의 뼈대를 찾을 때 먼저 건너뛸 삽입어구를 드래그하세요.","answer":"as an important part of our life","explanation":"삽입어구를 제외하면 Positive thinking has two great advantages라는 뼈대가 보입니다."},
+    {"id":"U37-Q03-1","display":"Q03 · 콜론 부연","interaction":"span","sentence":"The basic three-part structure of the advertising industry in Britain was established: advertisers, media, and agencies.","prompt":"콜론 이하가 부연 설명하는 앞의 어구를 드래그하세요.","answer":"The basic three-part structure of the advertising industry in Britain","explanation":"콜론 뒤의 advertisers, media, agencies는 앞의 three-part structure의 내용을 구체적으로 풀어 줍니다."},
+    {"id":"U37-Q04-1","display":"Q04 · 세미콜론 관계","interaction":"choice","sentence":"Everyone, even the truly good among us, makes mistakes; if a close friend injured you, pretend as though you had not noticed it.","prompt":"세미콜론 앞뒤를 연결하는 의미로 가장 알맞은 것을 고르세요.","choices":["therefore","however"],"answer":"therefore","explanation":"누구나 실수한다는 일반 원칙에서 친구의 실수를 용서하라는 결론으로 이어집니다."}
+  ],
+  "validationFlow":["U37-Q01-1","U37-Q02-1","U37-Q03-1","U37-Q04-1","REPORT"]
+}

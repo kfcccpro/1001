@@ -2,7 +2,7 @@
 
 - Project: Chunilmun PFAL
 - Core version: `0.9.3`
-- Expansion layer: `0.9.3-batch4`
+- Expansion layer: `0.9.3-batch5`
 - Canonical branch: `main`
 - Architecture: static HTML/CSS/Vanilla JS + JSON + Firebase cloud-persistence client
 - Build step: none
@@ -12,34 +12,36 @@
 - Pages URL: `https://kfcccpro.github.io/1001/`
 
 ## Current scope
-- Chapter 01~06: Unit 01~24
-- Chapter 07 `병렬구조를 파악하기 어려운 이유`: Unit 25~28
-- Chapter 08 `비교구문에서 정확히 이해해야 할 것들`: Unit 29~32
-- PIN 2007 combined supervisor review now targets `Unit 01~32` dynamically from `data/catalog.json`.
+- Chapter 01~08: Unit 01~32
+- Chapter 09 `아는 것 같지만 한 번 더 생각해야 하는 구문`: Unit 33~36
+- Chapter 10 `과감히 건너뛰고 적극적으로 예측하라`: Unit 37~40
+- PIN 2007 combined supervisor review targets `Unit 01~40` dynamically from `data/catalog.json`.
 - Student actual learning mode alone writes progress, reviews, sessions and active time.
 
-## Batch4 source status
-- Chapter/Unit titles and page sequence were rechecked from the uploaded workbook contents: U25 병렬구조, U26 연결어구 후보가 두 개 이상인 문장, U27 등위접속사가 여러 개인 문장, U28 등위접속사 뒤 삽입어구, U29 비교구문, U30 as/than 이하 반복어구 생략, U31 비교 대상 생략, U32 유의해야 할 비교급 구문.
-- Unit26 source-aligned: answer-book examples verify `believed ... and used`, `being against ... but rather being strong`, and parallel that-clauses.
-- Unit28 source-aligned core: answer-book examples verify the inserted `even worse` and the `grew ... and, when ..., moved on` structure; one PFAL transfer item is added.
-- Unit29 source-aligned from workbook examples.
-- Unit30 source-aligned from answer-book examples for repeated material omitted after as/than.
-- Unit25, Unit27, Unit31, Unit32 are explicitly PFAL-derived concept staging until exact source-item transcription is reviewed.
+## Batch5 source status
+- Chapter/Unit sequence was rechecked from the uploaded workbook contents: U33 대명사 it/they/this/that, U34 숨어 있는 가정법, U35 부정구문, U36 인과/선후 수동태 표현, U37 부연 설명은 건너뛰어라, U38 예시·동격, U39 정보 추가 vs. 강조, U40 비교·대조 연결어.
+- U33 uses source-aligned pronoun/reference examples plus one PFAL transfer item.
+- U34 uses source-aligned otherwise/hidden-condition examples plus one PFAL transfer item.
+- U35 uses source-aligned partial-negation examples plus one PFAL transfer item.
+- U36 uses source-aligned followed by / preceded by sequence examples plus PFAL cause examples.
+- U37, U38, U40 are source-aligned batch QA from workbook/answer-book examples.
+- U39 uses source-aligned information-addition examples plus PFAL contrast between addition and emphasis.
+- Source/PFAL distinction remains explicit; staged material is not final-validated until combined review.
 
-## Batch4 implementation checkpoint — 2026-08-12
-- Added Unit 25~32 JSON and Chapter 07~08 catalog entries.
-- Expansion version: `0.9.3-batch4`.
-- PWA cache key: `chunilmun-pfal-t1-v093e`.
-- Service worker precaches Unit 01~32 programmatically.
-- Static QA now checks JavaScript syntax including `sw.js`, existence of Unit 01~32, JSON validity, catalog/metadata correspondence, global ID uniqueness, answer contracts and validation-flow references.
+## Batch5 implementation checkpoint — 2026-08-12
+- Added Unit 33~40 JSON and Chapter 09~10 catalog entries.
+- Expansion version: `0.9.3-batch5`.
+- PWA cache key: `chunilmun-pfal-t1-v093f`.
+- Service worker precaches Unit 01~40 programmatically.
+- Static QA checks JS syntax, Unit 01~40 existence, JSON/catalog consistency, global IDs, answer contracts and validation flows.
 
 ## Verification still required
-1. PIN 2007 → `Unit 01~32 한꺼번에 검수`: order, text, prompt, answer/explanation, navigation.
-2. Content review for newly staged Unit25~32, especially Unit26/28/29/30 source-aligned ranges and PFAL concept fit for Unit25/27/31/32.
+1. PIN 2007 → `Unit 01~40 한꺼번에 검수`: order, source text, prompt, answer/explanation and navigation.
+2. Live content review for Unit33~40, especially pronoun referents, hidden conditional reconstructions, negative-scope meanings, sequence/cause relations and discourse connectors.
 3. Revisit earlier staged source validation before final content freeze.
 4. Desktop/tablet/mobile compact-layout visual QA.
 5. Cloud diagnostic all PASS, then cross-device/active-time QA.
-6. After batch4 review, expand Chapter 09~10 / Unit 33~40.
+6. After batch5 review, expand Chapter 11~12 / Unit 41~48.
 
 ## Operating rules
 - Always read latest main/handoff/status/VERSION before editing.

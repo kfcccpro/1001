@@ -1,0 +1,10 @@
+{
+  "meta":{"schemaVersion":"0.4.0","book":"천일문 완성 트레이닝북","chapter":9,"unit":34,"title":"숨어 있는 가정법","sourcePages":{"workbook":[92,93],"answerBook":[67,68]},"status":"source_aligned_plus_pfal_batch_qa"},
+  "items":[
+    {"id":"U34-Q05-1","display":"Q05 · otherwise 가정법","interaction":"choice","sentence":"You may even value a ticket which might otherwise be just a piece of paper, because it evokes memories of going to see your favorite band in concert.","prompt":"otherwise에 숨어 있는 조건을 가장 자연스럽게 풀어 쓴 것을 고르세요.","choices":["if you did not value a ticket","if you bought a ticket"],"answer":"if you did not value a ticket","explanation":"otherwise는 ‘그렇지 않다면’의 뜻으로 문맥에 숨어 있는 반대 조건을 복원하게 합니다.","memory":"otherwise → if ... not 형태의 숨은 조건을 먼저 떠올리기"},
+    {"id":"U34-Q06-1","display":"Q06 · 과거 사실 반대","interaction":"text","sentence":"We stored the camping car in our backyard all this winter, leaving some cookies in there, and mice which would not otherwise have been there were attracted by the food and shredded all the curtains, screens, and cushions.","prompt":"otherwise에 해당하는 과거완료 if절을 입력하세요.","answer":"if we had not left some cookies in the camping car","explanation":"쿠키를 남겨두지 않았더라면 쥐들이 거기에 없었을 것이라는 과거 사실의 반대 가정입니다."},
+    {"id":"U34-Q06-2","display":"Q06 · 관계사절 범위","interaction":"span","sentence":"Mice which would not otherwise have been there were attracted by the food.","prompt":"mice를 수식하는 관계사절을 드래그하세요.","answer":"which would not otherwise have been there","explanation":"which 이하가 mice를 수식하며 내부의 otherwise가 숨은 가정법 의미를 만듭니다."},
+    {"id":"U34-P07-1","display":"PFAL · without 복원","interaction":"choice","sentence":"Without your quick feedback, we would have repeated the same mistake.","prompt":"Without your quick feedback와 의미가 가장 가까운 if절을 고르세요.","choices":["If we had not received your quick feedback","If we receive your quick feedback"],"answer":"If we had not received your quick feedback","explanation":"without + 명사구는 문맥에 따라 if절의 부정 조건으로 복원할 수 있습니다."}
+  ],
+  "validationFlow":["U34-Q05-1","U34-Q06-1","U34-Q06-2","U34-P07-1","REPORT"]
+}

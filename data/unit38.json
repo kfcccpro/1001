@@ -1,0 +1,10 @@
+{
+  "meta":{"schemaVersion":"0.4.0","book":"천일문 완성 트레이닝북","chapter":10,"unit":38,"title":"예시·동격","sourcePages":{"workbook":[102,103],"answerBook":[74,75]},"status":"source_aligned_batch_qa"},
+  "items":[
+    {"id":"U38-Q01-1","display":"Q01 · 예시 연결어","interaction":"choice","sentence":"Many popular magazines are now published in a range of editions, with each edition targeting a specific readership or interest group. For instance, Time is published in more than 350 different editions, including one for doctors, one for teachers, and another for college students.","prompt":"For instance의 기능으로 알맞은 것을 고르세요.","choices":["앞 내용을 구체적인 예로 보여 준다.","앞 내용과 반대되는 내용을 제시한다."],"answer":"앞 내용을 구체적인 예로 보여 준다.","explanation":"Time의 여러 판은 앞 문장의 ‘특정 독자층을 겨냥한 다양한 판’에 대한 예시입니다."},
+    {"id":"U38-Q01-2","display":"Q01 · with 구문","interaction":"span","sentence":"Many popular magazines are now published in a range of editions, with each edition targeting a specific readership or interest group.","prompt":"with구문에서 목적격보어 역할을 하는 현재분사구를 드래그하세요.","answer":"targeting a specific readership or interest group","explanation":"each edition과 target은 능동 관계이므로 targeting이 쓰였습니다."},
+    {"id":"U38-Q02-1","display":"Q02 · e.g. 예시","interaction":"span","sentence":"Our quest for well-being has depended largely on our ability to utilize natural resources, e.g., water, coal, petroleum.","prompt":"natural resources의 예시에 해당하는 부분을 드래그하세요.","answer":"water, coal, petroleum","explanation":"e.g.는 ‘예를 들어’라는 뜻으로 뒤의 세 자원을 예시로 제시합니다."},
+    {"id":"U38-Q03-1","display":"Q03 · Take의 기능","interaction":"choice","sentence":"Our emotional biases can stir us to action in a broader sense. Take the psychological feeling of closeness. If someone in our family develops cancer, we may be inspired to raise money for research on that particular disease.","prompt":"Take the psychological feeling of closeness의 기능으로 알맞은 것을 고르세요.","choices":["심리적인 친근감을 예로 든다.","심리적인 친근감을 부정한다."],"answer":"심리적인 친근감을 예로 든다.","explanation":"Take + 명사구는 설명을 위해 하나의 사례를 꺼내는 표현으로 쓰일 수 있습니다."}
+  ],
+  "validationFlow":["U38-Q01-1","U38-Q01-2","U38-Q02-1","U38-Q03-1","REPORT"]
+}

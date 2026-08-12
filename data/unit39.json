@@ -1,0 +1,10 @@
+{
+  "meta":{"schemaVersion":"0.4.0","book":"천일문 완성 트레이닝북","chapter":10,"unit":39,"title":"정보 추가 vs. 강조","sourcePages":{"workbook":[104,105],"answerBook":[76,77]},"status":"source_aligned_plus_pfal_batch_qa"},
+  "items":[
+    {"id":"U39-Q01-1","display":"Q01 · as well as","interaction":"pairSpan","sentence":"The list of ecological consequences of invasive species on their host environment is lengthy; they can cause local or global extinction of species as well as complete disruption of an ecosystem's structure and function.","prompt":"as well as가 연결하는 두 결과를 차례로 선택하세요.","answers":["local or global extinction of species","complete disruption of an ecosystem's structure and function"],"explanation":"A as well as B는 B뿐 아니라 A도라는 추가 관계를 나타냅니다."},
+    {"id":"U39-Q02-1","display":"Q02 · In addition","interaction":"choice","sentence":"Identical twins who are separated at birth and raised apart in very different situations have been found to share personality traits. In addition, the twins held similar jobs, as they share job preferences.","prompt":"In addition의 기능으로 알맞은 것을 고르세요.","choices":["앞 정보에 새로운 정보를 덧붙인다.","앞 내용을 반박한다."],"answer":"앞 정보에 새로운 정보를 덧붙인다.","explanation":"성격적 특성 공유에 이어 비슷한 직업이라는 추가 정보를 제시합니다."},
+    {"id":"U39-P03-1","display":"PFAL · indeed 강조","interaction":"choice","sentence":"The first review was useful. Indeed, it revealed the most important error in the data.","prompt":"Indeed의 기능으로 알맞은 것을 고르세요.","choices":["앞 내용을 더 강하게 뒷받침한다.","새로운 주제로 전환한다."],"answer":"앞 내용을 더 강하게 뒷받침한다.","explanation":"Indeed는 앞 내용을 확인하거나 강조하는 연결어로 자주 쓰입니다."},
+    {"id":"U39-P04-1","display":"PFAL · 정보 추가 구별","interaction":"choice","sentence":"The app saves progress across devices. Moreover, it records active learning time separately from idle time.","prompt":"Moreover의 기능을 고르세요.","choices":["정보 추가","대조"],"answer":"정보 추가","explanation":"Moreover는 앞 내용에 같은 방향의 정보를 추가합니다."}
+  ],
+  "validationFlow":["U39-Q01-1","U39-Q02-1","U39-P03-1","U39-P04-1","REPORT"]
+}

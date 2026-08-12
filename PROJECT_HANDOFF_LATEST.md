@@ -3,7 +3,7 @@
 ## 1. Project
 - Repo/branch: `kfcccpro/1001` / `main`
 - Live: `https://kfcccpro.github.io/1001/`
-- Core version: `0.9.3`; expansion layer: `0.9.3-batch4`
+- Core version: `0.9.3`; expansion layer: `0.9.3-batch5`
 - Static HTML/CSS/Vanilla JS + JSON + Firebase Anonymous Auth + Firestore
 - Student PIN `8081`; Admin/Supervisor PIN `2007`
 
@@ -17,24 +17,31 @@
 
 ## 3. Current scope
 `data/catalog.json` is canonical.
-- Ch01 Unit01~04 주어·동사 찾기
-- Ch02 Unit05~08 수식어구 뒤 동사 찾기
-- Ch03 Unit09~12 명사 뒤 수식어구
-- Ch04 Unit13~16 문장 구조 방해 요소
-- Ch05 Unit17~20 생략
-- Ch06 Unit21~24 어순
-- Ch07 Unit25~28 병렬구조를 파악하기 어려운 이유
-- Ch08 Unit29~32 비교구문에서 정확히 이해해야 할 것들
+- Ch01~08 Unit01~32
+- Ch09 Unit33~36 `아는 것 같지만 한 번 더 생각해야 하는 구문`
+- Ch10 Unit37~40 `과감히 건너뛰고 적극적으로 예측하라`
 
-Batch4 source distinction:
-- U26, U29, U30: source-aligned batch QA.
-- U28: source-aligned core + one PFAL transfer item.
-- U25, U27, U31, U32: PFAL-derived concept staging.
+Batch5 source distinction:
+- U33~36: source-aligned core + small PFAL transfer additions.
+- U37, U38, U40: source-aligned batch QA.
+- U39: source-aligned core + PFAL transfer additions.
+
+Chapter 09 source sequence:
+- U33 대명사 it, they, this, that
+- U34 숨어 있는 가정법
+- U35 부정구문
+- U36 인과/선후를 나타내는 수동태 표현
+
+Chapter 10 source sequence:
+- U37 부연 설명은 건너뛰어라
+- U38 예시·동격
+- U39 정보 추가 vs. 강조
+- U40 비교·대조를 나타내는 연결어
 
 ## 4. Supervisor
 PIN 2007:
 - current Unit review
-- `Unit 01~32 한꺼번에 검수`
+- `Unit 01~40 한꺼번에 검수`
 - range label is computed from catalog
 - no learning records written
 
@@ -43,7 +50,7 @@ PIN 2007:
 - Supervisor: supervisor-v082.js/css
 - Guided Repair: repair-guides-v092.js, guided-repair-v092.js/css
 - Multi-unit: multiunit-v093b.js/css
-- Catalog/data: data/catalog.json, data/unit01.json ... data/unit32.json
+- Catalog/data: data/catalog.json, data/unit01.json ... data/unit40.json
 - Cloud: cloud-v09.js/css, cloud-diagnostic-v091.js/css
 - PWA: sw.js, manifest.webmanifest
 - QA: .github/workflows/qa.yml
@@ -56,11 +63,11 @@ PIN 2007:
 - Firestore rules reported published; PIN 2007 diagnostic PASS screenshot still pending
 
 ## 7. Next priority
-After batch4 deployment succeeds:
-1. PIN 2007 `Unit 01~32 한꺼번에 검수` live content/layout check.
+After batch5 deployment succeeds:
+1. PIN 2007 `Unit 01~40 한꺼번에 검수` live content/layout check.
 2. Fix text/prompt/answer/range issues, preserving source/PFAL status.
 3. Cloud diagnostic + cross-device/active-time QA.
-4. Then expand Chapter 09~10 / Unit 33~40.
+4. Then expand Chapter 11~12 / Unit 41~48, completing the current workbook scope.
 
 ## 8. Auto-continue rule
 If user says `진행`, `다음 단계 진행`, or equivalent:

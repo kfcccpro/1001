@@ -1,4 +1,4 @@
-const MULTIUNIT_BATCH_VERSION = '0.9.3-batch4';
+const MULTIUNIT_BATCH_VERSION = '0.9.3-batch5';
 const MULTIUNIT_CATALOG_URL = './data/catalog.json';
 const MULTIUNIT_SELECTED_KEY = 'chunilmun_selected_unit';
 
