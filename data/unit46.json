@@ -1,0 +1,11 @@
+{
+  "meta":{"schemaVersion":"0.4.0","book":"천일문 완성 트레이닝북","chapter":12,"unit":46,"title":"비교구문과 결합한 복잡한 절","sourceConceptPages":{"workbook":[122,123]},"status":"source_concept_pfal_batch_qa","note":"교재 Unit 개념에 맞춘 PFAL 파생문항"},
+  "items":[
+    {"id":"U46-P01-1","display":"PFAL 01 · 비교절 생략","interaction":"text","sentence":"Students who marked clause boundaries answered more accurately than those who did not.","prompt":"those who did not 뒤에 의미상 생략된 동사구를 입력하세요.","answer":"mark clause boundaries","explanation":"than절에서 앞에 나온 동사구의 반복이 생략되었습니다.","memory":"than/as 뒤에는 반복되는 성분이 자주 생략되므로 비교 대상을 복원"},
+    {"id":"U46-P02-1","display":"PFAL 02 · those 대용","interaction":"span","sentence":"Students who marked clause boundaries answered more accurately than those who did not.","prompt":"those가 대신하는 명사를 드래그하세요.","answer":"Students","explanation":"those는 앞의 복수명사 Students를 대신합니다."},
+    {"id":"U46-P03-1","display":"PFAL 03 · as ~ as","interaction":"pairSpan","sentence":"The explanation that followed the error was as brief as the learner needed it to be.","prompt":"원급 비교의 두 as를 차례로 선택하세요.","answers":["as","as"],"explanation":"as brief as가 원급 비교를 만들며 뒤 절은 필요한 정도를 기준으로 제시합니다."},
+    {"id":"U46-P04-1","display":"PFAL 04 · 비교 대상","interaction":"choice","sentence":"The sentence that contained two inserted clauses was harder to analyze than the one we studied yesterday.","prompt":"비교되는 두 대상을 고르세요.","choices":["the sentence / the one","two inserted clauses / yesterday"],"answer":"the sentence / the one","explanation":"the one은 앞의 sentence를 대신하며 두 문장을 비교합니다."},
+    {"id":"U46-P05-1","display":"PFAL 05 · 주절 동사","interaction":"text","sentence":"The sentence that contained two inserted clauses was harder to analyze than the one we studied yesterday.","prompt":"관계사절과 비교절을 제외한 주절의 동사를 입력하세요.","answer":"was","explanation":"주절 뼈대는 The sentence was harder입니다."}
+  ],
+  "validationFlow":["U46-P01-1","U46-P02-1","U46-P03-1","U46-P04-1","U46-P05-1","REPORT"]
+}

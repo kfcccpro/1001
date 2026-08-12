@@ -1,0 +1,11 @@
+{
+  "meta":{"schemaVersion":"0.4.0","book":"천일문 완성 트레이닝북","chapter":11,"unit":41,"title":"it ~ to-V[that]","sourceConceptPages":{"workbook":[110,111]},"status":"source_concept_pfal_batch_qa","note":"교재 Unit 개념과 페이지 순서에 맞춘 PFAL 파생문항; 출판사 원문 전사본이 아님"},
+  "items":[
+    {"id":"U41-P01-1","display":"PFAL 01 · 가주어 it","interaction":"span","sentence":"It is difficult to identify the main verb when the subject is very long.","prompt":"가주어 It의 실제 내용 주어를 드래그하세요.","answer":"to identify the main verb when the subject is very long","explanation":"앞의 It은 자리만 채우는 가주어이고 실제 내용은 뒤의 to부정사구입니다.","memory":"It + be + 형용사 + to-V → 뒤의 to-V가 진주어"},
+    {"id":"U41-P02-1","display":"PFAL 02 · that절 진주어","interaction":"span","sentence":"It is clear that the second clause has a different subject.","prompt":"It 대신 실제 주어 역할을 하는 부분을 드래그하세요.","answer":"that the second clause has a different subject","explanation":"that절이 문장의 실제 주어이고 It은 가주어입니다."},
+    {"id":"U41-P03-1","display":"PFAL 03 · 의미상 주어","interaction":"span","sentence":"It is important for students to mark the clause boundary before answering.","prompt":"to mark의 의미상 주어를 드래그하세요.","answer":"for students","explanation":"for + 목적격이 to부정사의 의미상 주어를 나타냅니다."},
+    {"id":"U41-P04-1","display":"PFAL 04 · 구조 판별","interaction":"choice","sentence":"It surprised me that the answer depended on a small modifier.","prompt":"that절의 문법 역할로 알맞은 것을 고르세요.","choices":["진주어","목적격보어"],"answer":"진주어","explanation":"It이 가주어이고 that절이 실제로 surprised의 주어 역할을 합니다."},
+    {"id":"U41-P05-1","display":"PFAL 05 · to-V/that 짝","interaction":"choice","sentence":"It seems reasonable to check the evidence again.","prompt":"문장의 핵심 구조를 고르세요.","choices":["It + seems + C + to-V","S + V + O + C"],"answer":"It + seems + C + to-V","explanation":"It을 앞에 두고 뒤의 to부정사 내용을 이어 받는 구조입니다."}
+  ],
+  "validationFlow":["U41-P01-1","U41-P02-1","U41-P03-1","U41-P04-1","U41-P05-1","REPORT"]
+}

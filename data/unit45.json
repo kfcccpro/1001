@@ -1,0 +1,11 @@
+{
+  "meta":{"schemaVersion":"0.4.0","book":"천일문 완성 트레이닝북","chapter":12,"unit":45,"title":"관계사절이 여러 개 들어간 복잡한 문장","sourceConceptPages":{"workbook":[120,121]},"status":"source_concept_pfal_batch_qa","note":"교재 Unit 개념에 맞춘 PFAL 파생문항"},
+  "items":[
+    {"id":"U45-P01-1","display":"PFAL 01 · 관계사절 2개","interaction":"pairSpan","sentence":"The students who practiced with sentences that contained several modifiers became faster at locating the main verb.","prompt":"서로 다른 선행사를 수식하는 두 관계사절을 차례로 선택하세요.","answers":["who practiced with sentences that contained several modifiers","that contained several modifiers"],"explanation":"who절은 The students를 수식하고, 그 안의 that절은 sentences를 수식합니다.","memory":"관계사절 안에 또 관계사절이 들어갈 수 있으므로 선행사를 각각 연결"},
+    {"id":"U45-P02-1","display":"PFAL 02 · 주절 동사","interaction":"text","sentence":"The students who practiced with sentences that contained several modifiers became faster at locating the main verb.","prompt":"두 관계사절을 제외한 주절의 본동사를 입력하세요.","answer":"became","explanation":"The students가 주어이고 두 관계사절은 수식어입니다. 주절 동사는 became입니다."},
+    {"id":"U45-P03-1","display":"PFAL 03 · 선행사 연결","interaction":"choice","sentence":"The report that the teacher gave to the students who had missed class included a short review.","prompt":"who had missed class의 선행사를 고르세요.","choices":["the students","The report"],"answer":"the students","explanation":"who절은 바로 앞의 사람 명사 the students를 수식합니다."},
+    {"id":"U45-P04-1","display":"PFAL 04 · 관계사절 범위","interaction":"span","sentence":"I reviewed the explanation that described the rule which had confused me before.","prompt":"the rule을 수식하는 관계사절을 드래그하세요.","answer":"which had confused me before","explanation":"which절은 the rule을 선행사로 합니다."},
+    {"id":"U45-P05-1","display":"PFAL 05 · 주절 뼈대","interaction":"pairSpan","sentence":"The strategy that helped learners who often lost the main clause was surprisingly simple.","prompt":"주절의 주어와 동사를 차례로 선택하세요.","answers":["The strategy","was"],"explanation":"that절과 그 안의 who절을 모두 제외하면 The strategy was surprisingly simple이 남습니다."}
+  ],
+  "validationFlow":["U45-P01-1","U45-P02-1","U45-P03-1","U45-P04-1","U45-P05-1","REPORT"]
+}

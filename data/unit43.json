@@ -1,0 +1,11 @@
+{
+  "meta":{"schemaVersion":"0.4.0","book":"천일문 완성 트레이닝북","chapter":11,"unit":43,"title":"짝을 이루는 대명사·부사","sourceConceptPages":{"workbook":[114,115]},"status":"source_concept_pfal_batch_qa","note":"교재 Unit 개념에 맞춘 PFAL 파생문항"},
+  "items":[
+    {"id":"U43-P01-1","display":"PFAL 01 · one/the other","interaction":"pairSpan","sentence":"One explanation focuses on grammar; the other focuses on discourse.","prompt":"서로 짝을 이루는 두 대명사 표현을 선택하세요.","answers":["One","the other"],"explanation":"둘 중 하나는 one, 나머지 하나는 the other로 짝을 이룹니다.","memory":"one이 나오면 뒤에서 another/the other/others의 대응을 확인"},
+    {"id":"U43-P02-1","display":"PFAL 02 · some/others","interaction":"pairSpan","sentence":"Some students prefer visual marking, while others prefer verbal explanation.","prompt":"대조되는 두 대명사 표현을 선택하세요.","answers":["Some students","others"],"explanation":"some ... others ...는 일부와 다른 일부를 대비합니다."},
+    {"id":"U43-P03-1","display":"PFAL 03 · so/that","interaction":"pairSpan","sentence":"The sentence was so complex that the learner missed the main clause.","prompt":"정도와 결과를 연결하는 두 부사·접속 표현을 선택하세요.","answers":["so","that"],"explanation":"so + 형용사/부사 + that절은 ‘너무 ~해서 …하다’ 구조입니다."},
+    {"id":"U43-P04-1","display":"PFAL 04 · such/that","interaction":"pairSpan","sentence":"It was such a long sentence that several modifiers looked like main clauses.","prompt":"짝을 이루는 두 표현을 선택하세요.","answers":["such","that"],"explanation":"such + (a/an) + 형용사 + 명사 + that절 구조입니다."},
+    {"id":"U43-P05-1","display":"PFAL 05 · 대용 표현","interaction":"choice","sentence":"The first strategy worked well, and the second did so, too.","prompt":"did so가 대신하는 내용으로 알맞은 것을 고르세요.","choices":["worked well","the second strategy"],"answer":"worked well","explanation":"do so는 앞에 나온 동사구의 반복을 대신합니다."}
+  ],
+  "validationFlow":["U43-P01-1","U43-P02-1","U43-P03-1","U43-P04-1","U43-P05-1","REPORT"]
+}

@@ -1,0 +1,11 @@
+{
+  "meta":{"schemaVersion":"0.4.0","book":"천일문 완성 트레이닝북","chapter":11,"unit":42,"title":"짝을 이루는 접속사","sourceConceptPages":{"workbook":[112,113]},"status":"source_concept_pfal_batch_qa","note":"교재 Unit 개념에 맞춘 PFAL 파생문항"},
+  "items":[
+    {"id":"U42-P01-1","display":"PFAL 01 · not only/but also","interaction":"pairSpan","sentence":"The method not only reduces careless errors but also improves recovery after a mistake.","prompt":"짝을 이루는 두 접속 표현을 차례로 선택하세요.","answers":["not only","but also"],"explanation":"not only A but also B는 ‘A뿐만 아니라 B도’의 상관접속사 구조입니다.","memory":"첫 연결어를 보면 뒤의 짝을 예측"},
+    {"id":"U42-P02-1","display":"PFAL 02 · either/or","interaction":"pairSpan","sentence":"You can either mark the verb first or identify the clause boundary first.","prompt":"짝을 이루는 두 접속 표현을 선택하세요.","answers":["either","or"],"explanation":"either A or B는 두 대안 중 하나를 제시합니다."},
+    {"id":"U42-P03-1","display":"PFAL 03 · neither/nor","interaction":"choice","sentence":"Neither the long subject nor the inserted phrase is the main verb.","prompt":"Neither와 짝을 이루는 접속사를 고르세요.","choices":["nor","but"],"answer":"nor","explanation":"neither A nor B가 한 쌍입니다."},
+    {"id":"U42-P04-1","display":"PFAL 04 · both/and","interaction":"pairSpan","sentence":"Both careful reading and repeated retrieval improve structural awareness.","prompt":"짝을 이루는 두 표현을 선택하세요.","answers":["Both","and"],"explanation":"both A and B는 두 항을 모두 포함합니다."},
+    {"id":"U42-P05-1","display":"PFAL 05 · 병렬 형태","interaction":"choice","sentence":"The learner should not only identify the verb but also ___ why it is the verb.","prompt":"병렬에 맞는 형태를 고르세요.","choices":["explain","explaining"],"answer":"explain","explanation":"identify와 같은 동사원형 explain이 but also 뒤에 병렬로 이어집니다."}
+  ],
+  "validationFlow":["U42-P01-1","U42-P02-1","U42-P03-1","U42-P04-1","U42-P05-1","REPORT"]
+}
