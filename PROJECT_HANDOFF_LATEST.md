@@ -6,7 +6,7 @@
 - Repo/branch: `kfcccpro/1001` / `main`
 - Live: `https://kfcccpro.github.io/1001/`
 - Core: static HTML/CSS/Vanilla JS + JSON + Firebase Anonymous Auth + Firestore
-- Core version: `0.9.3`; content expansion layer: `0.9.3-batch2`
+- Core version: `0.9.3`; content expansion layer: `0.9.3-batch3`
 - Student 1명 PIN `8081`; Admin/Supervisor 1명 PIN `2007`
 - PIN은 보안 인증이 아니라 화면 분기용이다.
 
@@ -27,28 +27,35 @@
 - Chapter 02 `수식어구 뒤의 동사 찾기` — Unit 05~08
 - Chapter 03 `명사 뒤 수식어구로 인한 문제들` — Unit 09~12
 - Chapter 04 `문장 구조 파악을 어렵게 하는 것들` — Unit 13~16
+- Chapter 05 `생략이 일어난 문장 구조 이해하기` — Unit 17~20
+- Chapter 06 `어순에 주의해야 하는 구문` — Unit 21~24
 
 상태:
 - Unit 01: source-aligned validated baseline.
 - Unit 02~06: source-aligned/source-derived staged QA.
 - Unit 07: PFAL-derived staged QA.
 - Unit 08: source/PFAL mixed staged QA.
-- Unit 09~16: 사용자 제공 천일문 완성 트레이닝북 본문+해설 대조 기반 `source_aligned_batch_qa`.
+- Unit 09~16: source-aligned batch QA.
+- Unit 17~19: 교재의 단원 개념/페이지는 확인했으나 문제는 PFAL 파생 staging.
+- Unit 20: 업로드된 문제집·해설의 가정법 도치 예문/정답에 맞춘 source-aligned batch QA.
+- Unit 21~24: 교재의 단원 개념/페이지는 확인했으나 문제는 PFAL 파생 staging.
 
-Unit 09~16의 핵심:
-- U09 명사 수식어 자리
-- U10 목적어 뒤 목적격보어 찾기
-- U11 명사 뒤 여러 수식어구
-- U12 수식어구 범위
-- U13 삽입절 포함 관계사절
-- U14 착각하기 쉬운 단어의 역할
-- U15 부사의 자유로운 위치
-- U16 분사구문의 특이한 형태
+Chapter 05 source sequence:
+- U17 생략·공동구문
+- U18 생략구문
+- U19 접속사·관계사의 생략
+- U20 if 또는 if절이 생략된 가정법
+
+Chapter 06 source sequence:
+- U21 어순 변화
+- U22 문장 앞으로 이동
+- U23 문장 뒤로 이동
+- U24 이미 아는 정보+새로운 정보
 
 ## 4. 감독형 일괄 검수
 PIN `2007`에서:
 - 현재 Unit만 감독형 검수 가능
-- `Unit 01~16 한꺼번에 검수` 가능
+- `Unit 01~24 한꺼번에 검수` 가능
 - 일괄 범위 문구는 catalog에서 동적으로 계산한다.
 - 문제를 풀지 않고 이전/다음/점프, 정답·해설 열기/닫기 가능
 - 감독형에서 진도·시간·복습 스케줄을 절대 저장하지 않는다.
@@ -61,7 +68,7 @@ PIN `2007`에서:
 - Guided Repair: `repair-guides-v092.js`, `guided-repair-v092.js/css`
 - Multi-unit: `multiunit-v093b.js/css`
 - Catalog: `data/catalog.json`
-- Units: `data/unit01.json` ... `data/unit16.json`
+- Units: `data/unit01.json` ... `data/unit24.json`
 - Cloud: `cloud-v09.js/css`, `cloud-diagnostic-v091.js/css`
 - PWA: `sw.js`, `manifest.webmanifest`
 - QA: `.github/workflows/qa.yml`
@@ -77,13 +84,17 @@ PIN `2007`에서:
 - Firestore rules were reported as manually published on 2026-08-12, but PIN 2007 cloud diagnostic PASS screenshot is still pending.
 
 ## 7. Current QA state and next priority
-Batch2 code adds Chapter 03~04 / Unit 09~16, dynamic Unit 01~16 supervisor range, stronger JSON/flow QA, and SW cache `v093c`.
+Batch3 adds Chapter 05~06 / Unit 17~24, dynamic Unit 01~24 supervisor range, stronger 24-unit JSON/flow QA, and SW cache `v093d`.
 
-After batch2 deployment succeeds, unfinished priorities are:
-1. PIN 2007 `Unit 01~16 한꺼번에 검수` live content/layout check.
-2. Fix any sentence/prompt/answer/range errors found in Unit 09~16 and earlier staged Unit 02~08.
+Important content distinction:
+- Unit20 is source-aligned from the uploaded problem/solution book.
+- Unit17~19 and Unit21~24 are deliberately PFAL-derived concept staging until exact source transcription is checked. Do not call them source-validated.
+
+After batch3 deployment succeeds, unfinished priorities are:
+1. PIN 2007 `Unit 01~24 한꺼번에 검수` live content/layout check.
+2. Fix any sentence/prompt/answer/range errors; source-check PFAL staged units before final freeze.
 3. Cloud diagnostic all PASS + cross-device/active-time QA.
-4. Then expand Chapter 05~06 / Unit 17~24 as the next batch, again followed by combined review.
+4. Then expand Chapter 07~08 / Unit 25~32 as the next batch.
 
 ## 8. 자동 진행 규칙
 사용자가 `천일문 다음 작업 진행`, `다음 단계 진행`, `진행`처럼 이어서 하라고 하면 질문하지 말고:

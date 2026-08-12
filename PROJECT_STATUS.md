@@ -2,7 +2,7 @@
 
 - Project: Chunilmun PFAL
 - Core version: `0.9.3`
-- Expansion layer: `0.9.3-batch2`
+- Expansion layer: `0.9.3-batch3`
 - Canonical branch: `main`
 - Architecture: static HTML/CSS/Vanilla JS + JSON + Firebase cloud-persistence client
 - Build step: none
@@ -17,20 +17,32 @@
 - Chapter 02 `수식어구 뒤의 동사 찾기`: Unit 05~08
 - Chapter 03 `명사 뒤 수식어구로 인한 문제들`: Unit 09~12
 - Chapter 04 `문장 구조 파악을 어렵게 하는 것들`: Unit 13~16
-- PIN 2007 supervisor mode supports current-unit review and combined `Unit 01~16 한꺼번에 검수`.
-- The combined range is generated from `data/catalog.json`; future chapter additions do not require hard-coded range labels.
-- Unit 09~16 were staged from the user-provided workbook/answer-book pages and are marked `source_aligned_batch_qa` pending live combined review.
-- Earlier staging labels remain: Unit 01 validated baseline; Unit 02~06 source-aligned batch QA; Unit 07 PFAL-derived; Unit 08 mixed source/PFAL.
+- Chapter 05 `생략이 일어난 문장 구조 이해하기`: Unit 17~20
+- Chapter 06 `어순에 주의해야 하는 구문`: Unit 21~24
+- PIN 2007 supervisor mode supports current-unit review and combined `Unit 01~24 한꺼번에 검수`.
+- The combined review range is generated from `data/catalog.json`; future chapter additions do not require hard-coded range labels.
 - Student actual learning mode alone writes progress, review schedules, sessions and active time.
 - Guided Repair v0.9.2 and Compact Layout v0.9.3 remain unchanged.
 
-## Batch2 implementation checkpoint — 2026-08-12
-- Added catalog entries and JSON datasets for Unit 09~16.
-- Chapter 03 titles/source sequence: Unit09 명사 수식어 자리, Unit10 목적어 뒤의 목적격보어 찾기, Unit11 명사 뒤의 여러 수식어구, Unit12 수식어구의 범위.
-- Chapter 04 titles/source sequence: Unit13 삽입절을 포함하는 관계사절, Unit14 착각하기 쉬운 단어의 역할, Unit15 부사의 자유로운 위치, Unit16 분사구문의 특이한 형태.
-- Supervisor batch button and range header are now computed from the catalog and target Unit 01~16.
-- Static QA validates JavaScript syntax, all Unit 01~16 JSON files, metadata/catalog correspondence, global item-ID uniqueness, interaction answer contracts, and validation-flow references.
-- PWA cache key bumped to `chunilmun-pfal-t1-v093c` and Unit 09~16 assets added to the precache list.
+## Source / PFAL status
+- Unit 01: source-aligned validated baseline.
+- Unit 02~06: source-aligned/source-derived staged QA.
+- Unit 07: PFAL-derived staged QA.
+- Unit 08: source/PFAL mixed staged QA.
+- Unit 09~16: source-aligned batch QA based on uploaded workbook/answer-book pages.
+- Unit 17~19: source chapter/unit concept and page sequence confirmed; items are deliberately PFAL-derived until exact publisher-source transcription review.
+- Unit 20: source-aligned batch QA using the uploaded problem/solution book's if-omission conditional examples and answers.
+- Unit 21~24: source chapter/unit concept and page sequence confirmed; items are deliberately PFAL-derived until exact publisher-source transcription review.
+- This distinction is intentional: do not silently promote PFAL-derived staged items to source-validated status.
+
+## Batch3 implementation checkpoint — 2026-08-12
+- Added Chapter 05~06 and Unit 17~24 to `data/catalog.json`.
+- Chapter 05 source sequence confirmed: Unit17 생략·공동구문, Unit18 생략구문, Unit19 접속사·관계사의 생략, Unit20 if 또는 if절이 생략된 가정법.
+- Chapter 06 source sequence confirmed: Unit21 어순 변화, Unit22 문장 앞으로 이동, Unit23 문장 뒤로 이동, Unit24 이미 아는 정보+새로운 정보.
+- Added 8 unit datasets. Unit20 is source-aligned; the other seven are concept-aligned PFAL staging items to avoid inventing or over-republishing publisher text before exact source review.
+- Supervisor batch range is dynamic and now targets Unit 01~24.
+- Static QA validates JavaScript syntax, all Unit 01~24 JSON files, metadata/catalog correspondence, global item-ID uniqueness, interaction answer contracts, and validation-flow references.
+- PWA cache key bumped to `chunilmun-pfal-t1-v093d` and Unit 17~24 assets added to the precache list.
 
 ## Cloud / learning record
 - Firebase project: `moonma-f6dbe`
@@ -40,14 +52,14 @@
 - Actual active learning time remains the primary management metric; idle/background time must not count.
 
 ## Verification still required
-1. PIN 2007 → `Unit 01~16 한꺼번에 검수`: chapter/unit order, sentence/prompt/answer/explanation correctness, Previous/Next/jump behavior.
-2. Live content QA for newly staged Unit 09~16; correct any source transcription/range issue found during combined inspection.
-3. Revisit staged Unit 02~08 source validation, especially PFAL-derived Unit 07 and mixed Unit 08, before final content freeze.
+1. PIN 2007 → `Unit 01~24 한꺼번에 검수`: chapter/unit order, sentence/prompt/answer/explanation correctness, Previous/Next/jump behavior.
+2. Live content QA for Unit 17~24, especially source-aligned Unit20 transformation answers and the PFAL-derived concept fit of Unit17~19 / Unit21~24.
+3. Revisit earlier staged Unit 02~16 source validation before final content freeze.
 4. Desktop/tablet/mobile compact-layout visual QA while traversing the combined batch.
 5. PIN 2007 → `클라우드 연결 진단`: SDK / anonymous auth / state read-write / session read-write all PASS.
 6. PC → mobile/tablet → PC round-trip progress continuation across multiple units.
 7. Active-time and real-data admin history QA.
-8. After batch2 review, expand Chapter 05~06 (Unit 17~24) as the next content batch.
+8. After batch3 review, expand Chapter 07~08 (Unit 25~32) as the next content batch.
 
 ## Operating rules
 1. Read latest `main`, handoff, status and VERSION before editing.

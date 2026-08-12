@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "schemaVersion": "0.4.0",
+    "book": "천일문 완성 트레이닝북",
+    "chapter": 6,
+    "unit": 23,
+    "title": "문장 뒤로 이동",
+    "sourceConceptPages": {"workbook": [64, 65]},
+    "status": "source_concept_pfal_batch_qa",
+    "note": "교재 Unit의 개념과 순서에 맞춰 제작한 PFAL 파생문항이며 출판사 원문 전사본이 아님"
+  },
+  "items": [
+    {
+      "id": "U23-P01-1",
+      "display": "PFAL 01 · 가주어 it",
+      "interaction": "span",
+      "sentence": "It is difficult to remember every detail at once.",
+      "prompt": "문장 뒤로 이동한 진짜 주어를 드래그하세요.",
+      "answer": "to remember every detail at once",
+      "explanation": "앞의 It은 가주어이고 실제 내용 주어는 뒤의 to부정사구입니다.",
+      "memory": "It + be + 형용사 + to V → 진주어 to V가 뒤에 놓임"
+    },
+    {
+      "id": "U23-P02-1",
+      "display": "PFAL 02 · 가목적어 it",
+      "interaction": "span",
+      "sentence": "I find it useful to mark the main verb first.",
+      "prompt": "가목적어 it의 실제 내용에 해당하는 부분을 드래그하세요.",
+      "answer": "to mark the main verb first",
+      "explanation": "find의 목적어 자리에 가목적어 it을 두고 긴 실제 목적어 to mark ...를 뒤로 보냈습니다."
+    },
+    {
+      "id": "U23-P03-1",
+      "display": "PFAL 03 · that절 뒤 이동",
+      "interaction": "span",
+      "sentence": "It surprised the teacher that every student found the hidden subject.",
+      "prompt": "가주어 it 대신 실제 주어 역할을 하는 that절을 드래그하세요.",
+      "answer": "that every student found the hidden subject",
+      "explanation": "긴 that절이 문장 뒤로 이동하고 앞자리를 가주어 It이 채운 구조입니다."
+    },
+    {
+      "id": "U23-P04-1",
+      "display": "PFAL 04 · 긴 수식절 뒤 이동",
+      "interaction": "span",
+      "sentence": "A rumor spread through the school that the test would be postponed.",
+      "prompt": "앞의 A rumor의 내용을 뒤에서 설명하는 that절을 드래그하세요.",
+      "answer": "that the test would be postponed",
+      "explanation": "긴 that절이 명사 rumor 바로 뒤에 붙지 않고 문장 뒤에 놓여 내용을 설명합니다. 긴 성분은 이해하기 쉬운 위치로 뒤로 이동할 수 있습니다."
+    },
+    {
+      "id": "U23-P05-1",
+      "display": "PFAL 05 · 진주어 확인",
+      "interaction": "choice",
+      "sentence": "It became clear after the second example that the rule had one important exception.",
+      "prompt": "문장의 실제 주어 역할을 하는 부분을 고르세요.",
+      "choices": ["that the rule had one important exception", "after the second example"],
+      "answer": "that the rule had one important exception",
+      "explanation": "It은 가주어이며 that절이 실제 내용을 담는 진주어입니다. after ...는 부사구입니다."
+    }
+  ],
+  "validationFlow": ["U23-P01-1", "U23-P02-1", "U23-P03-1", "U23-P04-1", "U23-P05-1", "REPORT"]
+}

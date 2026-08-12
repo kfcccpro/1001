@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "0.9.3-batch2",
+  "schemaVersion": "0.9.3-batch3",
   "defaultUnit": 1,
   "chapters": [
     {
@@ -40,6 +40,26 @@
         {"unit": 14, "title": "착각하기 쉬운 단어의 역할", "file": "unit14.json", "status": "source_aligned_batch_qa"},
         {"unit": 15, "title": "부사의 자유로운 위치", "file": "unit15.json", "status": "source_aligned_batch_qa"},
         {"unit": 16, "title": "분사구문의 특이한 형태", "file": "unit16.json", "status": "source_aligned_batch_qa"}
+      ]
+    },
+    {
+      "chapter": 5,
+      "title": "생략이 일어난 문장 구조 이해하기",
+      "units": [
+        {"unit": 17, "title": "생략·공동구문", "file": "unit17.json", "status": "source_concept_pfal_batch_qa"},
+        {"unit": 18, "title": "생략구문", "file": "unit18.json", "status": "source_concept_pfal_batch_qa"},
+        {"unit": 19, "title": "접속사·관계사의 생략", "file": "unit19.json", "status": "source_concept_pfal_batch_qa"},
+        {"unit": 20, "title": "if 또는 if절이 생략된 가정법", "file": "unit20.json", "status": "source_aligned_batch_qa"}
+      ]
+    },
+    {
+      "chapter": 6,
+      "title": "어순에 주의해야 하는 구문",
+      "units": [
+        {"unit": 21, "title": "어순 변화", "file": "unit21.json", "status": "source_concept_pfal_batch_qa"},
+        {"unit": 22, "title": "문장 앞으로 이동", "file": "unit22.json", "status": "source_concept_pfal_batch_qa"},
+        {"unit": 23, "title": "문장 뒤로 이동", "file": "unit23.json", "status": "source_concept_pfal_batch_qa"},
+        {"unit": 24, "title": "이미 아는 정보+새로운 정보", "file": "unit24.json", "status": "source_concept_pfal_batch_qa"}
       ]
     }
   ]

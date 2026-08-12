@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "schemaVersion": "0.4.0",
+    "book": "천일문 완성 트레이닝북",
+    "chapter": 5,
+    "unit": 18,
+    "title": "생략구문",
+    "sourceConceptPages": {"workbook": [52, 53]},
+    "status": "source_concept_pfal_batch_qa",
+    "note": "교재 Unit의 개념과 순서에 맞춰 제작한 PFAL 파생문항이며 출판사 원문 전사본이 아님"
+  },
+  "items": [
+    {
+      "id": "U18-P01-1",
+      "display": "PFAL 01 · 접속사 뒤 생략",
+      "interaction": "text",
+      "sentence": "If necessary, read the final paragraph again.",
+      "prompt": "If necessary에서 생략된 주어+be동사를 입력하세요.",
+      "answer": "it is",
+      "explanation": "If necessary는 If it is necessary에서 주어 it과 be동사 is가 생략된 형태입니다.",
+      "memory": "접속사 뒤 주어+be동사는 문맥상 분명하면 생략될 수 있음"
+    },
+    {
+      "id": "U18-P02-1",
+      "display": "PFAL 02 · when절 축약",
+      "interaction": "text",
+      "sentence": "When ready, press the start button.",
+      "prompt": "When ready를 완전한 절로 만들 때 생략된 말을 입력하세요.",
+      "answer": "you are",
+      "explanation": "명령문의 의미상 주어가 you이므로 When you are ready에서 you are가 생략된 것으로 볼 수 있습니다."
+    },
+    {
+      "id": "U18-P03-1",
+      "display": "PFAL 03 · 대동사 뒤 생략",
+      "interaction": "choice",
+      "sentence": "I finished the first task, but my partner did not.",
+      "prompt": "did not 뒤에 의미상 생략된 내용으로 알맞은 것을 고르세요.",
+      "choices": ["finish the first task", "be my partner"],
+      "answer": "finish the first task",
+      "explanation": "did not은 앞에 나온 동사구 finished the first task의 반복을 피하기 위해 쓰였습니다."
+    },
+    {
+      "id": "U18-P04-1",
+      "display": "PFAL 04 · 비교구문 생략",
+      "interaction": "text",
+      "sentence": "Sora can type faster than I can.",
+      "prompt": "문장 끝 can 뒤에 의미상 생략된 동사원형을 입력하세요.",
+      "answer": "type",
+      "explanation": "비교구문의 뒤 절에서 앞에 나온 type의 반복을 피하기 위해 can 뒤의 type이 생략되었습니다."
+    },
+    {
+      "id": "U18-P05-1",
+      "display": "PFAL 05 · 양보절 축약",
+      "interaction": "text",
+      "sentence": "Although nervous, he answered the question clearly.",
+      "prompt": "Although nervous를 완전한 절로 복원할 때 생략된 말을 입력하세요.",
+      "answer": "he was",
+      "explanation": "주절의 주어가 he이고 nervous가 상태를 나타내므로 Although he was nervous가 축약된 형태입니다."
+    }
+  ],
+  "validationFlow": ["U18-P01-1", "U18-P02-1", "U18-P03-1", "U18-P04-1", "U18-P05-1", "REPORT"]
+}

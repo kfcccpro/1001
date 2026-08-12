@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "schemaVersion": "0.4.0",
+    "book": "천일문 완성 트레이닝북",
+    "chapter": 5,
+    "unit": 20,
+    "title": "if 또는 if절이 생략된 가정법",
+    "sourcePages": {"workbook": [56, 57], "answerBook": [40, 41]},
+    "status": "source_aligned_batch_qa"
+  },
+  "items": [
+    {
+      "id": "U20-Q01-1",
+      "display": "Q01 · 어법",
+      "interaction": "choice",
+      "sentence": "Were I a student having hardships because of the current situation, education ___ not be important until the personal situation got resolved.",
+      "prompt": "가정법 문맥에 알맞은 조동사를 고르세요.",
+      "choices": ["will", "would"],
+      "answer": "would",
+      "explanation": "Were I a student ...는 if가 생략된 가정법 과거 조건절입니다. 주절에는 조동사의 과거형 would가 알맞습니다.",
+      "memory": "Were + S ... = If + S + were ..."
+    },
+    {
+      "id": "U20-Q01-2",
+      "display": "Q01 · if절 복원",
+      "interaction": "text",
+      "sentence": "Were I a student having hardships because of the current situation, education would not be important until the personal situation got resolved.",
+      "prompt": "문장 앞의 도치된 조건절을 if를 포함한 절로 바꿔 입력하세요.",
+      "answer": "if I were a student having hardships because of the current situation",
+      "explanation": "가정법에서 if가 생략되면 were가 주어 앞으로 이동할 수 있습니다. Were I ...를 If I were ...로 복원합니다."
+    },
+    {
+      "id": "U20-Q02-1",
+      "display": "Q02 · 과거완료 도치",
+      "interaction": "text",
+      "sentence": "In my own travels, had I taken packaged tours, I would never have had the eye-opening experiences that have added so much to my appreciation of human diversity.",
+      "prompt": "had I taken packaged tours를 if절로 바꿔 입력하세요.",
+      "answer": "if I had taken packaged tours",
+      "explanation": "가정법 과거완료에서 if가 생략되면 had가 주어 앞으로 도치됩니다. had I taken ...는 if I had taken ...로 복원합니다.",
+      "memory": "Had + S + p.p. = If + S + had + p.p."
+    },
+    {
+      "id": "U20-Q03-1",
+      "display": "Q03 · 도치 시작어",
+      "interaction": "choice",
+      "sentence": "___ everyone in our country worked just one year more beyond their expected age of retirement, we could have compensated for much of the shortfall in the national finances.",
+      "prompt": "if가 생략된 가정법 과거완료 문장을 완성할 말을 고르세요.",
+      "choices": ["Had", "Have"],
+      "answer": "Had",
+      "explanation": "과거 사실의 반대를 가정하는 문맥이며 if가 생략되어 Had everyone ...의 도치 구조가 필요합니다."
+    },
+    {
+      "id": "U20-Q04-1",
+      "display": "Q04 · should 도치",
+      "interaction": "text",
+      "sentence": "Should you get an urgent request during the day, schedule it accordingly by reshuffling your already scheduled tasks and making the urgent task a priority.",
+      "prompt": "Should you get an urgent request during the day를 if절로 바꿔 입력하세요.",
+      "answer": "if you should get an urgent request during the day",
+      "explanation": "Should + S + V는 if가 생략된 조건절 도치입니다. If + S + should + V로 복원할 수 있습니다.",
+      "memory": "Should + S + V = If + S + should + V"
+    },
+    {
+      "id": "U20-Q04-2",
+      "display": "Q04 · 지시 대상",
+      "interaction": "span",
+      "sentence": "Should you get an urgent request during the day, schedule it accordingly by reshuffling your already scheduled tasks and making the urgent task a priority.",
+      "prompt": "it이 가리키는 것을 드래그하세요.",
+      "answer": "an urgent request",
+      "explanation": "schedule it accordingly는 ‘그 긴급한 요청을 상황에 맞게 일정에 반영하라’는 뜻이므로 it은 an urgent request를 가리킵니다."
+    }
+  ],
+  "validationFlow": ["U20-Q01-1", "U20-Q01-2", "U20-Q02-1", "U20-Q03-1", "U20-Q04-1", "U20-Q04-2", "REPORT"]
+}

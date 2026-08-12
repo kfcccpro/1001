@@ -30,17 +30,17 @@ jobs:
           test -f index.html
           test -f multiunit-v093b.css
           test -f data/catalog.json
-          for n in 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16; do test -f "data/unit${n}.json"; done
+          for n in 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24; do test -f "data/unit${n}.json"; done
           test -f cloud-v09.css
       - name: Validate JSON catalogs and flows
         run: |
           node - <<'NODE'
           const fs = require('fs');
-          const files = ['data/catalog.json', ...Array.from({length:16}, (_,i)=>`data/unit${String(i+1).padStart(2,'0')}.json`)];
+          const files = ['data/catalog.json', ...Array.from({length:24}, (_,i)=>`data/unit${String(i+1).padStart(2,'0')}.json`)];
           for (const file of files) JSON.parse(fs.readFileSync(file, 'utf8'));
           const catalog = JSON.parse(fs.readFileSync('data/catalog.json', 'utf8'));
           const units = catalog.chapters.flatMap(c => c.units || []);
-          if (units.length !== 16) throw new Error(`catalog unit count=${units.length}`);
+          if (units.length !== 24) throw new Error(`catalog unit count=${units.length}`);
           const unitNos = new Set();
           const globalIds = new Set();
           for (const unit of units) {
@@ -61,5 +61,5 @@ jobs:
             }
             for (const id of (data.validationFlow || []).filter(x => x !== 'REPORT')) if (!ids.has(id)) throw new Error(`${file}: missing flow item ${id}`);
           }
-          console.log(`Catalog + Unit 01~16 JSON PASS · ${globalIds.size} items`);
+          console.log(`Catalog + Unit 01~24 JSON PASS · ${globalIds.size} items`);
           NODE

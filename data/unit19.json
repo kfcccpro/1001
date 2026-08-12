@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "schemaVersion": "0.4.0",
+    "book": "천일문 완성 트레이닝북",
+    "chapter": 5,
+    "unit": 19,
+    "title": "접속사·관계사의 생략",
+    "sourceConceptPages": {"workbook": [54, 55]},
+    "status": "source_concept_pfal_batch_qa",
+    "note": "교재 Unit의 개념과 순서에 맞춰 제작한 PFAL 파생문항이며 출판사 원문 전사본이 아님"
+  },
+  "items": [
+    {
+      "id": "U19-P01-1",
+      "display": "PFAL 01 · 목적격 관계사 생략",
+      "interaction": "span",
+      "sentence": "The book I borrowed yesterday explains the rule clearly.",
+      "prompt": "The book을 수식하며 목적격 관계대명사가 생략된 절을 드래그하세요.",
+      "answer": "I borrowed yesterday",
+      "explanation": "The book과 I borrowed 사이에는 목적격 관계대명사 that 또는 which가 생략되어 있습니다.",
+      "memory": "관계사절 안에서 목적어 자리가 비어 있으면 목적격 관계사가 생략될 수 있음"
+    },
+    {
+      "id": "U19-P02-1",
+      "display": "PFAL 02 · 명사절 접속사 생략",
+      "interaction": "choice",
+      "sentence": "I think you already know the answer.",
+      "prompt": "think와 you 사이에 생략 가능한 접속사로 알맞은 것을 고르세요.",
+      "choices": ["that", "because"],
+      "answer": "that",
+      "explanation": "think의 목적어 역할을 하는 완전한 절 you already know the answer 앞에서 접속사 that이 생략될 수 있습니다."
+    },
+    {
+      "id": "U19-P03-1",
+      "display": "PFAL 03 · 관계사절 범위",
+      "interaction": "span",
+      "sentence": "The student we met after class asked a useful question.",
+      "prompt": "The student를 수식하며 관계대명사가 생략된 절을 드래그하세요.",
+      "answer": "we met after class",
+      "explanation": "we met after class에서 met의 목적어가 비어 있으며, 그 자리에 The student를 받는 whom/that이 생략되어 있습니다."
+    },
+    {
+      "id": "U19-P04-1",
+      "display": "PFAL 04 · 관계부사 생략",
+      "interaction": "choice",
+      "sentence": "The day we first practiced this method was memorable.",
+      "prompt": "The day와 we 사이에 의미상 생략된 관계부사로 알맞은 것을 고르세요.",
+      "choices": ["when", "because"],
+      "answer": "when",
+      "explanation": "시간을 나타내는 선행사 The day 뒤에서 관계부사 when이 생략된 구조입니다."
+    },
+    {
+      "id": "U19-P05-1",
+      "display": "PFAL 05 · 생략된 관계대명사",
+      "interaction": "span",
+      "sentence": "There is one thing I want you to remember.",
+      "prompt": "one thing을 수식하는 관계사절을 드래그하세요.",
+      "answer": "I want you to remember",
+      "explanation": "one thing 뒤에 목적격 관계대명사 that이 생략되어 있으며, I want you to remember 전체가 one thing을 수식합니다."
+    }
+  ],
+  "validationFlow": ["U19-P01-1", "U19-P02-1", "U19-P03-1", "U19-P04-1", "U19-P05-1", "REPORT"]
+}

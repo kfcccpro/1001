@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "schemaVersion": "0.4.0",
+    "book": "천일문 완성 트레이닝북",
+    "chapter": 6,
+    "unit": 21,
+    "title": "어순 변화",
+    "sourceConceptPages": {"workbook": [60, 61]},
+    "status": "source_concept_pfal_batch_qa",
+    "note": "교재 Unit의 개념과 순서에 맞춰 제작한 PFAL 파생문항이며 출판사 원문 전사본이 아님"
+  },
+  "items": [
+    {
+      "id": "U21-P01-1",
+      "display": "PFAL 01 · 장소어구 도치",
+      "interaction": "text",
+      "sentence": "On the wall hung a large map of the city.",
+      "prompt": "이 문장을 일반적인 주어-동사 어순으로 바꿔 입력하세요.",
+      "answer": "A large map of the city hung on the wall.",
+      "explanation": "장소어구 On the wall이 앞으로 이동하면서 동사 hung가 주어 a large map of the city보다 먼저 나온 도치 구조입니다.",
+      "memory": "장소어구 + V + S 형태가 나타날 수 있음"
+    },
+    {
+      "id": "U21-P02-1",
+      "display": "PFAL 02 · here 도치",
+      "interaction": "choice",
+      "sentence": "Here comes the bus.",
+      "prompt": "문장의 실제 주어를 고르세요.",
+      "choices": ["the bus", "Here"],
+      "answer": "the bus",
+      "explanation": "Here가 문장 앞으로 나오며 comes가 주어 the bus보다 앞에 놓였습니다. 실제 주어는 the bus입니다."
+    },
+    {
+      "id": "U21-P03-1",
+      "display": "PFAL 03 · 부정어 도치",
+      "interaction": "choice",
+      "sentence": "Never have I seen such a clear example.",
+      "prompt": "Never가 문장 앞으로 나왔을 때 나타난 도치 어순을 고르세요.",
+      "choices": ["have I seen", "I have seen"],
+      "answer": "have I seen",
+      "explanation": "부정 의미의 Never가 문두에 오면 조동사 have가 주어 I보다 앞으로 이동합니다.",
+      "memory": "부정어 문두 이동 → 조동사/주어 도치"
+    },
+    {
+      "id": "U21-P04-1",
+      "display": "PFAL 04 · only 도치",
+      "interaction": "choice",
+      "sentence": "Only then did she understand the point.",
+      "prompt": "Only then 뒤의 올바른 도치 어순을 고르세요.",
+      "choices": ["did she understand", "she did understand"],
+      "answer": "did she understand",
+      "explanation": "제한 의미의 Only then이 문두에 오면서 조동사 did가 주어 she 앞으로 이동했습니다."
+    },
+    {
+      "id": "U21-P05-1",
+      "display": "PFAL 05 · 긴 주어 찾기",
+      "interaction": "span",
+      "sentence": "At the end of the narrow street stood a small bookstore.",
+      "prompt": "도치된 문장의 실제 주어를 드래그하세요.",
+      "answer": "a small bookstore",
+      "explanation": "장소어구 At the end ...가 앞에 나오고 동사 stood 다음에 실제 주어 a small bookstore가 놓였습니다."
+    }
+  ],
+  "validationFlow": ["U21-P01-1", "U21-P02-1", "U21-P03-1", "U21-P04-1", "U21-P05-1", "REPORT"]
+}

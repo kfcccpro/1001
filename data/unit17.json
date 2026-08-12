@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "schemaVersion": "0.4.0",
+    "book": "천일문 완성 트레이닝북",
+    "chapter": 5,
+    "unit": 17,
+    "title": "생략·공동구문",
+    "sourceConceptPages": {"workbook": [50, 51]},
+    "status": "source_concept_pfal_batch_qa",
+    "note": "교재 Unit의 개념과 순서에 맞춰 제작한 PFAL 파생문항이며 출판사 원문 전사본이 아님"
+  },
+  "items": [
+    {
+      "id": "U17-P01-1",
+      "display": "PFAL 01 · 공통 동사 생략",
+      "interaction": "text",
+      "sentence": "Mina ordered tea, and Joon coffee.",
+      "prompt": "and 뒤 Joon 다음에서 생략된 동사를 입력하세요.",
+      "answer": "ordered",
+      "explanation": "앞 절의 ordered가 뒤 절에도 공통으로 적용됩니다. 완전한 뜻은 Joon ordered coffee입니다.",
+      "memory": "반복되는 성분은 두 번째 절에서 생략될 수 있음"
+    },
+    {
+      "id": "U17-P02-1",
+      "display": "PFAL 02 · be동사 생략",
+      "interaction": "text",
+      "sentence": "The first proposal was practical, and the second expensive.",
+      "prompt": "the second 다음에서 생략된 동사를 입력하세요.",
+      "answer": "was",
+      "explanation": "두 절이 같은 구조로 병렬되어 뒤 절에서는 반복되는 was가 생략되었습니다.",
+      "structure": "The first proposal was practical / and the second (was) expensive"
+    },
+    {
+      "id": "U17-P03-1",
+      "display": "PFAL 03 · 공동 목적어",
+      "interaction": "pairSpan",
+      "sentence": "The teacher praised and encouraged the nervous student.",
+      "prompt": "하나의 목적어 the nervous student를 공동으로 취하는 두 동사를 차례로 선택하세요.",
+      "answers": ["praised", "encouraged"],
+      "explanation": "praised와 encouraged가 하나의 목적어 the nervous student를 공유하는 공동구문입니다.",
+      "memory": "V1 and V2 + O → 두 동사가 하나의 목적어를 공유할 수 있음"
+    },
+    {
+      "id": "U17-P04-1",
+      "display": "PFAL 04 · 문장 복원",
+      "interaction": "choice",
+      "sentence": "Jisu likes classical music, and Mina jazz.",
+      "prompt": "뒤 절을 생략 없이 복원한 것으로 알맞은 것을 고르세요.",
+      "choices": ["Mina likes jazz.", "Mina is jazz."],
+      "answer": "Mina likes jazz.",
+      "explanation": "뒤 절에서는 앞 절과 반복되는 likes가 생략되었습니다."
+    },
+    {
+      "id": "U17-P05-1",
+      "display": "PFAL 05 · 조동사 뒤 생략",
+      "interaction": "choice",
+      "sentence": "The first team can finish today, and the second can, too.",
+      "prompt": "두 번째 can 뒤에 의미상 생략된 내용으로 알맞은 것을 고르세요.",
+      "choices": ["finish today", "be the second"],
+      "answer": "finish today",
+      "explanation": "조동사 can 뒤에서 앞에 나온 동사구 finish today가 반복되므로 생략되었습니다."
+    }
+  ],
+  "validationFlow": ["U17-P01-1", "U17-P02-1", "U17-P03-1", "U17-P04-1", "U17-P05-1", "REPORT"]
+}
