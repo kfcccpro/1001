@@ -33,10 +33,22 @@ jobs:
           test -f data/catalog.json
           for n in $(seq -w 1 48); do test -f "data/unit${n}.json"; done
           test -f cloud-v09.css
-      - name: Validate JSON catalogs and flows
+      - name: Validate JSON catalogs, flows and selectable answers
         run: |
           node - <<'NODE'
           const fs=require('fs');
+          const norm=s=>String(s??'').replace(/[‘’“”]/g,"'").replace(/\s+/g,' ').trim().toLowerCase();
+          const tokenise=s=>String(s).match(/[A-Za-z]+(?:[’'][A-Za-z]+)?|\d+(?:,\d+)*|[^\sA-Za-z\d]/g)||[];
+          const tokensToText=(tokens,start,end)=>tokens.slice(Math.min(start,end),Math.max(start,end)+1).join(' ')
+            .replace(/\s+([,.;:!?\)\]\}])/g,'$1')
+            .replace(/([\(\[\{‘“])\s+/g,'$1')
+            .replace(/\s*-\s*/g,'-')
+            .replace(/\s+([’”])/g,'$1');
+          const selectable=(sentence,target)=>{
+            const tokens=tokenise(sentence), wanted=norm(target);
+            for(let s=0;s<tokens.length;s++) for(let e=s;e<tokens.length;e++) if(norm(tokensToText(tokens,s,e))===wanted) return true;
+            return false;
+          };
           const files=['data/catalog.json',...Array.from({length:48},(_,i)=>`data/unit${String(i+1).padStart(2,'0')}.json`)];
           for(const file of files) JSON.parse(fs.readFileSync(file,'utf8'));
           const catalog=JSON.parse(fs.readFileSync('data/catalog.json','utf8'));
@@ -53,11 +65,23 @@ jobs:
               if(!item.id||!item.sentence||!item.prompt||!item.interaction) throw new Error(`${file}: incomplete item`);
               if(ids.has(item.id)||globalIds.has(item.id)) throw new Error(`${file}: duplicate item id ${item.id}`);
               ids.add(item.id);globalIds.add(item.id);
-              if(item.interaction==='choice'&&(!Array.isArray(item.choices)||!item.choices.length||item.answer==null)) throw new Error(`${file}: bad choice ${item.id}`);
-              if(item.interaction==='pairSpan'&&(!Array.isArray(item.answers)||item.answers.length!==2)) throw new Error(`${file}: bad pairSpan ${item.id}`);
-              if((item.interaction==='span'||item.interaction==='text')&&item.answer==null) throw new Error(`${file}: missing answer ${item.id}`);
+              if(item.interaction==='choice'){
+                if(!Array.isArray(item.choices)||!item.choices.length||item.answer==null) throw new Error(`${file}: bad choice ${item.id}`);
+                if(!item.choices.some(c=>norm(c)===norm(item.answer))) throw new Error(`${file}: choice answer not in choices ${item.id}`);
+              }
+              if(item.interaction==='span'){
+                if(item.answer==null) throw new Error(`${file}: missing answer ${item.id}`);
+                if(!selectable(item.sentence,item.answer)) throw new Error(`${file}: span answer not selectable ${item.id} => ${item.answer}`);
+              }
+              if(item.interaction==='pairSpan'){
+                if(!Array.isArray(item.answers)||item.answers.length!==2) throw new Error(`${file}: bad pairSpan ${item.id}`);
+                for(const answer of item.answers) if(!selectable(item.sentence,answer)) throw new Error(`${file}: pairSpan answer not selectable ${item.id} => ${answer}`);
+              }
+              if(item.interaction==='text'&&item.answer==null) throw new Error(`${file}: missing answer ${item.id}`);
             }
-            for(const id of (data.validationFlow||[]).filter(x=>x!=='REPORT')) if(!ids.has(id)) throw new Error(`${file}: missing flow item ${id}`);
+            const flow=(data.validationFlow||[]).filter(x=>x!=='REPORT');
+            for(const id of flow) if(!ids.has(id)) throw new Error(`${file}: missing flow item ${id}`);
+            if(new Set(flow).size!==flow.length) throw new Error(`${file}: duplicate validationFlow id`);
           }
-          console.log(`Catalog + Unit 01~48 JSON PASS · ${globalIds.size} items`);
+          console.log(`Catalog + Unit 01~48 semantic QA PASS · ${globalIds.size} items`);
           NODE

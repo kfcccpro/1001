@@ -44,11 +44,44 @@ async function selectUnitV093b(unitNo, {persist = true} = {}) {
   if (persist) localStorage.setItem(MULTIUNIT_SELECTED_KEY, String(data.meta.unit));
   return data;
 }
+function savedUnitNoV093b() {
+  const saved = Number(localStorage.getItem(MULTIUNIT_SELECTED_KEY));
+  return Number.isInteger(saved) && saved > 0 ? saved : null;
+}
+function needsSelectedUnitRestoreV093b() {
+  const saved = savedUnitNoV093b();
+  if (!saved || !state.catalog) return false;
+  return Number(state.unit?.meta?.unit || 1) !== saved && catalogUnitsV093b().some(u => Number(u.unit) === saved);
+}
+async function restoreSelectedUnitV093b() {
+  await loadCatalogV093b();
+  const saved = savedUnitNoV093b();
+  if (!saved || !catalogUnitsV093b().some(u => Number(u.unit) === saved)) return;
+  if (Number(state.unit?.meta?.unit || 1) !== saved) await selectUnitV093b(saved, {persist:false});
+}
 function restoreBatchSupervisorV093b() {
   if (!state.batchSupervisorMode) return;
   if (state.batchSupervisorBackup) { state.unit = state.batchSupervisorBackup.unit; state.itemMap = state.batchSupervisorBackup.itemMap; }
   state.batchSupervisorMode = false; state.batchSupervisorIds = []; state.batchSupervisorBackup = null;
 }
+
+// Span-selection text reconstruction: keep ordinary English hyphenation intact.
+tokensToText = function(tokens, start, end) {
+  if (start == null || end == null) return '';
+  return tokens.slice(Math.min(start,end), Math.max(start,end)+1).join(' ')
+    .replace(/\s+([,.;:!?\)\]\}])/g,'$1')
+    .replace(/([\(\[\{‘“])\s+/g,'$1')
+    .replace(/\s*-\s*/g,'-')
+    .replace(/\s+([’”])/g,'$1');
+};
+renderTokens = function(tokens) {
+  return tokens.map((t,i) => {
+    const next = tokens[i+1];
+    const noSpaceAfter = /^[,.;:!?\)\]\}’”]$/.test(next || '') || t === '-' || next === '-';
+    return `<span class="token" data-i="${i}">${escapeHtml(t)}</span>${noSpaceAfter?'':' '}`;
+  }).join('');
+};
+
 const supervisorIdsBeforeMultiunitV093b = supervisorIds;
 supervisorIds = function() { return state.batchSupervisorMode ? state.batchSupervisorIds : supervisorIdsBeforeMultiunitV093b(); };
 async function startBatchSupervisorReviewV093b() {
@@ -85,7 +118,10 @@ function bindUnitCatalogButtonsV093b(container, afterSelect) {
 }
 const renderStudentHomeBeforeMultiunitV093b = renderStudentHome;
 renderStudentHome = function() {
-  if (!state.catalog) { loadCatalogV093b().then(renderStudentHome).catch(err => { console.error(err); renderStudentHomeBeforeMultiunitV093b(); }); return; }
+  if (!state.catalog || needsSelectedUnitRestoreV093b()) {
+    restoreSelectedUnitV093b().then(renderStudentHome).catch(err => { console.error(err); renderStudentHomeBeforeMultiunitV093b(); });
+    return;
+  }
   const due = dueReviews().length; const doneToday = isUnitDoneToday(); const streak = streakCount(); const unitCount = unitLearningIds().length;
   const meta = state.unit?.meta || {unit:1,chapter:1,title:'주어의 형태'};
   app.innerHTML = `<section class="screen"><div class="center"><div class="home-card multiunit-home">
@@ -101,8 +137,12 @@ renderStudentHome = function() {
 };
 const renderAdminBeforeMultiunitV093b = renderAdmin;
 renderAdmin = function() {
-  restoreBatchSupervisorV093b(); renderAdminBeforeMultiunitV093b();
-  if (!state.catalog) { loadCatalogV093b().then(()=>{ if(state.mode==='admin'&&!state.supervisorMode) renderAdmin(); }).catch(console.error); return; }
+  restoreBatchSupervisorV093b();
+  if (!state.catalog || needsSelectedUnitRestoreV093b()) {
+    restoreSelectedUnitV093b().then(renderAdmin).catch(err => { console.error(err); renderAdminBeforeMultiunitV093b(); });
+    return;
+  }
+  renderAdminBeforeMultiunitV093b();
   const card=document.querySelector('.home-card'), actions=document.querySelector('.admin-actions');
   if(!card||!actions||document.getElementById('multiunitAdminCatalog')) return;
   const meta=state.unit?.meta||{unit:1,chapter:1,title:'주어의 형태'}, scope=catalogScopeV093b();
@@ -115,5 +155,23 @@ renderAdmin = function() {
   actions.insertBefore(batch,actions.firstChild); bindUnitCatalogButtonsV093b(panel,renderAdmin);
 };
 const renderReportBeforeMultiunitV093b = renderReport;
-renderReport = function() { renderReportBeforeMultiunitV093b(); const label=unitNoLabel(state.unit?.meta?.unit||1); if(state.runMode==='validation'){const h1=document.querySelector('.report-card h1');if(h1)h1.innerHTML=`${escapeHtml(label)}을<br>끝까지 확인했습니다.`;} };
+renderReport = function() {
+  renderReportBeforeMultiunitV093b();
+  const label=unitNoLabel(state.unit?.meta?.unit||1);
+  if(state.runMode==='validation') {
+    const h1=document.querySelector('.report-card h1');
+    if(h1) h1.innerHTML=`${escapeHtml(label)}을<br>끝까지 확인했습니다.`;
+    return;
+  }
+  const newDone=state.results.filter(r=>r.context==='new').length;
+  const growthStrong=document.querySelector('.growth-card strong');
+  if(growthStrong && newDone) growthStrong.textContent=`${label} ${newDone}문항 완료`;
+  const planValues=[...document.querySelectorAll('.report-card .today-plan > div')];
+  const tomorrowBox=planValues.find(box=>box.querySelector('span')?.textContent?.includes('내일 다시'));
+  const tomorrowStrong=tomorrowBox?.querySelector('strong');
+  if(tomorrowStrong && !state.demo) {
+    const tomorrowForUnit=reviewQueue().filter(r=>!r.done && r.due===localDate(1) && state.itemMap.has(r.itemId)).length;
+    tomorrowStrong.textContent=String(tomorrowForUnit);
+  }
+};
 loadCatalogV093b().catch(err => console.error('multiunit catalog preload failed', err));
