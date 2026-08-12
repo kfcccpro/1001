@@ -65,21 +65,21 @@ function restoreBatchSupervisorV093b() {
   state.batchSupervisorMode = false; state.batchSupervisorIds = []; state.batchSupervisorBackup = null;
 }
 
-// Span tokenization keeps common abbreviations, quoted phrases, contractions and numeric suffixes selectable as written.
+// Span tokenization keeps compounds, abbreviations, quoted phrases, contractions and numeric suffixes selectable as written.
 tokenise = function(sentence) {
-  return String(sentence || '').match(/(?:[A-Za-z]\.){2,}|‘[^’]+’|“[^”]+”|'[^']+'|[A-Za-z]+(?:[’'][A-Za-z]+)?|\d+(?:,\d+)*(?:[A-Za-z]+)?|[^\sA-Za-z\d]/g) || [];
+  return String(sentence || '').match(/[A-Za-z0-9]+(?:-[A-Za-z0-9]+)+|(?:[A-Za-z]\.){2,}|‘[^’]+’|“[^”]+”|'[^']+'|[A-Za-z]+(?:[’'][A-Za-z]+)?|\d+(?:,\d+)*(?:[A-Za-z]+)?|[^\sA-Za-z\d]/g) || [];
 };
 tokensToText = function(tokens, start, end) {
   if (start == null || end == null) return '';
   return tokens.slice(Math.min(start,end), Math.max(start,end)+1).join(' ')
     .replace(/\s+([,.;:!?\)\]\}])/g,'$1')
     .replace(/([\(\[\{])\s+/g,'$1')
-    .replace(/\s*-\s*/g,'-');
+    .replace(/\s+-/g,'-');
 };
 renderTokens = function(tokens) {
   return tokens.map((t,i) => {
     const next = tokens[i+1];
-    const noSpaceAfter = /^[,.;:!?\)\]\}]$/.test(next || '') || t === '-' || next === '-';
+    const noSpaceAfter = /^[,.;:!?\)\]\}]$/.test(next || '') || next === '-';
     return `<span class="token" data-i="${i}">${escapeHtml(t)}</span>${noSpaceAfter?'':' '}`;
   }).join('');
 };
