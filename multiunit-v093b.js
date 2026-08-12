@@ -65,7 +65,7 @@ function restoreBatchSupervisorV093b() {
   state.batchSupervisorMode = false; state.batchSupervisorIds = []; state.batchSupervisorBackup = null;
 }
 
-// Span-selection reconstruction keeps hyphenated words and numeric forms such as mid-1960s intact.
+// Span-selection reconstruction keeps hyphenated/numeric forms and quoted words intact.
 tokenise = function(sentence) {
   return String(sentence || '').match(/[A-Za-z]+(?:[’'][A-Za-z]+)?|\d+(?:,\d+)*(?:[A-Za-z]+)?|[^\sA-Za-z\d]/g) || [];
 };
@@ -75,12 +75,14 @@ tokensToText = function(tokens, start, end) {
     .replace(/\s+([,.;:!?\)\]\}])/g,'$1')
     .replace(/([\(\[\{‘“])\s+/g,'$1')
     .replace(/\s*-\s*/g,'-')
+    .replace(/'\s+([A-Za-z])/g,"'$1")
+    .replace(/([A-Za-z])\s+'/g,"$1'")
     .replace(/\s+([’”])/g,'$1');
 };
 renderTokens = function(tokens) {
   return tokens.map((t,i) => {
     const next = tokens[i+1];
-    const noSpaceAfter = /^[,.;:!?\)\]\}’”]$/.test(next || '') || t === '-' || next === '-';
+    const noSpaceAfter = /^[,.;:!?\)\]\}’”]$/.test(next || '') || t === '-' || next === '-' || t === "'" || next === "'";
     return `<span class="token" data-i="${i}">${escapeHtml(t)}</span>${noSpaceAfter?'':' '}`;
   }).join('');
 };
