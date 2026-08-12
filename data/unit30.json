@@ -1,0 +1,10 @@
+{
+  "meta":{"schemaVersion":"0.4.0","book":"천일문 완성 트레이닝북","chapter":8,"unit":30,"title":"as ~, than ~ 이하의 반복어구 생략","sourcePages":{"workbook":[82,83],"answerBook":[59,60]},"status":"source_aligned_batch_qa"},
+  "items":[
+    {"id":"U30-Q01-1","display":"Q01 · as 이하 생략","interaction":"text","sentence":"Grown children can no longer count on their parents to take care of their babies, since their parents are working just as hard as they are.","prompt":"문장 끝 they are 뒤에 의미상 반복되어 생략된 말을 입력하세요.","answer":"working hard","explanation":"원급 비교의 두 번째 as 뒤에서는 앞 절의 반복어구가 생략될 수 있습니다. they are working hard가 완전한 형태입니다.","memory":"as + 형용사/부사 + as + S + 조동사/be → 뒤 반복어구 복원"},
+    {"id":"U30-Q02-1","display":"Q02 · clear 생략","interaction":"text","sentence":"When you make a presentation, your final words should be as clear as the message on an advertisement in a national magazine is.","prompt":"문장 끝 is 뒤에 의미상 생략된 보어를 입력하세요.","answer":"clear","explanation":"as clear as ... is clear에서 반복되는 clear가 생략된 구조입니다."},
+    {"id":"U30-Q03-1","display":"Q03 · than 이하 생략","interaction":"text","sentence":"With the wrong attitude, we would spend more time on identifying what's wrong with other people and ourselves than we would on identifying what's right.","prompt":"than절의 would 뒤에 의미상 생략된 동사구를 입력하세요.","answer":"spend time","explanation":"앞 절의 spend more time이 반복되므로 than절에서는 핵심 동사구가 생략되어 있습니다."},
+    {"id":"U30-P04-1","display":"PFAL · 대동사","interaction":"choice","sentence":"Jina studies longer than her brother does.","prompt":"does가 대신하는 내용을 고르세요.","choices":["studies","is her brother"],"answer":"studies","explanation":"비교절의 does는 앞의 일반동사 studies의 반복을 대신합니다."}
+  ],
+  "validationFlow":["U30-Q01-1","U30-Q02-1","U30-Q03-1","U30-P04-1","REPORT"]
+}

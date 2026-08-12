@@ -1,0 +1,11 @@
+{
+  "meta":{"schemaVersion":"0.4.0","book":"천일문 완성 트레이닝북","chapter":7,"unit":27,"title":"등위접속사가 여러 개인 문장","sourceConceptPages":{"workbook":[74,75]},"status":"source_concept_pfal_batch_qa","note":"교재 Unit 개념에 맞춘 PFAL 파생문항"},
+  "items":[
+    {"id":"U27-P01-1","display":"PFAL 01 · 두 층위의 and","interaction":"pairSpan","sentence":"The coach explained the plan and checked the schedule, and the players asked questions and took notes.","prompt":"첫 번째 절의 두 본동사를 선택하세요.","answers":["explained","checked"],"explanation":"첫 and는 첫 절 내부의 동사를 연결하고, 가운데 and는 두 절 전체를 연결합니다."},
+    {"id":"U27-P01-2","display":"PFAL 01 · 두 번째 절","interaction":"pairSpan","sentence":"The coach explained the plan and checked the schedule, and the players asked questions and took notes.","prompt":"두 번째 절의 두 본동사를 선택하세요.","answers":["asked","took"],"explanation":"마지막 and는 asked와 took을 병렬 연결합니다."},
+    {"id":"U27-P02-1","display":"PFAL 02 · and / but 구분","interaction":"choice","sentence":"The method is simple and fast, but it requires careful attention and repeated practice.","prompt":"문장 전체의 두 절을 연결하는 접속사를 고르세요.","choices":["and","but"],"answer":"but","explanation":"첫 and는 형용사 simple과 fast를, 마지막 and는 명사구 careful attention과 repeated practice를 연결합니다. 두 절 전체는 but이 연결합니다."},
+    {"id":"U27-P03-1","display":"PFAL 03 · or의 범위","interaction":"pairSpan","sentence":"You can review the rule or solve another example, and then you can compare your answer or check the explanation.","prompt":"첫 번째 or와 두 번째 or가 각각 연결하는 동사구의 첫 항을 차례로 선택하세요.","answers":["review the rule","compare your answer"],"explanation":"두 or는 서로 다른 절 내부에서 각각 선택지를 병렬 연결합니다."},
+    {"id":"U27-P04-1","display":"PFAL 04 · 구조 복원","interaction":"choice","sentence":"She read the sentence and marked the verb, but she did not explain the clause or identify the modifier.","prompt":"but 뒤 절에서 or로 연결된 두 동사구의 공통 주어는 무엇인가요?","choices":["she","the clause"],"answer":"she","explanation":"but 뒤 절의 주어 she가 did not explain과 (did not) identify에 공통으로 적용됩니다."}
+  ],
+  "validationFlow":["U27-P01-1","U27-P01-2","U27-P02-1","U27-P03-1","U27-P04-1","REPORT"]
+}

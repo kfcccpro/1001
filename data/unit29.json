@@ -1,0 +1,11 @@
+{
+  "meta":{"schemaVersion":"0.4.0","book":"천일문 완성 트레이닝북","chapter":8,"unit":29,"title":"비교구문","sourcePages":{"workbook":[80,81],"answerBook":[57,58]},"status":"source_aligned_batch_qa"},
+  "items":[
+    {"id":"U29-Q01-1","display":"Q01 · as ~ as","interaction":"text","sentence":"I know just as little about how to build a robot as the nineteen- and twenty-year-old students who are expectantly waiting for me to teach them how.","prompt":"첫 번째 as와 짝을 이루는 비교 표현의 두 번째 연결어를 입력하세요.","answer":"as","explanation":"as little ... as의 원급 비교구문입니다."},
+    {"id":"U29-Q01-2","display":"Q01 · 지시대상","interaction":"span","sentence":"I know just as little about how to build a robot as the nineteen- and twenty-year-old students who are expectantly waiting for me to teach them how.","prompt":"them이 가리키는 대상을 드래그하세요.","answer":"the nineteen- and twenty-year-old students","explanation":"teach them how에서 them은 앞의 students를 가리킵니다."},
+    {"id":"U29-Q02-1","display":"Q02 · that 대용","interaction":"span","sentence":"It is sometimes argued that for older people the decision to work is not as important as that for younger people because there is a misunderstanding that their need for income is not as great as a younger people's.","prompt":"비교구문에서 that이 대신하는 명사구를 드래그하세요.","answer":"the decision to work","explanation":"that for younger people은 the decision to work for younger people의 반복을 피한 표현입니다."},
+    {"id":"U29-Q03-1","display":"Q03 · 품사","interaction":"choice","sentence":"We are proud of both our products and our services, and we will do everything as quickly as we can to see that you get what you want when you want it.","prompt":"as ~ as 사이에 알맞은 형태를 고르세요.","choices":["quick","quickly"],"answer":"quickly","explanation":"do를 수식하는 부사가 필요하므로 quickly가 알맞습니다."},
+    {"id":"U29-Q04-1","display":"Q04 · 배수 비교","interaction":"choice","sentence":"Whale milk contains around 10 times as much fat as human milk.","prompt":"비교 대상이 되는 두 항을 고르세요.","choices":["whale milk / human milk","fat / 10 times"],"answer":"whale milk / human milk","explanation":"고래 젖과 사람의 젖에서 fat의 양을 비교합니다."}
+  ],
+  "validationFlow":["U29-Q01-1","U29-Q01-2","U29-Q02-1","U29-Q03-1","U29-Q04-1","REPORT"]
+}

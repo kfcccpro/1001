@@ -1,0 +1,11 @@
+{
+  "meta":{"schemaVersion":"0.4.0","book":"천일문 완성 트레이닝북","chapter":7,"unit":25,"title":"병렬구조","sourceConceptPages":{"workbook":[70,71]},"status":"source_concept_pfal_batch_qa","note":"교재 Unit 개념에 맞춘 PFAL 파생문항"},
+  "items":[
+    {"id":"U25-P01-1","display":"PFAL 01 · 동사 병렬","interaction":"pairSpan","sentence":"The program helps students identify weak points and build better study habits.","prompt":"helps의 목적격보어에서 병렬을 이루는 두 동사원형을 차례로 선택하세요.","answers":["identify","build"],"explanation":"identify와 build가 and로 병렬 연결되어 목적어 students의 행동을 나란히 나타냅니다.","memory":"병렬은 같은 문법 역할끼리 연결되는지 확인"},
+    {"id":"U25-P02-1","display":"PFAL 02 · 명사구 병렬","interaction":"pairSpan","sentence":"The course requires careful reading, accurate structure analysis, and repeated retrieval.","prompt":"requires의 목적어에서 병렬을 이루는 첫 번째와 세 번째 명사구를 선택하세요.","answers":["careful reading","repeated retrieval"],"explanation":"세 명사구가 쉼표와 and로 병렬 연결됩니다."},
+    {"id":"U25-P03-1","display":"PFAL 03 · to부정사 병렬","interaction":"pairSpan","sentence":"Her goal is to understand long sentences quickly and to explain their structure clearly.","prompt":"보어에서 병렬을 이루는 두 to부정사구를 선택하세요.","answers":["to understand long sentences quickly","to explain their structure clearly"],"explanation":"to understand와 to explain이 같은 보어 역할로 병렬입니다."},
+    {"id":"U25-P04-1","display":"PFAL 04 · 절 병렬","interaction":"pairSpan","sentence":"The report shows that students read more accurately and that they recover from errors faster after guided practice.","prompt":"shows의 목적어로 병렬 연결된 두 that절을 선택하세요.","answers":["that students read more accurately","that they recover from errors faster after guided practice"],"explanation":"두 that절이 and로 연결되어 shows의 목적어 역할을 함께 합니다."},
+    {"id":"U25-P05-1","display":"PFAL 05 · 형태 맞추기","interaction":"choice","sentence":"Good practice means noticing the structure, checking the evidence, and ___ the final answer.","prompt":"병렬 구조에 알맞은 형태를 고르세요.","choices":["revising","revise"],"answer":"revising","explanation":"noticing, checking과 같은 -ing 형태가 이어져야 하므로 revising이 알맞습니다."}
+  ],
+  "validationFlow":["U25-P01-1","U25-P02-1","U25-P03-1","U25-P04-1","U25-P05-1","REPORT"]
+}

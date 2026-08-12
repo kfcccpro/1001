@@ -1,0 +1,11 @@
+{
+  "meta":{"schemaVersion":"0.4.0","book":"천일문 완성 트레이닝북","chapter":8,"unit":32,"title":"유의해야 할 비교급 구문","sourceConceptPages":{"workbook":[86,87]},"status":"source_concept_pfal_batch_qa","note":"교재 Unit 개념에 맞춘 PFAL 파생문항"},
+  "items":[
+    {"id":"U32-P01-1","display":"PFAL 01 · 최상급 의미","interaction":"choice","sentence":"This route is safer than any other route in the area.","prompt":"문장의 의미로 알맞은 것을 고르세요.","choices":["이 지역에서 이 길이 가장 안전하다.","이 길보다 더 안전한 길이 적어도 하나 있다."],"answer":"이 지역에서 이 길이 가장 안전하다.","explanation":"비교급 + than any other + 단수명사는 최상급 의미를 나타낼 수 있습니다.","memory":"비교급이 항상 단순한 두 대상 비교만 뜻하는 것은 아님"},
+    {"id":"U32-P02-1","display":"PFAL 02 · the 비교급","interaction":"pairSpan","sentence":"The more carefully you read, the more accurately you identify the structure.","prompt":"비례 관계를 이루는 두 the 비교급 어구를 선택하세요.","answers":["The more carefully you read","the more accurately you identify the structure"],"explanation":"the 비교급, the 비교급은 ‘더 ~할수록 더 …하다’의 비례 관계입니다."},
+    {"id":"U32-P03-1","display":"PFAL 03 · less","interaction":"choice","sentence":"This explanation is less confusing than the first one.","prompt":"의미로 알맞은 것을 고르세요.","choices":["이 설명이 첫 번째 설명보다 덜 혼란스럽다.","이 설명이 첫 번째 설명보다 더 혼란스럽다."],"answer":"이 설명이 첫 번째 설명보다 덜 혼란스럽다.","explanation":"less + 형용사 + than은 ‘~보다 덜 …한’의 의미입니다."},
+    {"id":"U32-P04-1","display":"PFAL 04 · much 비교급 강조","interaction":"choice","sentence":"The second method is much more efficient than the first.","prompt":"much의 역할로 알맞은 것을 고르세요.","choices":["비교급 more efficient를 강조한다.","first를 수식한다."],"answer":"비교급 more efficient를 강조한다.","explanation":"much, far, even, still 등은 비교급을 강조할 수 있습니다."},
+    {"id":"U32-P05-1","display":"PFAL 05 · no more than","interaction":"choice","sentence":"The repair took no more than ten minutes.","prompt":"no more than ten minutes의 의미로 알맞은 것을 고르세요.","choices":["10분밖에 걸리지 않았다.","10분보다 훨씬 더 걸렸다."],"answer":"10분밖에 걸리지 않았다.","explanation":"no more than은 수량 앞에서 ‘겨우, ~밖에’의 의미로 쓰일 수 있습니다."}
+  ],
+  "validationFlow":["U32-P01-1","U32-P02-1","U32-P03-1","U32-P04-1","U32-P05-1","REPORT"]
+}
