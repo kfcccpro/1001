@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "0.9.3-batch1",
+  "schemaVersion": "0.9.3-batch2",
   "defaultUnit": 1,
   "chapters": [
     {
@@ -20,6 +20,26 @@
         {"unit": 6, "title": "<주어+긴 수식어구> 뒤의 동사 찾기", "file": "unit06.json", "status": "source_aligned_batch_qa"},
         {"unit": 7, "title": "<주어+여러 수식어구> 뒤의 동사 찾기", "file": "unit07.json", "status": "pfal_derived_batch_qa"},
         {"unit": 8, "title": "동사 자리·준동사 자리", "file": "unit08.json", "status": "source_aligned_plus_pfal_batch_qa"}
+      ]
+    },
+    {
+      "chapter": 3,
+      "title": "명사 뒤 수식어구로 인한 문제들",
+      "units": [
+        {"unit": 9, "title": "명사 수식어 자리", "file": "unit09.json", "status": "source_aligned_batch_qa"},
+        {"unit": 10, "title": "목적어 뒤의 목적격보어 찾기", "file": "unit10.json", "status": "source_aligned_batch_qa"},
+        {"unit": 11, "title": "명사 뒤의 여러 수식어구", "file": "unit11.json", "status": "source_aligned_batch_qa"},
+        {"unit": 12, "title": "수식어구의 범위", "file": "unit12.json", "status": "source_aligned_batch_qa"}
+      ]
+    },
+    {
+      "chapter": 4,
+      "title": "문장 구조 파악을 어렵게 하는 것들",
+      "units": [
+        {"unit": 13, "title": "삽입절을 포함하는 관계사절", "file": "unit13.json", "status": "source_aligned_batch_qa"},
+        {"unit": 14, "title": "착각하기 쉬운 단어의 역할", "file": "unit14.json", "status": "source_aligned_batch_qa"},
+        {"unit": 15, "title": "부사의 자유로운 위치", "file": "unit15.json", "status": "source_aligned_batch_qa"},
+        {"unit": 16, "title": "분사구문의 특이한 형태", "file": "unit16.json", "status": "source_aligned_batch_qa"}
       ]
     }
   ]

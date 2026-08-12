@@ -1,4 +1,4 @@
-const MULTIUNIT_BATCH_VERSION = '0.9.3-batch1';
+const MULTIUNIT_BATCH_VERSION = '0.9.3-batch2';
 const MULTIUNIT_CATALOG_URL = './data/catalog.json';
 const MULTIUNIT_SELECTED_KEY = 'chunilmun_selected_unit';
 
@@ -14,6 +14,19 @@ function unitNoLabel(unitNo) {
 
 function catalogUnitsV093b() {
   return (state.catalog?.chapters || []).flatMap(ch => (ch.units || []).map(u => ({...u, chapter: ch.chapter, chapterTitle: ch.title})));
+}
+
+function catalogScopeV093b() {
+  const units = catalogUnitsV093b();
+  const chapters = state.catalog?.chapters || [];
+  const maxUnit = units.reduce((m,u)=>Math.max(m,Number(u.unit)||0),0);
+  const maxChapter = chapters.reduce((m,ch)=>Math.max(m,Number(ch.chapter)||0),0);
+  return {
+    maxUnit,
+    maxChapter,
+    unitLabel: `Unit 01~${String(maxUnit).padStart(2,'0')}`,
+    chapterLabel: `Chapter 01~${String(maxChapter).padStart(2,'0')}`
+  };
 }
 
 async function loadCatalogV093b() {
@@ -165,10 +178,11 @@ renderAdmin = function() {
   if (!card || !actions || document.getElementById('multiunitAdminCatalog')) return;
 
   const meta = state.unit?.meta || {unit:1, chapter:1, title:'주어의 형태'};
+  const scope = catalogScopeV093b();
   const panel = document.createElement('div');
   panel.id = 'multiunitAdminCatalog';
   panel.className = 'multiunit-admin-catalog';
-  panel.innerHTML = `<div class="multiunit-admin-head"><div><span>일괄 검수 범위</span><strong>Chapter 01~02 · Unit 01~08</strong></div><div class="selected-admin-unit">${unitNoLabel(meta.unit)} · ${escapeHtml(meta.title)}</div></div>${renderUnitCatalogV093b()}`;
+  panel.innerHTML = `<div class="multiunit-admin-head"><div><span>일괄 검수 범위</span><strong>${scope.chapterLabel} · ${scope.unitLabel}</strong></div><div class="selected-admin-unit">${unitNoLabel(meta.unit)} · ${escapeHtml(meta.title)}</div></div>${renderUnitCatalogV093b()}`;
   card.insertBefore(panel, actions);
 
   const supervisorStart = document.getElementById('supervisorStart');
@@ -177,7 +191,7 @@ renderAdmin = function() {
   const batch = document.createElement('button');
   batch.className = 'primary batch-supervisor-btn';
   batch.id = 'batchSupervisorStart';
-  batch.textContent = 'Unit 01~08 한꺼번에 검수';
+  batch.textContent = `${scope.unitLabel} 한꺼번에 검수`;
   batch.onclick = async () => {
     batch.disabled = true;
     batch.textContent = '전체 단원 준비 중…';
@@ -186,7 +200,7 @@ renderAdmin = function() {
       console.error(err);
       showToast('일괄 검수 데이터를 준비하지 못했습니다.');
       batch.disabled = false;
-      batch.textContent = 'Unit 01~08 한꺼번에 검수';
+      batch.textContent = `${scope.unitLabel} 한꺼번에 검수`;
     }
   };
   actions.insertBefore(batch, actions.firstChild);
