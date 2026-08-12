@@ -1,7 +1,7 @@
 const app = document.getElementById('app');
 const toast = document.getElementById('toast');
 
-const APP_VERSION = '0.5.0';
+const APP_VERSION = '0.9.3';
 const STORAGE = {
   validation: 'chunilmun_validation_history',
   learning: 'chunilmun_learning_history',
