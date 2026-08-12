@@ -1,0 +1,103 @@
+/* v0.9.3 compact learning layout
+   Goal: use horizontal space on desktop/tablet and minimize vertical scrolling without shrinking the English sentence into unreadability. */
+
+.learning-area{justify-content:flex-start;padding:8px 0 18px}
+.topbar{min-height:34px}
+.sentence,.token-sentence{line-height:1.52;margin-bottom:14px}
+.prompt{margin:14px auto 10px;line-height:1.3}
+.guide-strip{margin-bottom:10px;padding:9px 14px;line-height:1.45}
+.selection-preview{margin:9px auto;min-height:22px}
+.submit-row{margin-top:10px}
+.text-answer-row{margin-top:12px}
+.pair-slots{margin:10px auto}
+.result-panel{margin-top:14px;padding:20px}
+.result-title{margin-bottom:10px}
+.answer-line{margin:7px 0 11px;padding:11px 13px}
+.explanation{line-height:1.58}
+.structure-view{margin-top:10px;padding:11px 13px;line-height:1.52}
+.memory-point{margin-top:10px;padding:11px 13px;line-height:1.5}
+.next-question{margin-top:13px;min-height:52px}
+.repair-panel{margin-top:14px!important;padding:20px!important}
+.repair-title{margin-bottom:12px!important}
+.repair-cue,.repair-concept{margin-top:10px!important;padding:13px 14px!important}
+.repair-actions{margin-top:13px!important}
+
+/* Once feedback appears, place it beside the problem on wide screens. */
+@media(min-width:980px){
+  .screen{width:min(100%,1180px)}
+  .question-wrap{width:min(100%,1120px)}
+  .sentence,.token-sentence{max-width:1120px;font-size:clamp(22px,2.75vw,34px)}
+
+  .question-wrap:has(#result > .result-panel),
+  .question-wrap:has(#result > .repair-panel){
+    display:grid;
+    grid-template-columns:minmax(0,1.22fr) minmax(390px,.78fr);
+    column-gap:24px;
+    align-items:start;
+  }
+  .question-wrap:has(#result > .result-panel) > :not(#result),
+  .question-wrap:has(#result > .repair-panel) > :not(#result){grid-column:1}
+  .question-wrap:has(#result > .result-panel) > #result,
+  .question-wrap:has(#result > .repair-panel) > #result{
+    grid-column:2;
+    grid-row:1 / span 12;
+    position:sticky;
+    top:8px;
+    min-width:0;
+  }
+  .question-wrap:has(#result > .result-panel) #result .result-panel,
+  .question-wrap:has(#result > .repair-panel) #result .repair-panel{
+    margin-top:0!important;
+    max-width:none;
+  }
+  .question-wrap:has(#result > .result-panel) .sentence,
+  .question-wrap:has(#result > .result-panel) .token-sentence,
+  .question-wrap:has(#result > .repair-panel) .sentence,
+  .question-wrap:has(#result > .repair-panel) .token-sentence{
+    font-size:clamp(22px,2.25vw,31px);
+    line-height:1.48;
+  }
+  .question-wrap:has(#result > .result-panel) .prompt,
+  .question-wrap:has(#result > .repair-panel) .prompt{font-size:clamp(22px,2.1vw,27px);margin-top:12px}
+  .question-wrap:has(#result > .result-panel) .guide-strip,
+  .question-wrap:has(#result > .repair-panel) .guide-strip{font-size:15px}
+}
+
+/* Landscape tablet: still use available width, but keep a single reading flow. */
+@media(min-width:720px) and (max-width:979px){
+  .app-shell{padding-top:14px;padding-bottom:16px}
+  .learning-area{padding-top:4px}
+  .sentence,.token-sentence{line-height:1.48;margin-bottom:12px}
+  .prompt{margin-top:12px}
+  .result-panel,.repair-panel{margin-top:12px!important}
+}
+
+@media(max-width:700px){
+  .app-shell{padding-top:10px;padding-bottom:12px}
+  .topbar{min-height:30px}
+  .learning-area{padding:2px 0 12px}
+  .sentence,.token-sentence{font-size:clamp(21px,7vw,29px);line-height:1.46;margin-bottom:10px}
+  .prompt{font-size:22px;line-height:1.32;margin:12px auto 8px}
+  .guide-strip{font-size:15px;padding:8px 10px;margin-bottom:8px}
+  .primary,.secondary,.choice,.soft-stop{min-height:50px}
+  .result-panel,.repair-panel{padding:17px 16px!important;margin-top:10px!important}
+  .result-title{font-size:25px;margin-bottom:8px}
+  .answer-line{margin-bottom:9px}
+  .explanation{font-size:17px;line-height:1.55}
+  .structure-view{font-size:16px;line-height:1.48}
+  .memory-point strong{font-size:18px}
+  .next-question{min-height:50px;margin-top:11px}
+}
+
+@media(max-height:760px) and (min-width:980px){
+  .app-shell{padding-top:8px;padding-bottom:8px}
+  .topbar{min-height:28px}
+  .learning-area{padding:0 0 8px}
+  .sentence,.token-sentence{font-size:clamp(21px,2.2vw,30px);line-height:1.4;margin-bottom:8px}
+  .prompt{font-size:22px;margin:8px auto 6px}
+  .guide-strip{padding:7px 11px;margin-bottom:6px}
+  .result-panel,.repair-panel{padding:16px!important}
+  .result-title{font-size:24px;margin-bottom:7px}
+  .explanation{font-size:16px;line-height:1.48}
+  .structure-view,.memory-point{margin-top:8px;padding:9px 11px}
+}
