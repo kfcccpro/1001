@@ -22,6 +22,14 @@
 - Compact Layout v0.9.3: minimize vertical scrolling; on desktop, feedback/repair appears beside the problem using horizontal space
 - Korean guidance/explanation/action labels remain enlarged; English source sentence remains primary and large
 
+## v0.9.3 deployment / QA checkpoint
+- Repository `VERSION` and runtime `APP_VERSION` are aligned at `0.9.3`.
+- Stale runtime metadata (`APP_VERSION = 0.5.0`) was corrected without changing learning content or interaction logic.
+- PWA cache key was refreshed to `chunilmun-pfal-t1-v093a` so the corrected runtime metadata is not masked by the prior service-worker cache.
+- Latest Static QA on the corrected main commit: PASS.
+- Latest GitHub Pages deployment on the corrected main commit: PASS.
+- Real viewport visual confirmation on desktop/tablet/mobile is still pending; do not mark visual QA complete from static checks alone.
+
 ## Cloud / learning record
 - Firebase project: `moonma-f6dbe`
 - Background Anonymous Auth
@@ -33,11 +41,11 @@
 - Admin view includes today / 7-day / 30-day active time, Unit progress, active session and recent sessions
 
 ## Verification still required
-1. PIN 2007 → `클라우드 연결 진단`: SDK / anonymous auth / state read-write / session read-write all PASS
-2. PC → mobile/tablet → PC round-trip progress continuation
-3. Active-time behavior: visible/active counts; idle/background does not; reconnect does not double-count
-4. Real-data admin history QA
-5. v0.9.3 compact layout visual QA on desktop/tablet/mobile
+1. v0.9.3 compact layout visual QA on desktop/tablet/mobile, including desktop right-side feedback/Guided Repair placement and excessive vertical spacing checks
+2. PIN 2007 → `클라우드 연결 진단`: SDK / anonymous auth / state read-write / session read-write all PASS
+3. PC → mobile/tablet → PC round-trip progress continuation
+4. Active-time behavior: visible/active counts; idle/background does not; reconnect does not double-count
+5. Real-data admin history QA
 
 ## UI principle
 - Development review: supervisor mode prioritizes fast inspection over learning enforcement
