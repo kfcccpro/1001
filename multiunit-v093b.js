@@ -65,7 +65,10 @@ function restoreBatchSupervisorV093b() {
   state.batchSupervisorMode = false; state.batchSupervisorIds = []; state.batchSupervisorBackup = null;
 }
 
-// Span-selection text reconstruction: keep ordinary English hyphenation intact.
+// Span-selection reconstruction keeps hyphenated words and numeric forms such as mid-1960s intact.
+tokenise = function(sentence) {
+  return String(sentence || '').match(/[A-Za-z]+(?:[’'][A-Za-z]+)?|\d+(?:,\d+)*(?:[A-Za-z]+)?|[^\sA-Za-z\d]/g) || [];
+};
 tokensToText = function(tokens, start, end) {
   if (start == null || end == null) return '';
   return tokens.slice(Math.min(start,end), Math.max(start,end)+1).join(' ')
