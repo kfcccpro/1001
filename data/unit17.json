@@ -1,65 +1,11 @@
 {
-  "meta": {
-    "schemaVersion": "0.4.0",
-    "book": "천일문 완성 트레이닝북",
-    "chapter": 5,
-    "unit": 17,
-    "title": "생략·공동구문",
-    "sourceConceptPages": {"workbook": [50, 51]},
-    "status": "source_concept_pfal_batch_qa",
-    "note": "교재 Unit의 개념과 순서에 맞춰 제작한 PFAL 파생문항이며 출판사 원문 전사본이 아님"
-  },
-  "items": [
-    {
-      "id": "U17-P01-1",
-      "display": "PFAL 01 · 공통 동사 생략",
-      "interaction": "text",
-      "sentence": "Mina ordered tea, and Joon coffee.",
-      "prompt": "and 뒤 Joon 다음에서 생략된 동사를 입력하세요.",
-      "answer": "ordered",
-      "explanation": "앞 절의 ordered가 뒤 절에도 공통으로 적용됩니다. 완전한 뜻은 Joon ordered coffee입니다.",
-      "memory": "반복되는 성분은 두 번째 절에서 생략될 수 있음"
-    },
-    {
-      "id": "U17-P02-1",
-      "display": "PFAL 02 · be동사 생략",
-      "interaction": "text",
-      "sentence": "The first proposal was practical, and the second expensive.",
-      "prompt": "the second 다음에서 생략된 동사를 입력하세요.",
-      "answer": "was",
-      "explanation": "두 절이 같은 구조로 병렬되어 뒤 절에서는 반복되는 was가 생략되었습니다.",
-      "structure": "The first proposal was practical / and the second (was) expensive"
-    },
-    {
-      "id": "U17-P03-1",
-      "display": "PFAL 03 · 공동 목적어",
-      "interaction": "pairSpan",
-      "sentence": "The teacher praised and encouraged the nervous student.",
-      "prompt": "하나의 목적어 the nervous student를 공동으로 취하는 두 동사를 차례로 선택하세요.",
-      "answers": ["praised", "encouraged"],
-      "explanation": "praised와 encouraged가 하나의 목적어 the nervous student를 공유하는 공동구문입니다.",
-      "memory": "V1 and V2 + O → 두 동사가 하나의 목적어를 공유할 수 있음"
-    },
-    {
-      "id": "U17-P04-1",
-      "display": "PFAL 04 · 문장 복원",
-      "interaction": "choice",
-      "sentence": "Jisu likes classical music, and Mina jazz.",
-      "prompt": "뒤 절을 생략 없이 복원한 것으로 알맞은 것을 고르세요.",
-      "choices": ["Mina likes jazz.", "Mina is jazz."],
-      "answer": "Mina likes jazz.",
-      "explanation": "뒤 절에서는 앞 절과 반복되는 likes가 생략되었습니다."
-    },
-    {
-      "id": "U17-P05-1",
-      "display": "PFAL 05 · 조동사 뒤 생략",
-      "interaction": "choice",
-      "sentence": "The first team can finish today, and the second can, too.",
-      "prompt": "두 번째 can 뒤에 의미상 생략된 내용으로 알맞은 것을 고르세요.",
-      "choices": ["finish today", "be the second"],
-      "answer": "finish today",
-      "explanation": "조동사 can 뒤에서 앞에 나온 동사구 finish today가 반복되므로 생략되었습니다."
-    }
+  "meta":{"schemaVersion":"0.4.0","book":"천일문 완성 트레이닝북","chapter":5,"unit":17,"title":"생략·공동구문","sourcePages":{"workbook":[50,51],"answerBook":[35]},"status":"source_aligned_batch_qa","note":"정답·해설 p.35의 Unit 17 Q01~Q04 대표 원문과 생략·병렬 설명을 직접 대조해 대표 source-aligned QA 세트로 변환함."},
+  "items":[
+    {"id":"U17-Q01-1","display":"Q01 · 반복어구 생략","interaction":"choice","sentence":"A certain amount of self-examination is useful, but that should be directed toward what to do in a given situation and not at only blaming yourself severely.","prompt":"and not 앞에서 반복을 피하기 위해 생략된 어구를 고르세요.","choices":["should be directed","should be blamed"],"answer":"should be directed","explanation":"앞의 should be directed가 and 뒤에도 공통으로 적용되어 반복되는 should be directed가 생략된 구조입니다.","memory":"and 뒤가 불완전하면 앞의 반복 성분을 복원"},
+    {"id":"U17-Q02-1","display":"Q02 · to부정사 병렬","interaction":"pairSpan","sentence":"Majoring in philosophy, I had a chance to explore different kinds of philosophical theories and to see what thinkers (in different periods) had to say about them.","prompt":"a chance 뒤에서 and로 병렬 연결된 두 to부정사구를 차례로 선택하세요.","answers":["to explore different kinds of philosophical theories","to see what thinkers (in different periods) had to say about them"],"explanation":"to explore ...와 to see ...가 병렬로 연결되어 a chance를 수식합니다. 병렬된 두 번째 to는 문맥에 따라 생략될 수도 있습니다."},
+    {"id":"U17-Q02-2","display":"Q02 · 대명사 지시","interaction":"choice","sentence":"Majoring in philosophy, I had a chance to explore different kinds of philosophical theories and to see what thinkers (in different periods) had to say about them.","prompt":"문장 끝 them이 가리키는 대상을 고르세요.","choices":["different kinds of philosophical theories","thinkers in different periods"],"answer":"different kinds of philosophical theories","explanation":"해설의 문맥처럼 them은 앞에서 탐구한 different kinds of philosophical theories를 가리킵니다."},
+    {"id":"U17-Q03-1","display":"Q03 · 접속사 뒤 주어+be 생략","interaction":"choice","sentence":"Many companies are trying to reduce as many plastics as possible these days. Plastic is not always easily or economically recyclable, and once manufactured, plastic may last virtually indefinitely.","prompt":"once manufactured를 완전한 절로 복원할 때 생략된 주어+be동사를 고르세요.","choices":["it (= plastic) is","plastic was"],"answer":"it (= plastic) is","explanation":"부사절과 주절의 주어가 같을 때 접속사 once 뒤의 주어+be동사가 생략될 수 있습니다. 여기서는 once it (= plastic) is manufactured입니다."},
+    {"id":"U17-Q04-1","display":"Q04 · although 뒤 생략","interaction":"choice","sentence":"Performance is something you do that brings about an observable change in the external world; learning, on the other hand, is a change within the learner, although often a result of interaction with the external world.","prompt":"although often a result ...에서 생략된 주어+be동사를 고르세요.","choices":["it (= learning) is","performance is"],"answer":"it (= learning) is","explanation":"although 이하의 의미상 주어는 learning이며, 주절과 주어가 같아 it (= learning) is가 생략된 구조로 설명됩니다."}
   ],
-  "validationFlow": ["U17-P01-1", "U17-P02-1", "U17-P03-1", "U17-P04-1", "U17-P05-1", "REPORT"]
+  "validationFlow":["U17-Q01-1","U17-Q02-1","U17-Q02-2","U17-Q03-1","U17-Q04-1","REPORT"]
 }
