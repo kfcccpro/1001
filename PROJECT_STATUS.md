@@ -13,26 +13,31 @@
 - PIN 2007 combined review remains read-only for learning records.
 
 ## Source-validation status — 2026-08-13
-- U25 `병렬구조` → workbook p.70~71 / answer-book p.50 representative Q01~Q04 verified and converted to `source_aligned_batch_qa`.
-- U27 `등위접속사가 여러 개인 문장` → workbook p.74~75 / answer-book p.54 representative Q01~Q03 verified and converted to `source_aligned_batch_qa`.
-- U31 `비교 대상의 생략` → workbook p.84~85 / answer-book p.61 representative Q01~Q03 verified and converted to `source_aligned_batch_qa`.
-- U32 `유의해야 할 비교급 구문` → workbook p.86~87 / answer-book p.62 representative Q01~Q03 verified and converted to `source_aligned_batch_qa`.
-- There are now no `source_concept_pfal_batch_qa` or `pfal_derived_batch_qa` units in the catalog.
-- Remaining mixed `source_aligned_plus_pfal_batch_qa` units: U08, U28, U33~36, U39.
-- U48 source freeze has already been tightened to use the exact SNS source sentence for both Q02 items.
+- U33 `대명사 it, they, this, that`: publisher Q01~Q03 verified; PFAL-only item replaced by source Q03 tasks for `they`, `those`, and `discard` → `source_aligned_batch_qa`.
+- U34 `숨어 있는 가정법`: representative publisher Q05~Q06 verified; custom `Without` item removed → `source_aligned_batch_qa`.
+- U35 `부정구문`: publisher Q01~Q03 verified; custom `not all` item removed → `source_aligned_batch_qa`.
+- U36 `인과/선후를 나타내는 수동태 표현`: publisher Q04~Q06 verified; PFAL-only `attributed to`/`caused by` examples replaced by publisher Q04 `be attributed to` tasks → `source_aligned_batch_qa`.
+- U39 `정보 추가 vs. 강조`: publisher Q01~Q04 verified; PFAL `Indeed`/`Moreover` examples replaced by publisher Q03 `furthermore` and Q04 `as well` tasks → `source_aligned_batch_qa`.
+- U08 and U28 were re-audited. Exact additional publisher evidence was not sufficient to remove their remaining PFAL items safely, so they intentionally remain `source_aligned_plus_pfal_batch_qa`.
+- No pure `source_concept_pfal_batch_qa` or `pfal_derived_batch_qa` units remain in the catalog.
+
+## Batch working rule
+- Source retrieval, item replacement and logical review are grouped across 2~3 work stages before a repository checkpoint.
+- Intermediate edits are accumulated on a temporary batch branch so main/PAGES are not redeployed after every micro-step.
+- Main is advanced once after the batch is internally complete and ready for CI/deployment.
 
 ## Full-workbook supervisor audit checkpoint
 - Combined PIN 2007 review exposes Chapter, Unit, interaction and source classification per item.
 - Span/pairSpan items use actual student runtime token boundaries; Unit-level and item-level jumps are available.
 - Static QA enforces catalog/meta chapter-title-status consistency, required fields, complete validationFlow coverage and selectable answers; layout telemetry remains enabled.
-- PWA cache key: `chunilmun-pfal-t1-v093v`.
+- PWA cache key: `chunilmun-pfal-t1-v093w`.
 
 ## Verification still required
-1. Audit the seven mixed units U08, U28, U33~36, U39 and replace PFAL-only items with publisher-source items where exact source/answer evidence is available.
+1. Finalize U08/U28 only if exact publisher source can be recovered; otherwise retain explicit mixed classification.
 2. Live PIN 2007 `Unit 01~48 한꺼번에 검수` visual sweep on desktop/tablet/mobile; do not mark complete without browser/screenshot evidence.
 3. Cloud diagnostic all PASS, multi-device round-trip/active-time QA, then student-mode regression.
 
 ## Operating rules
 - Keep source-aligned and PFAL-derived content explicitly distinguishable.
 - Supervisor mode never writes student progress/time.
-- Safe changes go directly to main; Pages auto-deploys; bump SW cache after cached asset changes.
+- Group 2~3 work stages before one main/deployment checkpoint unless a blocking defect requires an immediate hotfix.
