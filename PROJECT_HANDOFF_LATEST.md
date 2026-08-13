@@ -16,41 +16,22 @@
 - Publisher source-aligned content and PFAL-derived content must remain explicitly distinct.
 
 ## 3. Current workbook scope
-`data/catalog.json` is canonical.
-- Ch01~10 Unit01~40
-- Ch11 `구문의 짝을 찾아라` — Unit41~44
-  - U41 `it ~ to-V[that]`
-  - U42 `짝을 이루는 접속사`
-  - U43 `짝을 이루는 대명사·부사`
-  - U44 `특정 전치사구를 동반하는 동사`
-- Ch12 `길고 복잡한 문장의 해결` — Unit45~48
-  - U45 `관계사절이 여러 개 들어간 복잡한 문장`
-  - U46 `비교구문과 결합한 복잡한 절`
-  - U47 `특수구문과 결합한 복잡한 절`
-  - U48 `50단어 내외의 긴 기출 문장`
+- Chapter 01~12 / Unit 01~48 implemented; `data/catalog.json` is canonical.
+- PIN 2007 supports current Unit review and `Unit 01~48 한꺼번에 검수`.
 
-Batch6 source distinction:
-- U41~47: source concept/page sequence confirmed, PFAL-derived staging sentences.
-- U48: source-aligned batch QA from uploaded answer book.
-- Do not call U41~47 publisher-source validated until exact item transcription is checked.
+## 4. Source validation — latest
+- U41 `it ~ to-V[that]`: source-aligned from workbook p.110 and answer book p.80. Publisher sentences and answer logic are verified; app interaction is adapted without changing the target analysis.
+- U43 `짝을 이루는 대명사·부사`: source-aligned from workbook p.114 and answer book p.84.
+- U42, U44, U45, U46, U47 remain PFAL-derived concept staging and must not be called source validated.
+- U48 remains source-aligned.
+- Next source-validation order: U42 → U44 → U45 → U46 → U47.
 
-## 4. Supervisor
-PIN 2007:
-- current Unit review
-- `Unit 01~48 한꺼번에 검수`
-- range label is computed from catalog
-- no learning records written
-
-## 5. Main files
-- Core/UI: index.html, app.js, styles.css, learning.css, compact-v093.css
-- Supervisor: supervisor-v082.js/css
-- Guided Repair: repair-guides-v092.js, guided-repair-v092.js/css
-- Multi-unit: multiunit-v093b.js/css
-- Catalog/data: data/catalog.json, data/unit01.json ... data/unit48.json
-- Cloud: cloud-v09.js/css, cloud-diagnostic-v091.js/css
-- PWA: sw.js, manifest.webmanifest
-- QA: .github/workflows/qa.yml
-- State: VERSION, PROJECT_STATUS.md, PROJECT_HANDOFF_LATEST.md
+## 5. Full-workbook QA already implemented
+- Static QA validates all Unit 01~48 JSON/catalog data, unique IDs, choice answers, selectable span/pairSpan answers and validationFlow integrity.
+- Runtime span tokenization supports compounds/suspensive hyphens, abbreviations, quotes, contractions and numeric suffixes.
+- Selected Unit persists across reload.
+- Student report no longer hardcodes Unit 01 and selected-Unit tomorrow-review count is separated.
+- PWA cache: `chunilmun-pfal-t1-v093n`.
 
 ## 6. Cloud
 - Firebase project `moonma-f6dbe`
@@ -58,16 +39,15 @@ PIN 2007:
 - actual active time is primary metric; visible + recent interaction only
 - Firestore rules reported published; PIN 2007 diagnostic PASS screenshot still pending
 
-## 7. Next priority after batch6 deployment
-The current workbook Unit scope is complete through Unit48. Next work is no longer automatic Unit expansion:
-1. PIN 2007 `Unit 01~48 한꺼번에 검수` full content/layout sweep.
-2. Batch-fix sentence/prompt/answer/range errors and run source-validation/freeze, prioritizing PFAL-staged units.
-3. Cloud diagnostic all PASS + PC/mobile/tablet round-trip progress and active-time QA.
-4. Student-mode multi-unit regression, including due-review separation by selected Unit and persisted selected-unit restore.
+## 7. Next priority
+1. Continue publisher source-validation/freeze with U42, then U44~47.
+2. PIN 2007 `Unit 01~48 한꺼번에 검수` full content/layout sweep and batch fixes.
+3. Cloud diagnostic all PASS + PC/mobile/tablet round-trip progress/active-time QA.
+4. Student-mode multi-unit regression, especially Unit switching + due-review separation + persisted selection.
 5. Only after those gates decide whether to expand beyond this workbook.
 
 ## 8. Auto-continue rule
-If user says `진행`, `다음 단계 진행`, or equivalent:
+If user says `진행`, `다음 작업 진행`, `다음 단계 진행`, or equivalent:
 1. read latest main/handoff/status/VERSION/Actions
 2. execute the first incomplete priority without asking
 3. safe changes direct to main
