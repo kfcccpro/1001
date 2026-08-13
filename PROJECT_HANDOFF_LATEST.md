@@ -5,7 +5,6 @@
 - Live: `https://kfcccpro.github.io/1001/`
 - Core `0.9.3`; expansion `0.9.3-batch6`
 - Student PIN `8081`; Admin/Supervisor PIN `2007`
-- Static HTML/CSS/Vanilla JS + JSON + Firebase Anonymous Auth + Firestore
 
 ## 2. Invariants
 - Only actual student mode writes progress/review/session/active time; supervisor is read-only.
@@ -13,26 +12,24 @@
 - Publisher source-aligned, mixed and PFAL-derived content remain explicitly distinguished.
 
 ## 3. Latest completed source work
-- U21: workbook p.60~61 / answer-book p.42 representative Q01~Q04 verified → `source_aligned_batch_qa`; so/neither/nor/there inversion is represented.
-- U22: workbook p.62~63 / answer-book representative Q05~Q07 verified → `source_aligned_batch_qa`; fronted complement/locative phrase, inversion and omitted relative pronoun are represented.
-- U23: workbook p.64~65 / answer-book p.45 representative Q01~Q02 verified → `source_aligned_batch_qa`; heavy-object shift, parenthetical insertion and to-infinitive modifier are represented.
-- U24 was already source-aligned, so Chapter 06 U21~U24 is now source-aligned at representative QA-set level.
-- Remaining pure source-concept/PFAL queue: U25 → U27 → U31~32. Initial targeted searches for U25/U27/U31/U32 were insufficient for safe promotion, so their current status is intentionally retained.
+- U21~U23 were converted from source-concept/PFAL staging to representative `source_aligned_batch_qa` using verified publisher sentences/answer logic. Together with U24, Chapter 06 U21~U24 is now source-aligned at representative QA-set level.
+- U48 source freeze was tightened: the adapted short Q02-2 sentence was replaced by the exact full SNS source sentence already verified for Q02-1; the oversized Q01-2 relation-clause span drag was converted to an exact-source choice judgment for mobile usability.
+- Remaining pure source-concept/PFAL queue: U25 → U27 → U31~32. Targeted searches have been repeated, but no safe status promotion will occur until exact publisher sentence/answer evidence is retrieved.
 
 ## 4. Supervisor audit / QA
 - PIN 2007 combined review shows Chapter/Unit/interaction/source classification, uses actual token boundaries for span previews, and supports Unit/item jump.
 - Static QA checks all Unit JSON/catalog consistency, required fields, complete validationFlow and selectable answers and emits layout telemetry.
 - Live desktop/tablet/mobile visual sweep still requires browser/screenshot evidence and must not be claimed complete yet.
-- PWA cache: `chunilmun-pfal-t1-v093t`.
+- PWA cache: `chunilmun-pfal-t1-v093u`.
 
 ## 5. Cloud
 - Firebase project `moonma-f6dbe`; collections `chunilmun1001`, `chunilmun1001_sessions`.
 - Firestore rules were reported published; PIN 2007 diagnostic PASS screenshot remains pending.
 
 ## 6. Next priorities
-1. Re-search and source-align U25, U27, U31~32 only where exact publisher source/answers can be verified.
-2. Revisit mixed units and U48 adaptation/source-freeze issue.
-3. Live full-workbook supervisor viewport sweep when screenshots/browser evidence are available.
+1. Continue exact-source retrieval for U25, U27, U31~32; only promote when publisher evidence is sufficient.
+2. Audit mixed units after the pure-PFAL queue.
+3. Live full-workbook supervisor viewport sweep when screenshot/browser evidence is available.
 4. Cloud diagnostic + PC/mobile/tablet round-trip active-time/progress QA.
 5. Student-mode multi-unit regression.
 
