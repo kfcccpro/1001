@@ -51,19 +51,31 @@ jobs:
           const files=['data/catalog.json',...Array.from({length:48},(_,i)=>`data/unit${String(i+1).padStart(2,'0')}.json`)];
           for(const file of files) JSON.parse(fs.readFileSync(file,'utf8'));
           const catalog=JSON.parse(fs.readFileSync('data/catalog.json','utf8'));
+          const chapterByUnit=new Map();
+          for(const chapter of catalog.chapters||[]) for(const unit of chapter.units||[]) chapterByUnit.set(Number(unit.unit),chapter);
           const units=catalog.chapters.flatMap(c=>c.units||[]);
           if(units.length!==48) throw new Error(`catalog unit count=${units.length}`);
-          const unitNos=new Set(), globalIds=new Set();
+          const unitNos=new Set(), globalIds=new Set(), statusCounts=new Map(), longSentences=[], longPrompts=[];
+          const knownInteractions=new Set(['choice','text','span','pairSpan']);
           for(const unit of units){
             if(unitNos.has(Number(unit.unit))) throw new Error(`duplicate catalog unit ${unit.unit}`);
             unitNos.add(Number(unit.unit));
             const file=`data/${unit.file}`, data=JSON.parse(fs.readFileSync(file,'utf8'));
+            const chapter=chapterByUnit.get(Number(unit.unit));
             if(Number(data.meta?.unit)!==Number(unit.unit)) throw new Error(`${file}: unit metadata mismatch`);
+            if(Number(data.meta?.chapter)!==Number(chapter?.chapter)) throw new Error(`${file}: chapter metadata mismatch`);
+            if(String(data.meta?.title||'')!==String(unit.title||'')) throw new Error(`${file}: title mismatch catalog=${unit.title} meta=${data.meta?.title}`);
+            if(String(data.meta?.status||'')!==String(unit.status||'')) throw new Error(`${file}: status mismatch catalog=${unit.status} meta=${data.meta?.status}`);
+            statusCounts.set(unit.status,(statusCounts.get(unit.status)||0)+1);
+            if(!Array.isArray(data.items)||!data.items.length) throw new Error(`${file}: no items`);
             const ids=new Set();
-            for(const item of (data.items||[])){
-              if(!item.id||!item.sentence||!item.prompt||!item.interaction) throw new Error(`${file}: incomplete item`);
+            for(const item of data.items){
+              if(!item.id||!item.display||!item.sentence||!item.prompt||!item.interaction||!item.explanation) throw new Error(`${file}: incomplete item ${item.id||'(no id)'}`);
+              if(!knownInteractions.has(item.interaction)) throw new Error(`${file}: unknown interaction ${item.id} => ${item.interaction}`);
               if(ids.has(item.id)||globalIds.has(item.id)) throw new Error(`${file}: duplicate item id ${item.id}`);
               ids.add(item.id);globalIds.add(item.id);
+              if(String(item.sentence).length>=320) longSentences.push(`${item.id}:${String(item.sentence).length}`);
+              if(String(item.prompt).length>=150) longPrompts.push(`${item.id}:${String(item.prompt).length}`);
               if(item.interaction==='choice'){
                 if(!Array.isArray(item.choices)||!item.choices.length||item.answer==null) throw new Error(`${file}: bad choice ${item.id}`);
                 if(!item.choices.some(c=>norm(c)===norm(item.answer))) throw new Error(`${file}: choice answer not in choices ${item.id}`);
@@ -78,9 +90,16 @@ jobs:
               }
               if(item.interaction==='text'&&item.answer==null) throw new Error(`${file}: missing answer ${item.id}`);
             }
-            const flow=(data.validationFlow||[]).filter(x=>x!=='REPORT');
+            if(!Array.isArray(data.validationFlow)||data.validationFlow.at(-1)!=='REPORT') throw new Error(`${file}: validationFlow must end with REPORT`);
+            const flow=data.validationFlow.filter(x=>x!=='REPORT');
             for(const id of flow) if(!ids.has(id)) throw new Error(`${file}: missing flow item ${id}`);
             if(new Set(flow).size!==flow.length) throw new Error(`${file}: duplicate validationFlow id`);
+            const uncovered=[...ids].filter(id=>!flow.includes(id));
+            if(uncovered.length) throw new Error(`${file}: items omitted from validationFlow => ${uncovered.join(', ')}`);
           }
           console.log(`Catalog + Unit 01~48 semantic QA PASS · ${globalIds.size} items`);
+          console.log('Status counts:',Object.fromEntries(statusCounts));
+          console.log(`Layout telemetry: ${longSentences.length} sentences >=320 chars; ${longPrompts.length} prompts >=150 chars`);
+          if(longSentences.length) console.log('Long sentences:',longSentences.join(', '));
+          if(longPrompts.length) console.log('Long prompts:',longPrompts.join(', '));
           NODE

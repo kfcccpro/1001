@@ -18,22 +18,20 @@
 
 ## Source-validation status — 2026-08-13
 - Unit 41~44: representative workbook sentences and answer-book logic verified → `source_aligned_batch_qa`.
-- Unit 45 `관계사절이 여러 개 들어간 복잡한 문장`: workbook p.120~121 concept + answer-book representative Q03~Q05 sentence/structure logic verified → `source_aligned_batch_qa`.
-- Unit 46 `비교구문과 결합한 복잡한 절`: workbook p.122~123, especially Q05~Q07, and answer-book comparison logic verified → `source_aligned_batch_qa`.
-- Unit 47 `특수구문과 결합한 복잡한 절`: answer-book Unit47 Q01 publisher sentence and create / It is ~ who analysis verified → `source_aligned_batch_qa`. Only the verified representative source sentence is used; this is not a claim that every publisher exercise was reproduced.
-- Unit 48 remains `source_aligned_batch_qa`.
-- Chapter 12 Unit 45~48 is now source-aligned at the representative QA-set level.
-- Source-aligned status means selected publisher sentences and answer logic are verified; full live viewport/content freeze remains a separate gate.
+- Unit 45~48: representative Chapter 12 publisher sentences and answer logic verified → `source_aligned_batch_qa` at the representative QA-set level.
+- Earlier PFAL/mixed units remain explicitly classified in the catalog; no automatic status promotion occurs.
 
-## Full-workbook semantic QA checkpoint
-- Static QA covers Unit 01~48 JSON/catalog consistency, global IDs, choice-answer membership, selectable span/pairSpan answers, and validationFlow references/duplicates.
-- Span runtime supports compounds, suspensive hyphens, abbreviations, quoted phrases, contractions and numeric suffixes.
-- Selected Unit restoration after reload is implemented.
-- Learning report Unit label and selected-Unit `내일 다시` count are corrected.
-- PWA cache key after this source-validation update: `chunilmun-pfal-t1-v093p`.
+## Full-workbook supervisor audit checkpoint — 2026-08-13
+- PIN 2007 combined review now carries Unit/Chapter/status metadata into every combined item.
+- Supervisor screen shows interaction type and SOURCE-ALIGNED / MIXED / PFAL classification without writing student records.
+- Span/pairSpan items render the same token boundaries used by the student selector, allowing selectable-range inspection during the combined sweep.
+- Added Unit-level jump plus item-level jump for the full Unit 01~48 review.
+- Long/very-long source sentences receive supervisor-only compact typography to reduce vertical scrolling; student typography is unchanged.
+- Static QA now also enforces catalog/meta chapter, title and status consistency; requires display/explanation fields; requires every item to be included in validationFlow; and logs long-sentence/prompt layout telemetry.
+- PWA cache key: `chunilmun-pfal-t1-v093q`.
 
 ## Verification still required
-1. PIN 2007 → `Unit 01~48 한꺼번에 검수`: full-workbook order, text, prompts, answers/explanations and compact layout; batch-fix issues found in the live sweep.
+1. Live PIN 2007 → `Unit 01~48 한꺼번에 검수` visual sweep on desktop/tablet/mobile; batch-fix any viewport-specific issues found there.
 2. Revisit earlier PFAL-staged Units 07, 17~19, 21~25, 27, 31~32 for publisher-source validation where useful; keep mixed/PFAL statuses honest until verified.
 3. Cloud diagnostic all PASS, then PC/mobile/tablet round-trip and active-time QA.
 4. Student-mode multi-unit regression, especially due-review separation and cloud round-trip after Unit switching.

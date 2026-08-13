@@ -17,37 +17,30 @@
 
 ## 3. Current workbook scope
 - Chapter 01~12 / Unit 01~48 implemented; `data/catalog.json` is canonical.
-- PIN 2007 supports current Unit review and `Unit 01~48 한꺼번에 검수`.
+- U41~48 are source-aligned at the representative QA-set level; earlier source/PFAL/mixed classifications remain as catalogued.
 
-## 4. Source validation — latest
-- U41~U44: publisher workbook/answer-book representative sentences and answer logic are source-aligned.
-- U45: representative Unit45 Q03~Q05 structures verified: delayed participial modifier, delayed why-clause, and delayed relative clauses.
-- U46: workbook p.123 Q05~Q07 verified: `not so much A as B`, `No A is so ... as B`, and `There is no comparative ... than ...` superlative meaning.
-- U47: answer-book Unit47 Q01 verified: plural `create`, nested relative clause, and `It is ~ who` cleft emphasis. The webapp uses only this verified representative source sentence for U47; it does not claim full publisher exercise replication.
-- U48 remains source-aligned.
-- Therefore Chapter12 U45~U48 is source-aligned at representative QA-set level, but still awaits the live content/layout freeze.
+## 4. Full-workbook supervisor audit — latest
+- PIN 2007 `Unit 01~48 한꺼번에 검수` now exposes Chapter, Unit, interaction and content-source classification per item.
+- Combined clones carry `auditUnit`, `auditUnitTitle`, `auditChapter`, `auditChapterTitle`, and `auditStatus`; supervisor mode still writes no student progress/time.
+- Span/pairSpan previews use the actual runtime tokenization so selectable boundaries can be audited visually without answering.
+- Added Unit jump and item jump; long/very-long sentences use supervisor-only compact font sizing for faster review.
+- Static QA additionally validates catalog/meta chapter-title-status consistency, required display/explanation fields, complete validationFlow coverage, and layout telemetry.
+- PWA cache: `chunilmun-pfal-t1-v093q`.
 
-## 5. Full-workbook QA already implemented
-- Static QA validates all Unit 01~48 JSON/catalog data, unique IDs, choice answers, selectable span/pairSpan answers and validationFlow integrity.
-- Runtime span tokenization supports compounds/suspensive hyphens, abbreviations, quotes, contractions and numeric suffixes.
-- Selected Unit persists across reload.
-- Student report no longer hardcodes Unit 01 and selected-Unit tomorrow-review count is separated.
-- PWA cache: `chunilmun-pfal-t1-v093p`.
-
-## 6. Cloud
+## 5. Cloud
 - Firebase project `moonma-f6dbe`
 - collections `chunilmun1001`, `chunilmun1001_sessions`
 - actual active time is primary metric; visible + recent interaction only
 - Firestore rules reported published; PIN 2007 diagnostic PASS screenshot still pending
 
-## 7. Next priority
-1. PIN 2007 `Unit 01~48 한꺼번에 검수` full content/layout sweep and batch fixes.
-2. Revisit earlier PFAL-staged Units 07, 17~19, 21~25, 27, 31~32 for source validation where useful.
+## 6. Next priority
+1. Live PIN 2007 `Unit 01~48 한꺼번에 검수` visual sweep on desktop/tablet/mobile and batch-fix viewport-specific issues.
+2. Revisit earlier PFAL-staged Units 07, 17~19, 21~25, 27, 31~32 for publisher-source validation where useful.
 3. Cloud diagnostic all PASS + PC/mobile/tablet round-trip progress/active-time QA.
 4. Student-mode multi-unit regression, especially Unit switching + due-review separation + persisted selection.
 5. Only after those gates decide whether to expand beyond this workbook.
 
-## 8. Auto-continue rule
+## 7. Auto-continue rule
 If user says `진행`, `다음 작업 진행`, `다음 단계 진행`, or equivalent:
 1. read latest main/handoff/status/VERSION/Actions
 2. execute the first incomplete priority without asking

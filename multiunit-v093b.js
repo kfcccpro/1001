@@ -95,7 +95,14 @@ async function startBatchSupervisorReviewV093b() {
     const label = unitNoLabel(data.meta.unit);
     (data.validationFlow || []).filter(id => id !== 'REPORT').forEach(id => {
       const item = data.items.find(x => x.id === id); if (!item) return;
-      const clone = {...item, display: `${label} · ${item.display || item.id}`};
+      const clone = {...item,
+        display: `${label} · ${item.display || item.id}`,
+        auditUnit: Number(data.meta.unit),
+        auditUnitTitle: data.meta.title || '',
+        auditChapter: Number(data.meta.chapter),
+        auditChapterTitle: data.meta.chapterTitle || '',
+        auditStatus: data.meta.status || ''
+      };
       combinedMap.set(clone.id, clone); combinedIds.push(clone.id);
     });
   });
