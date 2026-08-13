@@ -1,62 +1,12 @@
 {
-  "meta": {
-    "schemaVersion": "0.4.0",
-    "book": "천일문 완성 트레이닝북",
-    "chapter": 6,
-    "unit": 24,
-    "title": "이미 아는 정보+새로운 정보",
-    "sourceConceptPages": {"workbook": [66, 67]},
-    "status": "source_concept_pfal_batch_qa",
-    "note": "교재 Unit의 개념과 순서에 맞춰 제작한 PFAL 파생문항이며 출판사 원문 전사본이 아님"
-  },
-  "items": [
-    {
-      "id": "U24-P01-1",
-      "display": "PFAL 01 · 주어진 정보→새 정보",
-      "interaction": "pairSpan",
-      "sentence": "A new student entered the room. She was carrying a violin case.",
-      "prompt": "둘째 문장에서 이어받는 정보의 출발점과 새로 덧붙인 정보를 차례로 선택하세요.",
-      "answers": ["A new student", "was carrying a violin case"],
-      "explanation": "둘째 문장의 She는 앞에서 이미 소개한 A new student를 이어받고, 뒤에서 violin case를 들고 있었다는 새 정보를 제공합니다.",
-      "memory": "이미 나온 정보는 짧게 이어받고 새 정보는 뒤에서 확장"
-    },
-    {
-      "id": "U24-P02-1",
-      "display": "PFAL 02 · 명사 반복과 확장",
-      "interaction": "pairSpan",
-      "sentence": "The class discussed two solutions. The second solution was cheaper but less reliable.",
-      "prompt": "앞 문장에서 이미 소개된 정보와 뒤 문장에서 새로 추가된 평가를 차례로 선택하세요.",
-      "answers": ["two solutions", "was cheaper but less reliable"],
-      "explanation": "two solutions가 먼저 제시된 뒤 The second solution으로 그 정보를 이어받고 가격과 신뢰성에 관한 새 정보를 뒤에 둡니다."
-    },
-    {
-      "id": "U24-P03-1",
-      "display": "PFAL 03 · 대명사 연결",
-      "interaction": "choice",
-      "sentence": "We discussed the new schedule. It requires more time between classes.",
-      "prompt": "둘째 문장의 It이 이어받는 이미 알려진 정보를 고르세요.",
-      "choices": ["the new schedule", "more time"],
-      "answer": "the new schedule",
-      "explanation": "It은 앞 문장에서 이미 소개된 the new schedule을 가리키며, requires 이하가 새 정보입니다."
-    },
-    {
-      "id": "U24-P04-1",
-      "display": "PFAL 04 · 초점 정보",
-      "interaction": "span",
-      "sentence": "What surprised me most was the final sentence.",
-      "prompt": "was 뒤에서 새 정보의 초점을 받는 부분을 드래그하세요.",
-      "answer": "the final sentence",
-      "explanation": "What surprised me most라는 주제 틀을 먼저 제시하고, 핵심 새 정보 the final sentence를 문장 뒤에 배치합니다."
-    },
-    {
-      "id": "U24-P05-1",
-      "display": "PFAL 05 · 정보 연결",
-      "interaction": "pairSpan",
-      "sentence": "The teacher introduced a new rule. This rule applies only to group projects.",
-      "prompt": "첫 문장에서 소개된 정보와 둘째 문장에서 새로 추가된 내용을 차례로 선택하세요.",
-      "answers": ["a new rule", "applies only to group projects"],
-      "explanation": "a new rule을 This rule로 다시 받아 주제를 유지하고, 적용 범위라는 새 정보를 뒤에서 제공합니다."
-    }
+  "meta":{"schemaVersion":"0.4.0","book":"천일문 완성 트레이닝북","chapter":6,"unit":24,"title":"이미 아는 정보+새로운 정보","sourcePages":{"workbook":[66,67],"answerBook":[47]},"status":"source_aligned_batch_qa","note":"교재 p.66과 정답·해설 p.47의 대표 Q01~Q03 원문·정답 논리를 대조해 정보 배치, 도치, 생략 구조 중심의 대표 source-aligned QA 세트로 변환함."},
+  "items":[
+    {"id":"U24-Q01-1","display":"Q01 · to부정사 병렬","interaction":"pairSpan","sentence":"As teachers, they've been trained to identify problems, diagnose what's causing the problems, and then find solutions to those problems, and along with these things do the teachers need to find what's good in every student.","prompt":"to identify와 병렬을 이루는 두 동사 표현을 차례로 선택하세요.","answers":["diagnose what's causing the problems","find solutions to those problems"],"explanation":"trained의 목적어 역할을 하는 to identify ..., diagnose ..., find ...가 병렬로 연결됩니다. 두 번째와 세 번째 항목에서는 반복되는 to가 생략된 것으로 볼 수 있습니다.","memory":"긴 문장에서는 병렬 항목의 시작점을 먼저 맞추기"},
+    {"id":"U24-Q01-2","display":"Q01 · 도치된 주어","interaction":"text","sentence":"As teachers, they've been trained to identify problems, diagnose what's causing the problems, and then find solutions to those problems, and along with these things do the teachers need to find what's good in every student.","prompt":"along with these things가 앞으로 이동한 절에서 주어를 입력하세요.","answer":"the teachers","explanation":"이미 언급된 정보를 담은 along with these things가 절 앞에 오면서 do + the teachers + need의 도치가 나타납니다. 주어는 the teachers입니다."},
+    {"id":"U24-Q02-1","display":"Q02 · 문맥 판단","interaction":"choice","sentence":"If we imagine getting a survey for which half of the responses were ‘don't know,’ offering a ‘don't know’ option can be ___, thus that option we shouldn't offer, when the list of response options are matters of opinion, not specific knowledge questions.","prompt":"문맥에 가장 알맞은 말을 고르세요.","choices":["significant","ineffective"],"answer":"ineffective","explanation":"의견을 묻는 상황에서 ‘모른다’ 선택지를 제공하지 말아야 한다는 결론으로 이어지므로 ineffective가 알맞습니다."},
+    {"id":"U24-Q02-2","display":"Q02 · 목적어 전면 이동","interaction":"pairSpan","sentence":"If we imagine getting a survey for which half of the responses were ‘don't know,’ offering a ‘don't know’ option can be ineffective, thus that option we shouldn't offer, when the list of response options are matters of opinion, not specific knowledge questions.","prompt":"that option we shouldn't offer에서 주어와 앞으로 이동한 목적어를 차례로 선택하세요.","answers":["we","that option"],"explanation":"that option이 목적어이지만 이미 언급된 정보라 절 맨 앞에 놓였습니다. 그 뒤의 주어는 we이며, 목적어 전면 이동에서는 일반적으로 주어-동사 도치가 일어나지 않습니다."},
+    {"id":"U24-Q03-1","display":"Q03 · 반복어구 생략","interaction":"choice","sentence":"The African rhino is being pushed towards extinction because its horn is prized for sword handles in the Middle East and for traditional medicines in Asia. Behind those consumption decisions, and the ways in which our needs are met, is an environmental cost.","prompt":"첫 문장의 and 뒤에서 반복되어 생략된 어구를 고르세요.","choices":["its horn is prized","The African rhino is being pushed"],"answer":"its horn is prized","explanation":"for sword handles ... and for traditional medicines ...가 병렬을 이루며, 두 번째 for 앞에는 반복되는 its horn is prized가 생략된 것으로 해설됩니다."},
+    {"id":"U24-Q03-2","display":"Q03 · 장소 부사구 도치","interaction":"text","sentence":"The African rhino is being pushed towards extinction because its horn is prized for sword handles in the Middle East and for traditional medicines in Asia. Behind those consumption decisions, and the ways in which our needs are met, is an environmental cost.","prompt":"두 번째 문장에서 도치되어 뒤에 놓인 주어를 입력하세요.","answer":"an environmental cost","explanation":"이미 언급된 정보를 포함한 장소 부사구 Behind those consumption decisions, and the ways ...가 앞으로 이동해 is + an environmental cost의 도치가 일어났습니다."}
   ],
-  "validationFlow": ["U24-P01-1", "U24-P02-1", "U24-P03-1", "U24-P04-1", "U24-P05-1", "REPORT"]
+  "validationFlow":["U24-Q01-1","U24-Q01-2","U24-Q02-1","U24-Q02-2","U24-Q03-1","U24-Q03-2","REPORT"]
 }
