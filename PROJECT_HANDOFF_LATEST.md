@@ -20,20 +20,19 @@
 - PIN 2007 supports current Unit review and `Unit 01~48 한꺼번에 검수`.
 
 ## 4. Source validation — latest
-- U41 `it ~ to-V[that]`: source-aligned from workbook p.110 and answer book p.80.
-- U42 `짝을 이루는 접속사`: source-aligned from representative workbook p.112 sentences and answer book p.82 logic: either A or B, not A but B, not only A but also B, plus dummy/true subject analysis where required.
-- U43 `짝을 이루는 대명사·부사`: source-aligned from workbook p.114 and answer book p.84.
-- U44 `특정 전치사구를 동반하는 동사`: source-aligned from representative workbook p.116 sentences and answer book p.85 logic: look upon A as B, blame A for B, distinguish A from B.
-- U45, U46, U47 remain PFAL-derived concept staging and must not be called source validated.
+- U41~U44: publisher workbook/answer-book representative sentences and answer logic are source-aligned.
+- U45: representative Unit45 Q03~Q05 structures verified: delayed participial modifier, delayed why-clause, and delayed relative clauses.
+- U46: workbook p.123 Q05~Q07 verified: `not so much A as B`, `No A is so ... as B`, and `There is no comparative ... than ...` superlative meaning.
+- U47: answer-book Unit47 Q01 verified: plural `create`, nested relative clause, and `It is ~ who` cleft emphasis. The webapp uses only this verified representative source sentence for U47; it does not claim full publisher exercise replication.
 - U48 remains source-aligned.
-- Next source-validation order: U45 → U46 → U47.
+- Therefore Chapter12 U45~U48 is source-aligned at representative QA-set level, but still awaits the live content/layout freeze.
 
 ## 5. Full-workbook QA already implemented
 - Static QA validates all Unit 01~48 JSON/catalog data, unique IDs, choice answers, selectable span/pairSpan answers and validationFlow integrity.
 - Runtime span tokenization supports compounds/suspensive hyphens, abbreviations, quotes, contractions and numeric suffixes.
 - Selected Unit persists across reload.
 - Student report no longer hardcodes Unit 01 and selected-Unit tomorrow-review count is separated.
-- PWA cache: `chunilmun-pfal-t1-v093o`.
+- PWA cache: `chunilmun-pfal-t1-v093p`.
 
 ## 6. Cloud
 - Firebase project `moonma-f6dbe`
@@ -42,8 +41,8 @@
 - Firestore rules reported published; PIN 2007 diagnostic PASS screenshot still pending
 
 ## 7. Next priority
-1. Continue publisher source-validation/freeze with U45, then U46, U47.
-2. PIN 2007 `Unit 01~48 한꺼번에 검수` full content/layout sweep and batch fixes.
+1. PIN 2007 `Unit 01~48 한꺼번에 검수` full content/layout sweep and batch fixes.
+2. Revisit earlier PFAL-staged Units 07, 17~19, 21~25, 27, 31~32 for source validation where useful.
 3. Cloud diagnostic all PASS + PC/mobile/tablet round-trip progress/active-time QA.
 4. Student-mode multi-unit regression, especially Unit switching + due-review separation + persisted selection.
 5. Only after those gates decide whether to expand beyond this workbook.
