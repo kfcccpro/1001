@@ -13,24 +13,24 @@
 - Publisher source-aligned, mixed and PFAL-derived content remain explicitly distinguished.
 
 ## 3. Latest completed source work
-- U07: representative answer-book Q07~Q08 source/structure verified → `source_aligned_batch_qa`.
-- U17~U19: representative workbook/answer-book source and omission/relative-clause logic verified → `source_aligned_batch_qa`.
-- U24: workbook p.66 + answer-book p.47 representative Q01~Q03 verified → `source_aligned_batch_qa` (parallelism, inversion, object fronting, omission).
-- U44 exact publisher TOC wording corrected to `특정 전명구를 동반하는 동사`.
-- Remaining pure source-concept/PFAL queue: U21~23 → U25 → U27 → U31~32.
+- U21: workbook p.60~61 / answer-book p.42 representative Q01~Q04 verified → `source_aligned_batch_qa`; so/neither/nor/there inversion is represented.
+- U22: workbook p.62~63 / answer-book representative Q05~Q07 verified → `source_aligned_batch_qa`; fronted complement/locative phrase, inversion and omitted relative pronoun are represented.
+- U23: workbook p.64~65 / answer-book p.45 representative Q01~Q02 verified → `source_aligned_batch_qa`; heavy-object shift, parenthetical insertion and to-infinitive modifier are represented.
+- U24 was already source-aligned, so Chapter 06 U21~U24 is now source-aligned at representative QA-set level.
+- Remaining pure source-concept/PFAL queue: U25 → U27 → U31~32. Initial targeted searches for U25/U27/U31/U32 were insufficient for safe promotion, so their current status is intentionally retained.
 
 ## 4. Supervisor audit / QA
 - PIN 2007 combined review shows Chapter/Unit/interaction/source classification, uses actual token boundaries for span previews, and supports Unit/item jump.
 - Static QA checks all Unit JSON/catalog consistency, required fields, complete validationFlow and selectable answers and emits layout telemetry.
 - Live desktop/tablet/mobile visual sweep still requires browser/screenshot evidence and must not be claimed complete yet.
-- PWA cache: `chunilmun-pfal-t1-v093s`.
+- PWA cache: `chunilmun-pfal-t1-v093t`.
 
 ## 5. Cloud
 - Firebase project `moonma-f6dbe`; collections `chunilmun1001`, `chunilmun1001_sessions`.
 - Firestore rules were reported published; PIN 2007 diagnostic PASS screenshot remains pending.
 
 ## 6. Next priorities
-1. Source-align U21~23, then U25, U27, U31~32 where exact publisher source is verified.
+1. Re-search and source-align U25, U27, U31~32 only where exact publisher source/answers can be verified.
 2. Revisit mixed units and U48 adaptation/source-freeze issue.
 3. Live full-workbook supervisor viewport sweep when screenshots/browser evidence are available.
 4. Cloud diagnostic + PC/mobile/tablet round-trip active-time/progress QA.

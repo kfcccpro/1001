@@ -1,65 +1,11 @@
 {
-  "meta": {
-    "schemaVersion": "0.4.0",
-    "book": "천일문 완성 트레이닝북",
-    "chapter": 6,
-    "unit": 21,
-    "title": "어순 변화",
-    "sourceConceptPages": {"workbook": [60, 61]},
-    "status": "source_concept_pfal_batch_qa",
-    "note": "교재 Unit의 개념과 순서에 맞춰 제작한 PFAL 파생문항이며 출판사 원문 전사본이 아님"
-  },
-  "items": [
-    {
-      "id": "U21-P01-1",
-      "display": "PFAL 01 · 장소어구 도치",
-      "interaction": "text",
-      "sentence": "On the wall hung a large map of the city.",
-      "prompt": "이 문장을 일반적인 주어-동사 어순으로 바꿔 입력하세요.",
-      "answer": "A large map of the city hung on the wall.",
-      "explanation": "장소어구 On the wall이 앞으로 이동하면서 동사 hung가 주어 a large map of the city보다 먼저 나온 도치 구조입니다.",
-      "memory": "장소어구 + V + S 형태가 나타날 수 있음"
-    },
-    {
-      "id": "U21-P02-1",
-      "display": "PFAL 02 · here 도치",
-      "interaction": "choice",
-      "sentence": "Here comes the bus.",
-      "prompt": "문장의 실제 주어를 고르세요.",
-      "choices": ["the bus", "Here"],
-      "answer": "the bus",
-      "explanation": "Here가 문장 앞으로 나오며 comes가 주어 the bus보다 앞에 놓였습니다. 실제 주어는 the bus입니다."
-    },
-    {
-      "id": "U21-P03-1",
-      "display": "PFAL 03 · 부정어 도치",
-      "interaction": "choice",
-      "sentence": "Never have I seen such a clear example.",
-      "prompt": "Never가 문장 앞으로 나왔을 때 나타난 도치 어순을 고르세요.",
-      "choices": ["have I seen", "I have seen"],
-      "answer": "have I seen",
-      "explanation": "부정 의미의 Never가 문두에 오면 조동사 have가 주어 I보다 앞으로 이동합니다.",
-      "memory": "부정어 문두 이동 → 조동사/주어 도치"
-    },
-    {
-      "id": "U21-P04-1",
-      "display": "PFAL 04 · only 도치",
-      "interaction": "choice",
-      "sentence": "Only then did she understand the point.",
-      "prompt": "Only then 뒤의 올바른 도치 어순을 고르세요.",
-      "choices": ["did she understand", "she did understand"],
-      "answer": "did she understand",
-      "explanation": "제한 의미의 Only then이 문두에 오면서 조동사 did가 주어 she 앞으로 이동했습니다."
-    },
-    {
-      "id": "U21-P05-1",
-      "display": "PFAL 05 · 긴 주어 찾기",
-      "interaction": "span",
-      "sentence": "At the end of the narrow street stood a small bookstore.",
-      "prompt": "도치된 문장의 실제 주어를 드래그하세요.",
-      "answer": "a small bookstore",
-      "explanation": "장소어구 At the end ...가 앞에 나오고 동사 stood 다음에 실제 주어 a small bookstore가 놓였습니다."
-    }
+  "meta":{"schemaVersion":"0.4.0","book":"천일문 완성 트레이닝북","chapter":6,"unit":21,"title":"어순 변화","sourcePages":{"workbook":[60,61],"answerBook":[42]},"status":"source_aligned_batch_qa","note":"교재 p.60과 정답·해설 p.42의 대표 Q01~Q04 원문·정답 논리를 대조해 so/neither/nor/there 도치 중심의 대표 source-aligned QA 세트로 변환함."},
+  "items":[
+    {"id":"U21-Q01-1","display":"Q01 · so 도치의 주어","interaction":"span","sentence":"It takes some time for babies to begin to walk, and so does achieving your goals, so you must not get discouraged when you don't see progress right away.","prompt":"so does 뒤에서 실제 주어 역할을 하는 부분을 드래그하세요.","answer":"achieving your goals","explanation":"<so + V + S>는 ‘S도 역시 그렇다’의 도치 어순입니다. does 뒤의 동명사구 achieving your goals가 주어입니다.","memory":"so/neither/nor 뒤에서는 동사와 주어의 위치를 다시 확인"},
+    {"id":"U21-Q02-1","display":"Q02 · with 분사구문","interaction":"choice","sentence":"In all honesty, office workers would not enjoy their environments quite as much with someone constantly looking over their shoulder, and sometimes neither do the students.","prompt":"with someone constantly ___ over their shoulder에 알맞은 형태를 고르세요.","choices":["looking","looks"],"answer":"looking","explanation":"with의 목적어 someone이 ‘보는’ 능동 관계이므로 현재분사 looking이 알맞습니다."},
+    {"id":"U21-Q02-2","display":"Q02 · neither 도치 의미","interaction":"choice","sentence":"In all honesty, office workers would not enjoy their environments quite as much with someone constantly looking over their shoulder, and sometimes neither do the students.","prompt":"sometimes neither do the students의 의미로 알맞은 것을 고르세요.","choices":["때때로 학생들도 역시 그렇지 못하다","때때로 학생들만은 그렇다"],"answer":"때때로 학생들도 역시 그렇지 못하다","explanation":"<neither + V + S>는 앞의 부정 내용에 이어 ‘S도 역시 그렇지 않다’라는 의미를 나타냅니다."},
+    {"id":"U21-Q03-1","display":"Q03 · nor 도치의 주어","interaction":"text","sentence":"Science is not a means for finding quick and certain facts, but a slow, methodical process that is prone to misstep, so the process is not always reliable, nor are researchers 100 percent objective.","prompt":"nor are ___ 100 percent objective에서 도치된 주어를 입력하세요.","answer":"researchers","explanation":"<nor + V + S> 도치에서 are 뒤의 researchers가 주어입니다. 앞 절의 부정 의미가 이어집니다."},
+    {"id":"U21-Q04-1","display":"Q04 · there 도치와 수일치","interaction":"choice","sentence":"As statistics show that fliers aged 45 to 74 have fewer accidents than those between 26 and 44, and there exists no proof that pilots in their 60's are less able than those in their 20's, we can conclude that age and working ability are proportional in pilots.","prompt":"there ___ no proof에서 알맞은 동사를 고르세요.","choices":["exists","exist"],"answer":"exists","explanation":"there가 문두에 놓인 도치구문에서 실제 주어는 단수 no proof이므로 단수동사 exists가 알맞습니다."}
   ],
-  "validationFlow": ["U21-P01-1", "U21-P02-1", "U21-P03-1", "U21-P04-1", "U21-P05-1", "REPORT"]
+  "validationFlow":["U21-Q01-1","U21-Q02-1","U21-Q02-2","U21-Q03-1","U21-Q04-1","REPORT"]
 }

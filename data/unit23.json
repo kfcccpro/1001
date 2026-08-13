@@ -1,62 +1,11 @@
 {
-  "meta": {
-    "schemaVersion": "0.4.0",
-    "book": "천일문 완성 트레이닝북",
-    "chapter": 6,
-    "unit": 23,
-    "title": "문장 뒤로 이동",
-    "sourceConceptPages": {"workbook": [64, 65]},
-    "status": "source_concept_pfal_batch_qa",
-    "note": "교재 Unit의 개념과 순서에 맞춰 제작한 PFAL 파생문항이며 출판사 원문 전사본이 아님"
-  },
-  "items": [
-    {
-      "id": "U23-P01-1",
-      "display": "PFAL 01 · 가주어 it",
-      "interaction": "span",
-      "sentence": "It is difficult to remember every detail at once.",
-      "prompt": "문장 뒤로 이동한 진짜 주어를 드래그하세요.",
-      "answer": "to remember every detail at once",
-      "explanation": "앞의 It은 가주어이고 실제 내용 주어는 뒤의 to부정사구입니다.",
-      "memory": "It + be + 형용사 + to V → 진주어 to V가 뒤에 놓임"
-    },
-    {
-      "id": "U23-P02-1",
-      "display": "PFAL 02 · 가목적어 it",
-      "interaction": "span",
-      "sentence": "I find it useful to mark the main verb first.",
-      "prompt": "가목적어 it의 실제 내용에 해당하는 부분을 드래그하세요.",
-      "answer": "to mark the main verb first",
-      "explanation": "find의 목적어 자리에 가목적어 it을 두고 긴 실제 목적어 to mark ...를 뒤로 보냈습니다."
-    },
-    {
-      "id": "U23-P03-1",
-      "display": "PFAL 03 · that절 뒤 이동",
-      "interaction": "span",
-      "sentence": "It surprised the teacher that every student found the hidden subject.",
-      "prompt": "가주어 it 대신 실제 주어 역할을 하는 that절을 드래그하세요.",
-      "answer": "that every student found the hidden subject",
-      "explanation": "긴 that절이 문장 뒤로 이동하고 앞자리를 가주어 It이 채운 구조입니다."
-    },
-    {
-      "id": "U23-P04-1",
-      "display": "PFAL 04 · 긴 수식절 뒤 이동",
-      "interaction": "span",
-      "sentence": "A rumor spread through the school that the test would be postponed.",
-      "prompt": "앞의 A rumor의 내용을 뒤에서 설명하는 that절을 드래그하세요.",
-      "answer": "that the test would be postponed",
-      "explanation": "긴 that절이 명사 rumor 바로 뒤에 붙지 않고 문장 뒤에 놓여 내용을 설명합니다. 긴 성분은 이해하기 쉬운 위치로 뒤로 이동할 수 있습니다."
-    },
-    {
-      "id": "U23-P05-1",
-      "display": "PFAL 05 · 진주어 확인",
-      "interaction": "choice",
-      "sentence": "It became clear after the second example that the rule had one important exception.",
-      "prompt": "문장의 실제 주어 역할을 하는 부분을 고르세요.",
-      "choices": ["that the rule had one important exception", "after the second example"],
-      "answer": "that the rule had one important exception",
-      "explanation": "It은 가주어이며 that절이 실제 내용을 담는 진주어입니다. after ...는 부사구입니다."
-    }
+  "meta":{"schemaVersion":"0.4.0","book":"천일문 완성 트레이닝북","chapter":6,"unit":23,"title":"문장 뒤로 이동","sourcePages":{"workbook":[64,65],"answerBook":[45]},"status":"source_aligned_batch_qa","note":"정답·해설 p.45의 대표 Q01~Q02 원문과 목적어 뒤 이동·삽입절·to부정사 수식 구조를 대조해 대표 source-aligned QA 세트로 변환함."},
+  "items":[
+    {"id":"U23-Q01-1","display":"Q01 · 목적격보어","interaction":"text","sentence":"The architect made clear his views on the city reform plan, which he thought was not in the best interests of the public and could harm the landscape of the whole city.","prompt":"made와 긴 목적어 his views ... 사이에 놓인 목적격보어를 입력하세요.","answer":"clear","explanation":"원래 <make + O + C>에서 긴 목적어 his views on the city reform plan이 뒤로 이동해 목적격보어 clear가 먼저 나타난 구조입니다.","memory":"긴 목적어가 뒤로 이동하면 O-C 순서가 겉으로 뒤바뀔 수 있음"},
+    {"id":"U23-Q01-2","display":"Q01 · 관계사 뒤 삽입절","interaction":"span","sentence":"The architect made clear his views on the city reform plan, which he thought was not in the best interests of the public and could harm the landscape of the whole city.","prompt":"관계대명사 which 뒤에 삽입된 <주어+동사>를 드래그하세요.","answer":"he thought","explanation":"which 뒤의 he thought는 삽입절입니다. 이를 걷어내면 which was not ... and could harm ...의 관계사절 구조가 선명해집니다."},
+    {"id":"U23-Q01-3","display":"Q01 · 기본 어순 복원","interaction":"choice","sentence":"The architect made clear his views on the city reform plan, which he thought was not in the best interests of the public and could harm the landscape of the whole city.","prompt":"made clear his views ... 부분을 기본 어순으로 복원한 것을 고르세요.","choices":["made his views on the city reform plan clear","made clear on the city reform plan his views"],"answer":"made his views on the city reform plan clear","explanation":"기본 어순은 make + 목적어 his views ... + 목적격보어 clear입니다."},
+    {"id":"U23-Q02-1","display":"Q02 · 긴 목적어 뒤 이동","interaction":"span","sentence":"Researchers found in a survey of 542 households in England that the beach was rated a more enjoyable place to visit than national parks, museums, or amusement parks.","prompt":"found의 긴 목적어로서 부사구 뒤로 이동한 that절 전체를 드래그하세요.","answer":"that the beach was rated a more enjoyable place to visit than national parks, museums, or amusement parks","explanation":"긴 목적어 that절이 동사 found 바로 뒤가 아니라 부사구 in a survey ... England 뒤에 놓인 구조입니다."},
+    {"id":"U23-Q02-2","display":"Q02 · to부정사 수식","interaction":"choice","sentence":"Researchers found in a survey of 542 households in England that the beach was rated a more enjoyable place to visit than national parks, museums, or amusement parks.","prompt":"to visit가 직접 수식하는 명사를 고르세요.","choices":["place","Researchers"],"answer":"place","explanation":"to visit는 앞의 명사 a more enjoyable place를 수식해 ‘방문하기에 더 즐거운 장소’라는 의미를 만듭니다."}
   ],
-  "validationFlow": ["U23-P01-1", "U23-P02-1", "U23-P03-1", "U23-P04-1", "U23-P05-1", "REPORT"]
+  "validationFlow":["U23-Q01-1","U23-Q01-2","U23-Q01-3","U23-Q02-1","U23-Q02-2","REPORT"]
 }

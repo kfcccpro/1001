@@ -1,62 +1,11 @@
 {
-  "meta": {
-    "schemaVersion": "0.4.0",
-    "book": "천일문 완성 트레이닝북",
-    "chapter": 6,
-    "unit": 22,
-    "title": "문장 앞으로 이동",
-    "sourceConceptPages": {"workbook": [62, 63]},
-    "status": "source_concept_pfal_batch_qa",
-    "note": "교재 Unit의 개념과 순서에 맞춰 제작한 PFAL 파생문항이며 출판사 원문 전사본이 아님"
-  },
-  "items": [
-    {
-      "id": "U22-P01-1",
-      "display": "PFAL 01 · 목적어 전면 이동",
-      "interaction": "span",
-      "sentence": "This book I can recommend without hesitation.",
-      "prompt": "강조를 위해 문장 앞으로 이동한 목적어를 드래그하세요.",
-      "answer": "This book",
-      "explanation": "일반 어순은 I can recommend this book ...이며 목적어 This book이 문장 앞으로 이동했습니다.",
-      "memory": "문두의 명사구가 항상 주어인 것은 아님"
-    },
-    {
-      "id": "U22-P02-1",
-      "display": "PFAL 02 · 보어 전면 이동",
-      "interaction": "span",
-      "sentence": "Especially useful is the final example in the chapter.",
-      "prompt": "강조를 위해 문장 앞으로 이동한 보어를 드래그하세요.",
-      "answer": "Especially useful",
-      "explanation": "일반 어순 The final example ... is especially useful에서 보어 Especially useful이 앞으로 이동했습니다."
-    },
-    {
-      "id": "U22-P03-1",
-      "display": "PFAL 03 · 부사어 전면 이동",
-      "interaction": "span",
-      "sentence": "Only after the second reading did the meaning become clear.",
-      "prompt": "문장 앞으로 이동해 도치를 일으킨 부사어구를 드래그하세요.",
-      "answer": "Only after the second reading",
-      "explanation": "Only가 포함된 부사어구가 문두로 이동하면서 did the meaning become ...의 도치가 일어났습니다."
-    },
-    {
-      "id": "U22-P04-1",
-      "display": "PFAL 04 · 대조 목적어",
-      "interaction": "pairSpan",
-      "sentence": "This question I understand, but that one I still find confusing.",
-      "prompt": "대조를 위해 각각 문장 앞으로 이동한 두 목적어를 차례로 선택하세요.",
-      "answers": ["This question", "that one"],
-      "explanation": "일반 어순은 I understand this question, but I still find that one confusing입니다. 두 목적어가 대조를 위해 앞으로 이동했습니다."
-    },
-    {
-      "id": "U22-P05-1",
-      "display": "PFAL 05 · 비교 보어 이동",
-      "interaction": "choice",
-      "sentence": "More important than speed is accuracy.",
-      "prompt": "문장 앞으로 이동해 강조된 성분을 고르세요.",
-      "choices": ["More important than speed", "accuracy"],
-      "answer": "More important than speed",
-      "explanation": "일반 어순 Accuracy is more important than speed에서 보어가 문두로 이동한 구조입니다."
-    }
+  "meta":{"schemaVersion":"0.4.0","book":"천일문 완성 트레이닝북","chapter":6,"unit":22,"title":"문장 앞으로 이동","sourcePages":{"workbook":[62,63],"answerBook":[44]},"status":"source_aligned_batch_qa","note":"교재 p.63과 정답·해설의 대표 Q05~Q07 원문·구조를 대조해 보어·장소부사구 전면 이동과 도치 중심의 대표 source-aligned QA 세트로 변환함."},
+  "items":[
+    {"id":"U22-Q05-1","display":"Q05 · 보어 전면 이동","interaction":"choice","sentence":"Happy is the person who knows what to remember of the past, what to enjoy in the present, and what to plan for the future.","prompt":"문장의 주어 중심어를 고르세요.","choices":["the person","Happy"],"answer":"the person","explanation":"보어 Happy가 강조를 위해 문두로 이동하면서 <C + V + S> 어순이 되었습니다. 주어 중심은 the person입니다.","memory":"문두의 형용사구가 주어가 아니라 보어일 수 있음"},
+    {"id":"U22-Q06-1","display":"Q06 · 장소부사구 도치","interaction":"choice","sentence":"Under the large pile of clothes lies a beautiful sweater my grandmother made, which will be quite easy to find due to its unique color and special fabric.","prompt":"Under the large pile of clothes 뒤의 동사로 알맞은 것을 고르세요.","choices":["lies","lie"],"answer":"lies","explanation":"장소 부사구가 문두로 이동해 <장소 부사구 + V + S> 도치가 일어났습니다. 실제 주어 a beautiful sweater가 단수이므로 lies가 알맞습니다."},
+    {"id":"U22-Q06-2","display":"Q06 · 생략된 관계대명사절","interaction":"span","sentence":"Under the large pile of clothes lies a beautiful sweater my grandmother made, which will be quite easy to find due to its unique color and special fabric.","prompt":"a beautiful sweater를 수식하며 목적격 관계대명사가 생략된 절을 드래그하세요.","answer":"my grandmother made","explanation":"a beautiful sweater 뒤의 my grandmother made 앞에는 목적격 관계대명사 which/that이 생략되어 있습니다."},
+    {"id":"U22-Q07-1","display":"Q07 · 긴 주어 뒤 이동","interaction":"text","sentence":"Even worse than reaching a conclusion with just a little evidence is the fallacy of reaching a conclusion without any evidence at all.","prompt":"수식어구를 제외한 문장의 주어 중심을 입력하세요.","answer":"the fallacy","explanation":"보어 Even worse ... evidence가 문두로 이동하고 긴 주어 the fallacy of ...가 뒤에 놓였습니다. 주어 중심은 the fallacy입니다."},
+    {"id":"U22-Q07-2","display":"Q07 · 기본 어순 복원","interaction":"choice","sentence":"Even worse than reaching a conclusion with just a little evidence is the fallacy of reaching a conclusion without any evidence at all.","prompt":"기본 어순으로 복원한 구조를 고르세요.","choices":["The fallacy of reaching a conclusion without any evidence at all is even worse than reaching a conclusion with just a little evidence.","Even worse is reaching a conclusion with evidence the fallacy."],"answer":"The fallacy of reaching a conclusion without any evidence at all is even worse than reaching a conclusion with just a little evidence.","explanation":"전면 이동한 보어를 원위치로 돌리면 긴 주어 + is + 보어의 기본 구조가 드러납니다."}
   ],
-  "validationFlow": ["U22-P01-1", "U22-P02-1", "U22-P03-1", "U22-P04-1", "U22-P05-1", "REPORT"]
+  "validationFlow":["U22-Q05-1","U22-Q06-1","U22-Q06-2","U22-Q07-1","U22-Q07-2","REPORT"]
 }
