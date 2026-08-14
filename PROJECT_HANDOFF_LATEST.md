@@ -1,30 +1,28 @@
 # 천일문 PFAL — PROJECT HANDOFF LATEST
 
 - Repo: `kfcccpro/1001` / canonical `main`
-- Core: `0.9.3`; expansion/content layer: `0.9.3-batch6`; runtime/readability patch: `0.9.4`
+- Core: `0.9.3`; expansion/content: `0.9.3-batch6`; runtime/readability: `0.9.4c`
 - Student PIN `8081`; Admin/Supervisor PIN `2007`
-- Student actual learning mode is the only mode allowed to write progress/review/session/active-time shared state. Supervisor remains read-only for learning records.
+- Only actual student learning may write progress/review/session/active-time shared state. Supervisor remains read-only for learning records.
 
-## Source audit status
-- Chapter 01~12 / Unit 01~48 are implemented as representative publisher-source-aligned QA sets.
-- U01 retains `source_aligned_validation`; U02~U48 use `source_aligned_batch_qa`.
-- U08 and U28 were finalized from exact workbook/answer-book evidence and are no longer mixed/PFAL-derived catalog units.
-- This status means representative source-aligned QA coverage, not full-workbook republication or exhaustive line-by-line reproduction.
+## Frozen product scope
+- Chapter 01~12 / Unit 01~48 implemented as representative publisher-source-aligned QA sets.
+- U01: `source_aligned_validation`; U02~U48: `source_aligned_batch_qa`.
+- New feature development is frozen unless a release-blocking defect is found.
 
-## v0.9.4 runtime/readability batch
-1. Readability restoration: `visibility-v094.css` restores sentence, prompt, answer, button, home/admin and supervisor visual scale after the compact-layout reduction while retaining compact flow.
-2. Multi-unit navigation: student/admin Unit selection is reduced from 48 simultaneously stacked Unit cards to Chapter tabs plus the selected Chapter's four Units.
-3. Runtime isolation: `runtime-fixes-v094.js` makes ordinary cloud synchronization read-only, gates shared-state writes to real student learning, shortens stale active-session display to 2 hours, cleans diagnostic markers, keeps growth comparison Unit-local, and fixes the cloud-admin Unit progress label.
-4. PWA cache key: `chunilmun-pfal-t1-v094a`.
-5. Static QA now checks the v0.9.4 JS/CSS/index/PWA wiring in addition to the existing 48-Unit semantic validation.
+## Final blocker batch — 2026-08-14
+1. U47 source-freeze flag closed: exact workbook/answer evidence now covers representative Q01 and Q05~Q07 tasks (emphasis, apposition, shared modifier, passive `be used`, parallel clauses, causal `as`).
+2. Active-time hardening: periodic checkpoints occur only while visible/recently active, so idle/background tabs do not keep live-study state fresh. Live-session freshness is about 3 minutes (`ACTIVE_GRACE_MS + 60s`).
+3. Cloud diagnostic cleanup now attempts state/session cleanup on both success and failure paths.
+4. PWA cache: `chunilmun-pfal-t1-v094c`.
+5. Runtime Regression Guard protects the above invariants plus the readability floor and zero learning sentences >=320 characters.
 
-## Verification still required
-- GitHub Static QA and Pages deployment for the v0.9.4 batch after main advancement.
-- Live PIN 2007 full-workbook visual sweep on desktop/tablet/mobile; browser/screenshot evidence is required before visual PASS.
-- Cloud diagnostic all PASS and multi-device round-trip/active-time QA require live device evidence.
-- Student-mode multi-unit regression requires live execution evidence.
-- U47 source breadth remains a final source-freeze review flag, not a confirmed defect.
+## Remaining release evidence
+- PIN 2007 full-workbook visual sweep on desktop/tablet/mobile with actual screenshots/browser evidence.
+- Cloud Diagnostic all PASS in the deployed origin.
+- PIN 8081 real multi-device round-trip: learning write/sync, idle/background time exclusion, and PIN 2007 read-only confirmation.
 
-## Batch rule
-- Group 2~3 meaningful stages before one main/deployment checkpoint.
-- Avoid micro-deployments unless a blocking production defect requires a hotfix.
+## Finish rule
+- Do not invent live PASS results.
+- If the three evidence groups pass without defects, perform one final documentation/version freeze and close the project.
+- If defects appear, fix only release blockers and re-run the affected evidence group.
