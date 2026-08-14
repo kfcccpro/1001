@@ -1,14 +1,47 @@
-/* v0.9.4 readability restoration: restore visual scale while retaining compact flow. */
+/* v0.9.4 readability restoration
+   Restore visual scale after compact-v093 while keeping the compact flow and limited scrolling. */
+
+/* Global reading hierarchy */
+.topbar{font-size:14px;min-height:36px}
+.login-card,.home-card,.report-card{width:min(100%,780px)}
+h1{font-size:clamp(32px,5vw,50px)}
+.lead{font-size:17px;line-height:1.75}
+.home-title{font-size:36px}
+.date-label{font-size:13px}
+.daily-badge{font-size:13px;padding:9px 13px}
+.metric strong{font-size:28px}.metric span{font-size:13px}
+
+/* Core learning content */
 .sentence,.token-sentence{font-size:clamp(25px,3.55vw,38px);line-height:1.58}
 .prompt{font-size:clamp(22px,2.85vw,28px);line-height:1.4}
 .guide-strip{font-size:15px;line-height:1.58}
-.choice{font-size:18px;min-height:54px}
-.primary,.secondary{font-size:16px;min-height:54px}
+.choice{font-size:18px;min-height:56px}
+.primary,.secondary{font-size:16px;min-height:56px}
 .explanation{font-size:17px;line-height:1.66}
 .structure-view{font-size:17px;line-height:1.62}
 .memory-point{font-size:16px}.memory-point strong{font-size:18px}
 .result-title{font-size:26px}
 .selection-preview{font-size:15px}.pair-slot{font-size:13px}.pair-slot span{font-size:15px}
+
+/* Multi-unit navigation: keep controls clearly readable. */
+.chapter-unit-title span{font-size:13px}.chapter-unit-title b{font-size:17px}
+.unit-chip{min-height:64px;padding:11px 13px}
+.unit-chip span{font-size:13px}.unit-chip b{font-size:15px;line-height:1.35}
+.selected-unit-card span{font-size:14px}.selected-unit-card strong{font-size:23px}
+.multiunit-admin-head span,.picker-title{font-size:14px}.multiunit-admin-head strong{font-size:20px}
+.selected-admin-unit{font-size:15px}
+
+/* Supervisor audit must remain legible even for long source sentences. */
+.supervisor-badge{font-size:14px}
+.supervisor-audit-meta span{font-size:12px}
+.supervisor-prompt{font-size:clamp(25px,3.35vw,33px)!important;line-height:1.4!important}
+.supervisor-sentence.is-long{font-size:clamp(22px,2.4vw,31px)!important;line-height:1.54!important}
+.supervisor-sentence.is-very-long{font-size:clamp(20px,2.1vw,27px)!important;line-height:1.5!important}
+.supervisor-guide{font-size:18px}
+.supervisor-choices .choice{font-size:19px;min-height:58px}
+.supervisor-actions button{font-size:18px;min-height:58px}
+.supervisor-jump select{font-size:15px;min-height:50px}
+
 @media(min-width:980px){
   .sentence,.token-sentence{font-size:clamp(27px,3vw,39px)}
   .question-wrap:has(#result > .result-panel) .sentence,
@@ -18,19 +51,32 @@
   .question-wrap:has(#result > .result-panel) .prompt,
   .question-wrap:has(#result > .repair-panel) .prompt{font-size:clamp(23px,2.2vw,29px)}
 }
+
 @media(min-width:720px) and (max-width:979px){
   .sentence,.token-sentence{font-size:clamp(26px,3.8vw,36px);line-height:1.56}
   .prompt{font-size:clamp(23px,3vw,28px)}
+  .home-title{font-size:34px}
 }
+
 @media(max-width:700px){
+  .login-card,.home-card,.report-card{padding:29px 22px}
+  h1{font-size:34px}
+  .home-title{font-size:32px}
+  .lead{font-size:17px;line-height:1.7}
   .sentence,.token-sentence{font-size:clamp(24px,7.5vw,31px);line-height:1.54}
   .prompt{font-size:23px;line-height:1.38}
   .guide-strip{font-size:16px}
-  .choice{font-size:18px;min-height:54px}
-  .primary,.secondary,.soft-stop{font-size:16px;min-height:54px}
+  .choice{font-size:18px;min-height:56px}
+  .primary,.secondary,.soft-stop{font-size:16px;min-height:56px}
   .explanation{font-size:18px;line-height:1.62}
   .structure-view{font-size:17px}.memory-point strong{font-size:19px}
+  .unit-chip{min-height:60px}.unit-chip b{font-size:16px}
+  .supervisor-sentence.is-long{font-size:22px!important;line-height:1.5!important}
+  .supervisor-sentence.is-very-long{font-size:20px!important;line-height:1.47!important}
+  .supervisor-prompt{font-size:23px!important}
+  .supervisor-guide{font-size:17px}
 }
+
 @media(max-height:760px) and (min-width:980px){
   .sentence,.token-sentence{font-size:clamp(24px,2.45vw,33px);line-height:1.48}
   .prompt{font-size:23px}.explanation{font-size:17px}
