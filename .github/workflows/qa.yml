@@ -25,14 +25,20 @@ jobs:
           node --check repair-guides-v092.js
           node --check guided-repair-v092.js
           node --check multiunit-v093b.js
+          node --check runtime-fixes-v094.js
           node --check sw.js
       - name: Verify required files
         run: |
           test -f index.html
           test -f multiunit-v093b.css
+          test -f visibility-v094.css
+          test -f runtime-fixes-v094.js
           test -f data/catalog.json
           for n in $(seq -w 1 48); do test -f "data/unit${n}.json"; done
           test -f cloud-v09.css
+          grep -q 'visibility-v094.css' index.html
+          grep -q 'runtime-fixes-v094.js' index.html
+          grep -q 'chunilmun-pfal-t1-v094a' sw.js
       - name: Validate JSON catalogs, flows and selectable answers
         run: |
           node - <<'NODE'
