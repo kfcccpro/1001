@@ -22,13 +22,18 @@ jobs:
           const html=fs.readFileSync('index.html','utf8');
           const sw=fs.readFileSync('sw.js','utf8');
           const css=fs.readFileSync('visibility-v094.css','utf8');
+          const u47=JSON.parse(fs.readFileSync('data/unit47.json','utf8'));
           if(!runtime.includes("state.mode==='student'")||!runtime.includes("state.runMode==='learn'")) throw new Error('student-learning write guard missing');
           if(!runtime.includes('deleteField()')) throw new Error('diagnostic cleanup missing');
           if(!runtime.includes('catalogChapterFilter')) throw new Error('chapter-filter navigation missing');
+          if(!runtime.includes("const activeNow=document.visibilityState==='visible'")) throw new Error('idle/background checkpoint guard missing');
+          if(!runtime.includes('ACTIVE_GRACE_MS + 60000')) throw new Error('stale active-session window regression');
           if(!html.includes('visibility-v094.css')||!html.includes('runtime-fixes-v094.js')) throw new Error('v0.9.4 assets not wired');
           if(html.indexOf('runtime-fixes-v094.js') < html.indexOf('multiunit-v093b.js')) throw new Error('runtime fixes must load after multiunit');
-          if(!sw.includes('visibility-v094.css')||!sw.includes('runtime-fixes-v094.js')) throw new Error('PWA assets missing');
+          if(!sw.includes('visibility-v094.css')||!sw.includes('runtime-fixes-v094.js')||!sw.includes('v094c')) throw new Error('PWA assets/cache missing');
           if(!/font-size:clamp\(24px,7\.5vw,31px\)/.test(css)) throw new Error('mobile sentence readability floor changed');
+          const u47ids=new Set((u47.items||[]).map(x=>x.id));
+          for(const id of ['U47-Q05-1','U47-Q06-1','U47-Q06-2','U47-Q07-1','U47-Q07-2']) if(!u47ids.has(id)) throw new Error(`Unit47 source-freeze item missing: ${id}`);
           let long=[];
           for(let i=1;i<=48;i++){
             const f=`data/unit${String(i).padStart(2,'0')}.json`;
@@ -36,5 +41,5 @@ jobs:
             for(const item of d.items||[]) if(String(item.sentence||'').length>=320) long.push(`${item.id}:${String(item.sentence).length}`);
           }
           if(long.length) throw new Error(`long-sentence readability regression: ${long.join(', ')}`);
-          console.log('Runtime Regression Guard PASS · student-write isolation · diagnostic cleanup · chapter filter · readability floor · 0 sentences >=320 chars');
+          console.log('Runtime Regression Guard PASS · write isolation · idle-time guard · diagnostic cleanup · Unit47 freeze · readability floor · 0 sentences >=320 chars');
           NODE
