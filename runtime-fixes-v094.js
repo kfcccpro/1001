@@ -1,4 +1,4 @@
-const RUNTIME_FIX_VERSION = '0.9.4';
+const RUNTIME_FIX_VERSION = '0.9.4c';
 
 /* Cloud sync: reads may happen in any mode, shared-state writes only in real student learning. */
 syncFromCloud = async function(){
@@ -34,13 +34,27 @@ pushSharedState = async function(activeOverride){
   return pushSharedStateV094Base(activeOverride);
 };
 
+/* A live-session badge should represent current activity, not an abandoned tab. */
 activeSessionIsFresh = function(s){
-  return Boolean(s?.updatedAt && Date.now()-new Date(s.updatedAt).getTime()<2*60*60*1000);
+  return Boolean(s?.updatedAt && Date.now()-new Date(s.updatedAt).getTime() < ACTIVE_GRACE_MS + 60000);
+};
+
+/* Do not keep an inactive/hidden session looking fresh by checkpointing every 30 seconds. */
+activeTimeTick = function(){
+  const t=state.cloud.tracker;
+  if(!t?.running) return;
+  const now=Date.now();
+  const delta=Math.min(now-t.lastTickAt,ACTIVE_TICK_MS*2);
+  t.lastTickAt=now;
+  const activeNow=document.visibilityState==='visible' && now-t.lastActivityAt<=ACTIVE_GRACE_MS;
+  if(activeNow) t.activeMs+=Math.max(0,delta);
+  if(activeNow && now-state.cloud.lastCheckpointAt>=CLOUD_CHECKPOINT_MS) checkpointActiveSession();
 };
 
 /* Diagnostic writes are temporary and remove their marker after read-back. */
 runCloudDiagnostic = async function(){
   const startedAt=Date.now(); const rows=[]; const add=(name,ok,detail)=>rows.push({name,ok,detail});
+  let stateRef=null, sessionRef=null;
   try{
     await waitForCloud(6000);
     add('Firebase SDK',Boolean(state.cloud.api&&state.cloud.db),state.cloud.api?'로드 완료':'로드 실패');
@@ -48,21 +62,27 @@ runCloudDiagnostic = async function(){
     if(!state.cloud.ready||!state.cloud.db||!state.cloud.api) throw new Error(state.cloud.error||'Firebase 연결이 준비되지 않았습니다.');
     const {doc,setDoc,getDoc,deleteDoc,updateDoc,deleteField}=state.cloud.api;
     const token=`diag-${Date.now()}-${Math.random().toString(36).slice(2,7)}`;
-    const stateRef=doc(state.cloud.db,CLOUD_COLLECTION,CLOUD_STATE_DOC);
+    stateRef=doc(state.cloud.db,CLOUD_COLLECTION,CLOUD_STATE_DOC);
     await setDoc(stateRef,{diagnostic:{token,version:CLOUD_DIAGNOSTIC_VERSION,at:new Date().toISOString(),device:deviceInfo()}},{merge:true});
     const stateSnap=await getDoc(stateRef);
     const stateOk=stateSnap.exists()&&stateSnap.data()?.diagnostic?.token===token;
     add('진도 문서 읽기·쓰기',stateOk,stateOk?'chunilmun1001/state 정상':'쓰기 후 읽기 검증 실패');
     try{ if(updateDoc&&deleteField) await updateDoc(stateRef,{diagnostic:deleteField()}); }catch(cleanErr){ console.warn('[Chunilmun cloud] diagnostic cleanup failed',cleanErr); }
-    const diagId=`_diag_${Date.now()}`; const sessionRef=doc(state.cloud.db,CLOUD_SESSION_COLLECTION,diagId);
+    const diagId=`_diag_${Date.now()}`;
+    sessionRef=doc(state.cloud.db,CLOUD_SESSION_COLLECTION,diagId);
     await setDoc(sessionRef,{diagnostic:true,token,date:new Date().toISOString(),device:deviceInfo()});
     const sessionSnap=await getDoc(sessionRef); const sessionOk=sessionSnap.exists()&&sessionSnap.data()?.token===token;
     add('세션 문서 읽기·쓰기',sessionOk,sessionOk?'chunilmun1001_sessions 정상':'세션 검증 실패');
-    try{await deleteDoc(sessionRef);}catch{}
+    try{await deleteDoc(sessionRef); sessionRef=null;}catch(cleanErr){console.warn('[Chunilmun cloud] diagnostic session cleanup failed',cleanErr);}
     const allOk=rows.every(r=>r.ok); state.cloud.status=allOk?'online':'error';
     state.cloud.lastDiagnostic={ok:allOk,rows,at:new Date().toISOString(),elapsedMs:Date.now()-startedAt};
     return state.cloud.lastDiagnostic;
   }catch(err){
+    try{
+      const {deleteDoc,updateDoc,deleteField}=state.cloud.api||{};
+      if(stateRef&&updateDoc&&deleteField) await updateDoc(stateRef,{diagnostic:deleteField()});
+      if(sessionRef&&deleteDoc) await deleteDoc(sessionRef);
+    }catch(cleanErr){console.warn('[Chunilmun cloud] diagnostic failure cleanup failed',cleanErr);}
     add('Firestore 규칙',false,String(err?.message||err)); state.cloud.status=navigator.onLine?'error':'offline';
     state.cloud.lastDiagnostic={ok:false,rows,at:new Date().toISOString(),elapsedMs:Date.now()-startedAt,error:String(err?.message||err)};
     return state.cloud.lastDiagnostic;
