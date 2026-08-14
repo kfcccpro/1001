@@ -1,0 +1,40 @@
+name: Runtime Regression Guard
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Guard v0.9.4 runtime invariants
+        run: |
+          node --check runtime-fixes-v094.js
+          node - <<'NODE'
+          const fs=require('fs');
+          const runtime=fs.readFileSync('runtime-fixes-v094.js','utf8');
+          const html=fs.readFileSync('index.html','utf8');
+          const sw=fs.readFileSync('sw.js','utf8');
+          const css=fs.readFileSync('visibility-v094.css','utf8');
+          if(!runtime.includes("state.mode==='student'")||!runtime.includes("state.runMode==='learn'")) throw new Error('student-learning write guard missing');
+          if(!runtime.includes('deleteField()')) throw new Error('diagnostic cleanup missing');
+          if(!runtime.includes('catalogChapterFilter')) throw new Error('chapter-filter navigation missing');
+          if(!html.includes('visibility-v094.css')||!html.includes('runtime-fixes-v094.js')) throw new Error('v0.9.4 assets not wired');
+          if(html.indexOf('runtime-fixes-v094.js') < html.indexOf('multiunit-v093b.js')) throw new Error('runtime fixes must load after multiunit');
+          if(!sw.includes('visibility-v094.css')||!sw.includes('runtime-fixes-v094.js')) throw new Error('PWA assets missing');
+          if(!/font-size:clamp\(24px,7\.5vw,31px\)/.test(css)) throw new Error('mobile sentence readability floor changed');
+          let long=[];
+          for(let i=1;i<=48;i++){
+            const f=`data/unit${String(i).padStart(2,'0')}.json`;
+            const d=JSON.parse(fs.readFileSync(f,'utf8'));
+            for(const item of d.items||[]) if(String(item.sentence||'').length>=320) long.push(`${item.id}:${String(item.sentence).length}`);
+          }
+          if(long.length) throw new Error(`long-sentence readability regression: ${long.join(', ')}`);
+          console.log('Runtime Regression Guard PASS · student-write isolation · diagnostic cleanup · chapter filter · readability floor · 0 sentences >=320 chars');
+          NODE
