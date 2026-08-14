@@ -38,7 +38,7 @@ jobs:
           test -f cloud-v09.css
           grep -q 'visibility-v094.css' index.html
           grep -q 'runtime-fixes-v094.js' index.html
-          grep -q 'chunilmun-pfal-t1-v094a' sw.js
+          grep -q 'chunilmun-pfal-t1-v094b' sw.js
       - name: Validate JSON catalogs, flows and selectable answers
         run: |
           node - <<'NODE'
