@@ -1,4 +1,4 @@
-/* v0.9.3-batch1: Chapter 01~02 multi-unit catalog and batch supervisor entry */
+/* v0.9.3-batch6 + v0.9.4 chapter-filter navigation */
 
 .multiunit-admin-catalog,
 .student-unit-picker{
@@ -31,9 +31,15 @@
 .picker-title{margin-bottom:10px}
 .multiunit-loading{padding:10px 0;font-size:14px;opacity:.65}
 
+.chapter-filter-tabs{display:flex;gap:7px;overflow-x:auto;padding:1px 1px 10px;margin-bottom:10px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.chapter-filter-btn{flex:0 0 auto;min-height:42px;padding:0 13px;border:1px solid var(--line,#deded8);border-radius:999px;background:#fff;color:var(--text,#171817);font:inherit;font-size:13px;font-weight:850;cursor:pointer;white-space:nowrap}
+.chapter-filter-btn.active{background:var(--text,#171817);color:#fff;border-color:var(--text,#171817)}
+.selected-chapter{margin-top:2px}
+
 @media(min-width:980px){
   .multiunit-admin-catalog .unit-chip-grid,.student-unit-picker .unit-chip-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
   .multiunit-home{width:min(100%,1080px)}
+  .chapter-filter-tabs{flex-wrap:wrap;overflow:visible}
 }
 
 @media(max-width:700px){
@@ -42,4 +48,6 @@
   .selected-admin-unit{text-align:left}
   .unit-chip-grid{grid-template-columns:1fr}
   .unit-chip{min-height:54px}
+  .chapter-filter-tabs{margin-left:-2px;margin-right:-2px;padding-bottom:9px}
+  .chapter-filter-btn{min-height:44px;font-size:13px;padding:0 14px}
 }
